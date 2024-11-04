@@ -21,7 +21,7 @@ const Profile = () => {
         <div className="profile-summary">
           <h2>About Me</h2>
           <p>
-            A driven year 3 Information System student majoring in Business Analytics who is adept in 
+            A driven final year Information System student majoring in Business Analytics who is adept in 
             communication and IT. I have a great interest in exploring roles which bridge business and IT.
           </p>
         </div>
