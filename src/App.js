@@ -21,7 +21,7 @@ export default function App() {
 
   return (
     <Router>
-      <div className="app-container">
+      <div id="outer-container" className="app-container">
         <motion.div 
           className="progress-bar" 
           style={{ 
@@ -38,7 +38,7 @@ export default function App() {
         />
         <div className="dotted-background"></div>
         <Sidebar />
-        <div className="main-content">
+        <main id="page-wrap" className="main-content">
           <Header />
           <Routes>
             <Route path="/" element={<Profile />} />
@@ -47,9 +47,9 @@ export default function App() {
             <Route path="/projects" element={<Projects />} />
             <Route path="/interests" element={<InterestsActivities />} />
           </Routes>
-        </div>
-        <Footer />
+          <Footer />
+        </main>
       </div>
     </Router>
-  );
+);
 }
