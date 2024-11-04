@@ -1,0 +1,103 @@
+/* HeaderFooter.css */
+
+.footer-container {
+  background-color: #2c3e50;
+  color: #ffffff;
+  padding: 1.5rem 0 0.5rem; /* Reduced padding */
+  width: 100%;
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem; /* Reduced gap */
+  background-color: #2c3e50;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  background-color: #2c3e50;
+}
+
+.footer-section h3 {
+  color: #3498db;
+  margin-bottom: 0.75rem; /* Reduced margin */
+  font-size: 1rem; /* Reduced font size */
+  font-weight: 600;
+  background-color: #2c3e50;
+}
+
+.footer-section p {
+  margin: 0.5rem 0; /* Reduced margin */
+  color: #ecf0f1;
+  display: flex;
+  align-items: center;
+  line-height: 1.2; /* Reduced line height */
+  background-color: #2c3e50;
+  font-size: 0.9rem; /* Slightly smaller font */
+}
+
+.footer-section p i,
+.social-link i {
+  margin-right: 8px; /* Reduced margin */
+  width: 14px; /* Slightly smaller icons */
+  text-align: center;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  color: #ecf0f1;
+  text-decoration: none;
+  margin: 0.5rem 0; /* Reduced margin */
+  transition: color 0.2s ease;
+  background-color: #2c3e50;
+  font-size: 0.9rem; /* Slightly smaller font */
+}
+
+.social-link:hover {
+  color: #3498db;
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 1rem; /* Reduced margin */
+  padding-top: 0.5rem; /* Reduced padding */
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: #2c3e50;
+}
+
+.footer-bottom p {
+  margin: 0;
+  color: #bdc3c7;
+  font-size: 0.75rem; /* Reduced font size */
+  background-color: #2c3e50;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .footer-section {
+    margin-bottom: 1rem; /* Reduced margin for mobile */
+  }
+
+  .footer-section p,
+  .social-link {
+    justify-content: center;
+  }
+
+  .footer-container {
+    padding: 1rem 0 0.5rem; /* Even more compact on mobile */
+  }
+}

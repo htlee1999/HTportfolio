@@ -1,0 +1,344 @@
+:root {
+  --accent: #8855ff;
+}
+
+.experience-container {
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: calc(100vh - 100px);
+}
+
+.experience-window {
+  width: 100%;
+  max-width: 900px;
+  min-height: 500px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 1px 1px hsl(0deg 0% 0% / 0.075),
+    0 2px 2px hsl(0deg 0% 0% / 0.075),
+    0 4px 4px hsl(0deg 0% 0% / 0.075),
+    0 8px 8px hsl(0deg 0% 0% / 0.075),
+    0 16px 16px hsl(0deg 0% 0% / 0.075);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.experience-nav {
+  background: #fdfdfd;
+  padding: 5px 5px 0;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.experience-nav ul {
+  display: flex;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.experience-nav li {
+  border-radius: 5px 5px 0 0;
+  padding: 10px 15px;
+  position: relative;
+  background: white;
+  cursor: pointer;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  user-select: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.experience-nav li.selected {
+  background: #eee;
+}
+
+.underline {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--accent);
+}
+
+.experience-main {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  font-size: 16px;
+}
+
+.experience-content {
+  padding: 20px;
+}
+
+.experience-list {
+  list-style: disc !important;
+  padding-left: 20px !important;
+}
+
+.experience-list li {
+  display: list-item !important;
+  margin-bottom: 10px;
+  line-height: 1.5;
+  font-size: 14px;
+  font-weight: normal;
+  padding: 0;
+  height: auto;
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #666;
+  font-size: 18px;
+  font-style: italic;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .experience-window {
+    margin: 10px;
+    min-height: 400px;
+  }
+
+  .experience-nav li {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .experience-content {
+    padding: 10px;
+  }
+}
+
+/* Add these to your experience.css file */
+.article-link {
+  margin-top: 8px;
+  margin-left: 20px;
+}
+
+.article-link a {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.article-link a:hover {
+  background-color: #efefef;
+  color: #6633cc;
+  border-color: #d0d0d0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Update these existing styles to ensure proper list styling */
+.experience-content ul {
+  list-style-type: disc;
+  padding-left: 20px;
+  margin-top: 15px;
+}
+
+.experience-content ul li {
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #333;
+}
+
+.experience-content h4 {
+  color: var(--accent);
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.experience-landing {
+  padding: 2rem;
+  text-align: center;
+}
+
+.experience-summary h3 {
+  color: var(--accent);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.timeline-container {
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.timeline-horizontal {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #e0e0e0;
+  z-index: 1;
+}
+
+.timeline-item {
+  position: relative;
+  width: 33.33%;
+  z-index: 2;
+}
+
+.timeline-item.top .timeline-content {
+  transform: translateY(-100%);
+}
+
+.timeline-item.bottom .timeline-content {
+  transform: translateY(100%);
+}
+
+.timeline-content {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  /* Add initial transform to prevent jump on hover */
+  transform: translateY(0);
+}
+
+.timeline-content:hover {
+  transform: scale(1.05) translateY(-100%);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.timeline-item.bottom .timeline-content:hover {
+  transform: scale(1.05) translateY(100%);
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: #e0e0e0;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translate(-50%, -50%);
+}
+
+.timeline-item.bottom .timeline-dot {
+  top: 0;
+  transform: translate(-50%, -50%);
+}
+
+.timeline-dot.current {
+  background: var(--accent);
+  box-shadow: 0 0 0 4px rgba(136, 85, 255, 0.2);
+}
+
+.timeline-content h5 {
+  color: var(--accent);
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.timeline-content p {
+  margin: 0.5rem 0;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.timeline-date {
+  font-size: 0.8rem;
+  color: #999;
+  font-weight: 500;
+  display: block;
+  margin-top: 0.5rem;
+}
+
+.experience-prompt {
+  margin-top: 3rem;
+  padding: 1rem;
+  color: #666;
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .timeline-horizontal {
+    flex-direction: column;
+    padding: 2rem 0;
+  }
+
+  .timeline-line {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    width: 100%;
+    margin: 1.5rem 0;
+  }
+
+  .timeline-item.top .timeline-content {
+    transform: translateX(-50%);
+    margin-right: 2rem;
+  }
+
+  .timeline-item.bottom .timeline-content {
+    transform: translateX(50%);
+    margin-left: 2rem;
+  }
+
+  .timeline-content:hover {
+    transform: scale(1.05) translateX(-50%);
+  }
+
+  .timeline-item.bottom .timeline-content:hover {
+    transform: scale(1.05) translateX(50%);
+  }
+
+  .timeline-dot {
+    top: 50%;
+    left: 100%;
+  }
+
+  .timeline-item.bottom .timeline-dot {
+    left: 0;
+    top: 50%;
+  }
+}

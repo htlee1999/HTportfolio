@@ -1,0 +1,195 @@
+/* Profile.css */
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.profile-photo-container {
+    margin: 0 auto 2rem;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--accent);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+}
+
+.profile-header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    color: var(--accent);
+}
+
+.profile-subtitle {
+    font-size: 1.2rem;
+    color: var(--accent);
+    opacity: 0.8;
+}
+.profile-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  .profile-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .profile-header h1 {
+    margin: 0 0 1rem 0;
+    font-size: 2.5rem;
+    color: var(--accent);
+  }
+  
+  .profile-subtitle {
+    font-size: 1.2rem;
+    color: var(--accent);
+    opacity: 0.8;
+  }
+  
+  .profile-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .profile-summary {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .profile-summary h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+    color: var(--accent);
+  }
+  
+  .profile-summary p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--accent);
+    opacity: 0.9;
+  }
+  
+  .profile-objectives {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  
+  .objective-item {
+    background: rgba(255, 255, 255, 0.7);
+    padding: 1.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  .objective-item h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+  
+  .objective-item p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--accent);
+    opacity: 0.9;
+    margin: 0;
+  }
+  
+  .skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  
+  .skill-tag {
+    background: var(--accent);
+    color: var(--background);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease;
+  }
+  
+  .skill-tag:hover {
+    transform: translateY(-2px);
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+
+    .profile-photo-container {
+        width: 150px;
+        height: 150px;
+    }
+    .profile-container {
+      padding: 1rem;
+    }
+  
+    .profile-header h1 {
+      font-size: 2rem;
+    }
+  
+    .profile-subtitle {
+      font-size: 1rem;
+    }
+  
+    .profile-objectives {
+      grid-template-columns: 1fr;
+    }
+  
+    .objective-item {
+      padding: 1.25rem;
+    }
+  }
+  
+  /* Handle dark/light mode */
+  @media (prefers-color-scheme: dark) {
+    .profile-summary,
+    .objective-item {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  
+    .skill-tag {
+      background: var(--accent);
+      color: var(--background);
+    }
+  }
