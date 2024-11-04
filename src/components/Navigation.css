@@ -1,15 +1,16 @@
 /* Header Styles */
 .header-container {
-    background-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1000;
-    padding: 1rem 0;
-    transition: all 0.3s ease;
-  }
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: 80px; /* Set a fixed height */
+  padding: 1rem 0;
+  transition: all 0.3s ease;
+}
   
   .header-container.scrolled {
     padding: 0.5rem 0;
@@ -98,7 +99,15 @@
     }
     
     .app-container {
-      padding-left: 0 !important;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .main-content {
+      padding-top: 80px; /* Adjust this value based on your header height */
+      flex: 1;
+      width: 100%;
     }
   }
   
@@ -113,6 +122,13 @@
     
     .nav-container {
       padding: 0 1rem;
+      justify-content: center; /* Center the content */
+      text-align: center;     /* Center the text */
+    }
+
+    .logo {
+      align-items: center;    /* Center the flex items */
+      width: 100%;           /* Take full width */
     }
     
     .logo h1 {
@@ -123,10 +139,44 @@
       font-size: 0.8rem;
     }
     
-    /* Adjust burger menu position */
-    .bm-burger-button {
-      top: 20px !important;
-      left: 20px !important;
-      display: block !important;
+
+    .main-content {
+      padding-top: 60px; /* Slightly smaller padding for mobile */
     }
+  
+    .header-container {
+      height: 60px; /* Smaller header height for mobile */
+    }
+  
+    /* Ensure the burger menu is visible and positioned correctly */
+    .bm-burger-button {
+      position: fixed;
+      top: 15px !important; /* Adjust based on your header height */
+      left: 15px !important;
+      z-index: 1001 !important;
+    }
+  
+    /* Adjust the logo positioning for mobile */
+    .nav-container {
+      padding-left: 60px; /* Make room for the burger menu */
+    }
+  
+    /* Adjust text sizes for mobile */
+    .logo h1 {
+      font-size: 1.2rem;
+    }
+  
+    .subtitle {
+      font-size: 0.8rem;
+    }
+  }
+
+  .bm-menu-wrap {
+    top: 0;
+    z-index: 1100 !important;
+  }
+  
+  .bm-overlay {
+    top: 0;
+    z-index: 1099 !important;
   }

@@ -10,19 +10,19 @@ const Projects = () => {
     {
       "title": "Final Year Project - URA GenAI Building Generator",
       "description": "Research and development project focused on generating building blocks using GenAI solutions for URA. The project involves performing classification tasks on building polygons and conducting User Acceptance Testing (UAT) for end users.",
-      "github": "https://github.com/yourusername/fyp-ura-genai",
+      "github": "https://github.com/Supernova-Warriors/UraGenAI",
       "type": "github"
     },
     {
       "title": "Ellipsis Tech Series Hackathon - Job Shadowing Platform (Top 10)",
       "description": "Developed an innovative job shadowing platform that connects students with professionals for short-term shadowing experiences, helping students make more informed career decisions. Built using Bootstrap & Vue.js. Our team achieved Top 10 placement in the hackathon.",
-      "link": "https://smu-my.sharepoint.com/personal/htlee_2021_scis_smu_edu_sg/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhtlee%5F2021%5Fscis%5Fsmu%5Fedu%5Fsg%2FDocuments%2FKage%5FEllipsisTechSeries2023%2Epdf&parent=%2Fpersonal%2Fhtlee%5F2021%5Fscis%5Fsmu%5Fedu%5Fsg%2FDocuments&ga=1",
+      "link": "https://smu-my.sharepoint.com/:b:/g/personal/htlee_2021_scis_smu_edu_sg/EUHR7_I1rJpBiom15u4a3Q0Bw3IBvsfrp_cT7p7F08J-KQ",
       "type": "pdf"
     },
     {
       "title": "Kangiiten Spreadsheet Analysis",
       "description": "Conducted comprehensive data analysis for Kangiiten's Shopify data, including data cleaning, exploration, and visualization. Implemented Time-Series analysis to forecast demand and optimize resource allocation. Tools used: Excel, Power BI, and Python for data processing.",
-      "link": "https://smu-my.sharepoint.com/personal/htlee_2021_scis_smu_edu_sg/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fhtlee%5F2021%5Fscis%5Fsmu%5Fedu%5Fsg%2FDocuments%2FKangiiten%20Presentation%2Epdf&parent=%2Fpersonal%2Fhtlee%5F2021%5Fscis%5Fsmu%5Fedu%5Fsg%2FDocuments&ga=1",
+      "link": "https://smu-my.sharepoint.com/:b:/g/personal/htlee_2021_scis_smu_edu_sg/ERCe0XMFYJNAnjSK8Vb6dVwBAqx3e9gCpkFiDX4EVhaobA",
       "type": "pdf"
     },
     {
