@@ -1,0 +1,12 @@
+body {
+  position: relative;
+}
+
+.main-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* You can apply this class to your main content element */
