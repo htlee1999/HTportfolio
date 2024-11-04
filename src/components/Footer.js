@@ -38,10 +38,28 @@ const Footer = () => {
             <i className="fab fa-linkedin"></i>
             LinkedIn Profile
           </a>
+          <a
+            href="https://github.com/htlee1999" // Replace with your personal GitHub URL
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <i className="fab fa-github"></i>
+            Personal GitHub
+          </a>
+          <a
+            href="https://github.com/htlee-2021" // Replace with your school GitHub URL
+            target="_blank"
+            rel="noopener noreferrer"
+            className="social-link"
+          >
+            <i className="fab fa-github"></i>
+            School GitHub
+          </a>
         </div>
       </div>
       <div className="footer-bottom">
-        <p>&copy; {currentYear} Hong Teng Lee. All rights reserved.</p>
+        <p>&copy; {currentYear} Hong Teng Lee.</p>
       </div>
     </footer>
   );

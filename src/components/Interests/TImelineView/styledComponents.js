@@ -5,6 +5,12 @@ export const TimelineContainer = styled.div`
   justify-content: space-around;
   align-items: center;
   min-height: 100vh;
+  padding: 2rem 0;
+  background: #f8f9fa;
+  
+  .react-chrono {
+    width: 100%;
+  }
 `;
 
 export const ResponsiveContainer = styled.div`
@@ -12,37 +18,250 @@ export const ResponsiveContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  max-width: 1110px;
-  height: 100vh;
+  max-width: 1200px;
+  width: 100%;
+  padding: 0 1rem;
 `;
 
 export const HeaderContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 `;
 
 export const Heading = styled.h1`
-  text-align: center;
   color: #171f46;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 2.7;
-  margin: 0px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1.5rem;
+  line-height: 1.4;
+  margin: 0;
+  
   @media screen and (min-width: 768px) {
-    font-size: 20px;
+    font-size: 2rem;
   }
 `;
 
-export const CCBPHeading = styled.span`
-  color: #2b237c;
-  font-family: 'Roboto';
-  font-weight: 500;
-  font-size: 24px;
-  margin: 0px;
+export const CCBPHeading = styled.div`
+  color: #8855ff;
+  font-size: 2rem;
+  margin-top: 0.5rem;
+  font-weight: 700;
+  
   @media screen and (min-width: 768px) {
-    font-size: 30px;
+    font-size: 2.5rem;
+  }
+`;
+
+export const TimelineCard = styled.div`
+  padding: 1.5rem;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+`;
+
+export const CardDate = styled.div`
+  color: #8855ff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+`;
+
+export const CardTitle = styled.h3`
+  color: #171f46;
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+`;
+
+export const CardContent = styled.p`
+  color: #4a5568;
+  font-size: 0.975rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+`;
+
+export const TagsContainer = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+`;
+
+export const Tag = styled.span`
+  background: #f3f0ff;
+  color: #8855ff;
+  padding: 0.25rem 0.75rem;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  font-weight: 500;
+`;
+
+export const LinkButton = styled.a`
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: #8855ff;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s ease;
+  
+  &:hover {
+    background: #6633cc;
+  }
+`;
+
+export const IconContainer = styled.span`
+  display: flex;
+  align-items: center;
+  font-size: 1.25rem;
+`;
+
+export const PhotoCard = styled.div`
+  margin: 1rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+  }
+`;
+
+export const PhotoContainer = styled.div`
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  &:hover {
+    img {
+      transform: scale(1.05);
+    }
+  }
+`;
+
+export const PhotoOverlay = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  padding: 1rem;
+  transform: translateY(100%);
+  transition: transform 0.3s ease;
+
+  ${PhotoContainer}:hover & {
+    transform: translateY(0);
+  }
+`;
+
+export const PhotoDescription = styled.p`
+  color: white;
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+`;
+
+export const NavigationContainer = styled.div`
+  width: 100%;
+  
+  /* Style the timeline navigation */
+  .timeline-controls {
+    background: white;
+    border-radius: 8px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
+    button {
+      background: transparent;
+      border: none;
+      padding: 0.5rem;
+      cursor: pointer;
+      color: #8855ff;
+      transition: opacity 0.2s ease;
+      
+      &:hover {
+        opacity: 0.8;
+      }
+      
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+  /* Style the timeline points */
+  .timeline-item-title {
+    background: white !important;
+    padding: 0.5rem 1rem !important;
+    border-radius: 4px !important;
+    font-weight: 500 !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+  }
+
+  /* Style active point */
+  .active {
+    .timeline-item-title {
+      background: #8855ff !important;
+      color: white !important;
+    }
+  }
+
+  /* Timeline line style */
+  .timeline-vertical-circle {
+    &::before {
+      background: #e2e8f0 !important;
+    }
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #8855ff;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #6633cc;
+  }
+
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .timeline-controls {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
   }
 `;

@@ -30,7 +30,7 @@ const Profile = () => {
           <div className="objective-item">
             <h3>What I'm Looking For</h3>
             <p>
-              Seeking internship opportunities to enhance IT skills and gain diverse sector experience.
+              Seeking internship/job opportunities to enhance IT skills and gain diverse sector experience.
             </p>
           </div>
 

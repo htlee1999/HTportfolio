@@ -180,16 +180,16 @@
 }
 
 .experience-summary h3 {
-  color: var(--accent);
-  font-size: 1.8rem;
-  margin-bottom: 2rem;
-  font-weight: 600;
+  margin-bottom: 4rem; /* Increased from 2rem to 4rem */
+  position: relative; /* Added to ensure it stays above timeline */
+  z-index: 3; /* Added to ensure it stays above timeline */
 }
 
 .timeline-container {
-  padding: 3rem 1rem;
+  padding: 6rem 1rem; /* Increased from 3rem to 6rem to add more vertical space */
   max-width: 800px;
   margin: 0 auto;
+  position: relative; /* Added to contain the cards */
 }
 
 .timeline-horizontal {
@@ -197,7 +197,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4rem 0;
+  padding: 8rem 0; /* Increased from 4rem to 8rem to provide more space for cards */
 }
 
 .timeline-line {
@@ -216,12 +216,15 @@
   z-index: 2;
 }
 
+/* Adjust the transform distances */
 .timeline-item.top .timeline-content {
-  transform: translateY(-100%);
+  transform: translateY(-80%); /* Reduced from -100% to -80% */
+  margin-bottom: 2rem; /* Added margin to prevent overlap */
 }
 
 .timeline-item.bottom .timeline-content {
-  transform: translateY(100%);
+  transform: translateY(80%); /* Reduced from 100% to 80% */
+  margin-top: 2rem; /* Added margin to prevent overlap */
 }
 
 .timeline-content {
@@ -236,12 +239,11 @@
 }
 
 .timeline-content:hover {
-  transform: scale(1.05) translateY(-100%);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transform: scale(1.05) translateY(-80%) !important; /* Match the new transform value */
 }
 
 .timeline-item.bottom .timeline-content:hover {
-  transform: scale(1.05) translateY(100%);
+  transform: scale(1.05) translateY(80%) !important; /* Match the new transform value */
 }
 
 .timeline-dot {
@@ -287,17 +289,14 @@
 }
 
 .experience-prompt {
-  margin-top: 3rem;
-  padding: 1rem;
-  color: #666;
-  font-style: italic;
-  font-size: 0.9rem;
+  margin-top: 4rem; /* Increased from 3rem to 4rem */
+  position: relative; /* Added to ensure it stays above timeline */
+  z-index: 3; /* Added to ensure it stays above timeline */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .timeline-horizontal {
-    flex-direction: column;
     padding: 2rem 0;
   }
 
@@ -317,19 +316,21 @@
   .timeline-item.top .timeline-content {
     transform: translateX(-50%);
     margin-right: 2rem;
+    margin-bottom: 0;
   }
 
   .timeline-item.bottom .timeline-content {
     transform: translateX(50%);
     margin-left: 2rem;
+    margin-top: 0;
   }
 
   .timeline-content:hover {
-    transform: scale(1.05) translateX(-50%);
+    transform: scale(1.05) translateX(-50%) !important;
   }
 
   .timeline-item.bottom .timeline-content:hover {
-    transform: scale(1.05) translateX(50%);
+    transform: scale(1.05) translateX(50%) !important;
   }
 
   .timeline-dot {
@@ -340,5 +341,90 @@
   .timeline-item.bottom .timeline-dot {
     left: 0;
     top: 50%;
+  }
+}
+
+.company-logo {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 12px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.company-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Company logo styles for tabs */
+.tab-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+  border-radius: 4px;
+}
+
+/* Company logo styles for detailed view */
+.experience-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.company-logo-large {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  flex-shrink: 0;
+}
+
+.company-logo-large img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Update existing styles */
+.experience-nav li {
+  display: flex;
+  align-items: center;
+  padding: 10px 15px;
+}
+
+.timeline-content {
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .company-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .company-logo-large {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .tab-logo {
+    width: 16px;
+    height: 16px;
+    margin-right: 6px;
+  }
+  
+  .experience-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
   }
 }

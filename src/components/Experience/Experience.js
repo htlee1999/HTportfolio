@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./experience.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import twimbitPhoto from './twimbit_logo.jpeg';
+import jumboPhoto from './jumbo.png';
+import ncodePhoto from './ncode.png';
 
 const Experience = () => {
   const [selectedTab, setSelectedTab] = useState(null);
@@ -17,6 +20,9 @@ const Experience = () => {
             <div className="timeline-item top">
               <div className="timeline-content">
                 <div className="timeline-dot current"></div>
+                <div className="company-logo">
+                  <img src={twimbitPhoto} alt="Twimbit logo" />
+                </div>
                 <h5>Research Intern</h5>
                 <p>Twimbit Pte Ltd</p>
                 <span className="timeline-date">2023</span>
@@ -26,6 +32,9 @@ const Experience = () => {
             <div className="timeline-item bottom">
               <div className="timeline-content">
                 <div className="timeline-dot"></div>
+                <div className="company-logo">
+                  <img src={jumboPhoto} alt="Jumbo Group logo" />
+                </div>
                 <h5>IT Intern</h5>
                 <p>Jumbo Group of Restaurants</p>
                 <span className="timeline-date">2018</span>
@@ -35,6 +44,9 @@ const Experience = () => {
             <div className="timeline-item top">
               <div className="timeline-content">
                 <div className="timeline-dot"></div>
+                <div className="company-logo">
+                  <img src={ncodePhoto} alt="Ncode logo" />
+                </div>
                 <h5>Intern</h5>
                 <p>Ncode Consultant</p>
                 <span className="timeline-date">2017</span>
@@ -52,9 +64,15 @@ const Experience = () => {
   const tabs = [
     {
       label: "Twimbit Pte Ltd",
+      logo: twimbitPhoto,
       content: (
         <div className="experience-content">
-          <h4>Research Intern (May 2023 - July 2023)</h4>
+          <div className="experience-header">
+            <div className="company-logo-large">
+              <img src={twimbitPhoto} alt="Twimbit logo" />
+            </div>
+            <h4>Research Intern (May 2023 - July 2023)</h4>
+          </div>
           <ul className="experience-list">
             <li>
               Researched and contributed to articles on ChatGPT in Financial services, Buy now Pay Later (BNPL) and Customer Experience in Singapore Banks
@@ -76,9 +94,15 @@ const Experience = () => {
     },
     {
       label: "Jumbo Group of Restaurants",
+      logo: jumboPhoto,
       content: (
         <div className="experience-content">
-          <h4>IT Intern (Mar 2018 - Sep 2018)</h4>
+          <div className="experience-header">
+            <div className="company-logo-large">
+              <img src={jumboPhoto} alt="Jumbo Group logo" />
+            </div>
+            <h4>IT Intern (Mar 2018 - Sep 2018)</h4>
+          </div>
           <ul className="experience-list">
             <li>Captured, validated, and conducted UI/UX testing for new mobile application, ensuring optimal user experience</li>
             <li>Successfully converted and digitized over 100+ physical recipes into the internal ERP system (Epicor)</li>
@@ -92,9 +116,15 @@ const Experience = () => {
     },
     {
       label: "Ncode Consultant",
+      logo: ncodePhoto,
       content: (
         <div className="experience-content">
-          <h4>Intern (Jan 2017 - Dec 2017)</h4>
+          <div className="experience-header">
+            <div className="company-logo-large">
+              <img src={ncodePhoto} alt="Ncode logo" />
+            </div>
+            <h4>Intern (Jan 2017 - Dec 2017)</h4>
+          </div>
           <ul className="experience-list">
             <li>Managed website content through regular updates and maintenance</li>
             <li>Utilized Photoshop extensively for professional photo editing and optimization</li>
@@ -117,6 +147,7 @@ const Experience = () => {
                 className={item === selectedTab ? "selected" : ""}
                 onClick={() => setSelectedTab(item)}
               >
+                <img src={item.logo} alt="" className="tab-logo" />
                 {item.label}
                 {item === selectedTab ? (
                   <motion.div className="underline" layoutId="underline" />

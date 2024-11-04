@@ -1,5 +1,11 @@
 import React from 'react';
 import TimelineView from './TImelineView';
+import facilPhoto from './facil.JPG';
+import foodPhoto from './food.JPG';
+import gourmetPhoto from './gourmet.JPG';
+import myPhoto from './TM.JPG';
+import tmPhoto from './TM2.JPG';
+
 
 const timelineItemsList = [
   {
@@ -40,16 +46,7 @@ const timelineItemsList = [
     description:
       'During my time as a Member in Ngee Ann Polytechnic Toastmasters Club, I learned how to speak in front of a crowd, how to present myself and also how to be a good leader.',
     duration: '3 years',
-    tagsList: [
-      {
-        id: '551e2b7e-f767-11eb-9a03-0242ac130003',
-        name: 'Public Speaking',
-      },
-      {
-        id: '551e2de0-f767-11eb-9a03-0242ac130003',
-        name: 'Presentation Skills',
-      },
-    ],
+    imageUrl: myPhoto
   },
   {
     id: 'a19d93d6-bdac-479e-b554-974ef9e6e66c',
@@ -58,7 +55,7 @@ const timelineItemsList = [
     projectTitle: 'Toastmasters Area Secretary',
     description:
       'As the Area Secretary for Area D4 in Singapore, I was in charge of the Area D4 Instagram page. I also supported the Area Director in the planning of events and also the execution of the events.',
-    imageUrl: 'https://assets.ccbp.in/frontend/react-js/projects-s4-img.png',
+    imageUrl: tmPhoto,
     duration: '1 Year',
     projectUrl: 'https://www.instagram.com/d4studentclubs/?hl=en',
   },
@@ -68,7 +65,7 @@ const timelineItemsList = [
     title: 'May 2019',
     projectTitle: 'Food Blogging',
     description: 'Started an Instagram account to share my food journey.',
-    imageUrl: 'https://assets.ccbp.in/frontend/react-js/projects-r2-img.png',
+    imageUrl: foodPhoto,
     duration: '2 hrs',
     projectUrl: 'https://www.instagram.com/lee2eat/?hl=en',
   },
@@ -79,8 +76,7 @@ const timelineItemsList = [
     projectTitle: 'Gourmet Club General Secretary',
     description:
       'I was in charge of membership and also sending out emails to the school population about the events that the club was involved in. I also supported the club in the planning of events and also the execution of the events.',
-    imageUrl:
-      'https://assets.ccbp.in/frontend/react-js/appointments-app/appointments-img.png',
+    imageUrl:gourmetPhoto,
     duration: '1 Year',
     projectUrl: 'https://www.instagram.com/smugourmetclub/?hl=en',
   },
@@ -91,9 +87,9 @@ const timelineItemsList = [
     projectTitle: 'Faculty Orientation Camp Facilitator',
     description:
       'I was a facilitator for the School of Computing and Information System Orientation Camp. I was in charge of 2 groups of 6-8 students and the execution of the events.',
-    imageUrl: 'https://assets.ccbp.in/frontend/react-js/wiki-logo-img.png',
+    imageUrl: facilPhoto,
     duration: '3 months',
-    projectUrl: 'https://wikiseaarch.ccbp.tech/',
+    projectUrl: 'https://www.instagram.com/p/CfS45LAJl9o/?hl=en',
   },
 ];
 
