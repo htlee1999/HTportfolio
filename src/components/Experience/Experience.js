@@ -7,61 +7,7 @@ import jumboPhoto from './jumbo.png';
 import ncodePhoto from './ncode.png';
 
 const Experience = () => {
-  const [selectedTab, setSelectedTab] = useState(null);
-  const [isNavOpen, setIsNavOpen] = useState(false);
-
-  const ExperienceLanding = () => (
-    <div className="experience-landing">
-      <div className="experience-summary">
-        <h3>Professional Experience</h3>
-        <div className="timeline-container">
-          <div className="timeline-vertical">
-            <div className="timeline-line"></div>
-            
-            <div className="timeline-item">
-              <div className="timeline-content">
-                <div className="timeline-dot current"></div>
-                <div className="company-logo">
-                  <img src={twimbitPhoto} alt="Twimbit logo" />
-                </div>
-                <h5>Research Intern</h5>
-                <p>Twimbit Pte Ltd</p>
-                <span className="timeline-date">2023</span>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-content">
-                <div className="timeline-dot"></div>
-                <div className="company-logo">
-                  <img src={jumboPhoto} alt="Jumbo Group logo" />
-                </div>
-                <h5>IT Intern</h5>
-                <p>Jumbo Group of Restaurants</p>
-                <span className="timeline-date">2018</span>
-              </div>
-            </div>
-
-            <div className="timeline-item">
-              <div className="timeline-content">
-                <div className="timeline-dot"></div>
-                <div className="company-logo">
-                  <img src={ncodePhoto} alt="Ncode logo" />
-                </div>
-                <h5>Intern</h5>
-                <p>Ncode Consultant</p>
-                <span className="timeline-date">2017</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="experience-prompt">
-          <p>Tap a company to view detailed experience</p>
-        </div>
-      </div>
-    </div>
-  );
-
+  // Create the tabs array first so we can reference it for initial state
   const tabs = [
     {
       label: "Twimbit Pte Ltd",
@@ -72,9 +18,9 @@ const Experience = () => {
             <div className="company-logo-large">
               <img src={twimbitPhoto} alt="Twimbit logo" />
             </div>
-            <div className="header-text">
+            <div>
               <h4>Research Intern</h4>
-              <span className="date-range">May 2023 - July 2023</span>
+              <div className="date-range">May 2023 - July 2023</div>
             </div>
           </div>
           <ul className="experience-list">
@@ -86,7 +32,7 @@ const Experience = () => {
                   target="_blank" 
                   rel="noopener noreferrer"
                 >
-                  📄 View Published Article
+                  📄 View Published Article: ChatGPT in Financial Services
                 </a>
               </div>
             </li>
@@ -96,8 +42,59 @@ const Experience = () => {
         </div>
       ),
     },
-    // ... rest of the tabs remain the same
+    {
+      label: "Jumbo Group of Restaurants",
+      logo: jumboPhoto,
+      content: (
+        <div className="experience-content">
+          <div className="experience-header">
+            <div className="company-logo-large">
+              <img src={jumboPhoto} alt="Jumbo Group logo" />
+            </div>
+            <div>
+              <h4>IT Intern</h4>
+              <div className="date-range">Mar 2018 - Sep 2018</div>
+            </div>
+          </div>
+          <ul className="experience-list">
+            <li>Captured, validated, and conducted UI/UX testing for new mobile application, ensuring optimal user experience</li>
+            <li>Successfully converted and digitized over 100+ physical recipes into the internal ERP system (Epicor)</li>
+            <li>Managed and updated menu prices and promotions from corporate to retail stores POS systems nationwide</li>
+            <li>Assisted in company-wide implementation of latest Microsoft Office version</li>
+            <li>Participated in physical quality control of new recipes, collecting and documenting feedback and experiences</li>
+            <li>Utilized Microsoft Excel for data sorting and analysis using advanced formulas</li>
+          </ul>
+        </div>
+      ),
+    },
+    {
+      label: "Ncode Consultant",
+      logo: ncodePhoto,
+      content: (
+        <div className="experience-content">
+          <div className="experience-header">
+            <div className="company-logo-large">
+              <img src={ncodePhoto} alt="Ncode logo" />
+            </div>
+            <div>
+              <h4>Intern</h4>
+              <div className="date-range">Jan 2017 - Dec 2017</div>
+            </div>
+          </div>
+          <ul className="experience-list">
+            <li>Managed website content through regular updates and maintenance</li>
+            <li>Utilized Photoshop extensively for professional photo editing and optimization</li>
+            <li>Conducted product photography sessions for website content</li>
+            <li>Worked with Information Design platforms to enhance website presentation</li>
+          </ul>
+        </div>
+      ),
+    },
   ];
+
+  // Set initial state to the first tab (Twimbit)
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+  const [isNavOpen, setIsNavOpen] = useState(false);
 
   return (
     <div className="experience-container">
@@ -105,12 +102,8 @@ const Experience = () => {
         <nav className={`experience-nav ${isNavOpen ? 'nav-open' : ''}`}>
           <div className="nav-toggle" onClick={() => setIsNavOpen(!isNavOpen)}>
             <span className="selected-tab">
-              {selectedTab ? (
-                <>
-                  <img src={selectedTab.logo} alt="" className="tab-logo" />
-                  {selectedTab.label}
-                </>
-              ) : 'Select Company'}
+              <img src={selectedTab.logo} alt="" className="tab-logo" />
+              {selectedTab.label}
             </span>
             <span className={`arrow ${isNavOpen ? 'up' : 'down'}`}>▼</span>
           </div>
@@ -136,13 +129,13 @@ const Experience = () => {
         <main className="experience-main">
           <AnimatePresence mode="wait">
             <motion.div
-              key={selectedTab ? selectedTab.label : "empty"}
+              key={selectedTab.label}
               initial={{ y: 10, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 0.2 }}
             >
-              {selectedTab ? selectedTab.content : <ExperienceLanding />}
+              {selectedTab.content}
             </motion.div>
           </AnimatePresence>
         </main>
