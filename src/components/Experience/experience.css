@@ -2,6 +2,7 @@
   --accent: #8855ff;
 }
 
+/* Container and window styles */
 .experience-container {
   width: 100%;
   padding: 20px;
@@ -27,10 +28,37 @@
   overflow: hidden;
 }
 
+/* Navigation styles */
 .experience-nav {
   background: #fdfdfd;
   padding: 5px 5px 0;
   border-bottom: 1px solid #eeeeee;
+  position: relative;
+}
+
+.nav-toggle {
+  display: none;
+  padding: 12px 15px;
+  background: #fdfdfd;
+  cursor: pointer;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.selected-tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.arrow {
+  font-size: 12px;
+  transition: transform 0.3s ease;
+}
+
+.arrow.up {
+  transform: rotate(180deg);
 }
 
 .experience-nav ul {
@@ -74,6 +102,7 @@
   background: var(--accent);
 }
 
+/* Main content styles */
 .experience-main {
   flex-grow: 1;
   padding: 20px;
@@ -85,6 +114,12 @@
   padding: 20px;
 }
 
+.experience-landing {
+  padding: 2rem;
+  text-align: center;
+}
+
+/* List styles */
 .experience-list {
   list-style: disc !important;
   padding-left: 20px !important;
@@ -92,42 +127,16 @@
 
 .experience-list li {
   display: list-item !important;
-  margin-bottom: 10px;
-  line-height: 1.5;
+  margin-bottom: 15px;
+  line-height: 1.6;
+  color: #333;
   font-size: 14px;
   font-weight: normal;
   padding: 0;
   height: auto;
 }
 
-.empty-state {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
-  color: #666;
-  font-size: 18px;
-  font-style: italic;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .experience-window {
-    margin: 10px;
-    min-height: 400px;
-  }
-
-  .experience-nav li {
-    font-size: 12px;
-    padding: 8px 10px;
-  }
-
-  .experience-content {
-    padding: 10px;
-  }
-}
-
-/* Add these to your experience.css file */
+/* Article link styles */
 .article-link {
   margin-top: 8px;
   margin-left: 20px;
@@ -154,42 +163,12 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
-/* Update these existing styles to ensure proper list styling */
-.experience-content ul {
-  list-style-type: disc;
-  padding-left: 20px;
-  margin-top: 15px;
-}
-
-.experience-content ul li {
-  margin-bottom: 15px;
-  line-height: 1.6;
-  color: #333;
-}
-
-.experience-content h4 {
-  color: var(--accent);
-  font-size: 1.2em;
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.experience-landing {
-  padding: 2rem;
-  text-align: center;
-}
-
-.experience-summary h3 {
-  margin-bottom: 4rem; /* Increased from 2rem to 4rem */
-  position: relative; /* Added to ensure it stays above timeline */
-  z-index: 3; /* Added to ensure it stays above timeline */
-}
-
+/* Timeline styles */
 .timeline-container {
-  padding: 6rem 1rem; /* Increased from 3rem to 6rem to add more vertical space */
+  padding: 6rem 1rem;
   max-width: 800px;
   margin: 0 auto;
-  position: relative; /* Added to contain the cards */
+  position: relative;
 }
 
 .timeline-horizontal {
@@ -197,7 +176,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 8rem 0; /* Increased from 4rem to 8rem to provide more space for cards */
+  padding: 8rem 0;
+}
+
+.timeline-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  padding: 2rem 1rem;
 }
 
 .timeline-line {
@@ -216,34 +203,14 @@
   z-index: 2;
 }
 
-/* Adjust the transform distances */
-.timeline-item.top .timeline-content {
-  transform: translateY(-80%); /* Reduced from -100% to -80% */
-  margin-bottom: 2rem; /* Added margin to prevent overlap */
-}
-
-.timeline-item.bottom .timeline-content {
-  transform: translateY(80%); /* Reduced from 100% to 80% */
-  margin-top: 2rem; /* Added margin to prevent overlap */
-}
-
 .timeline-content {
   background: white;
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   position: relative;
-  /* Add initial transform to prevent jump on hover */
-  transform: translateY(0);
-}
-
-.timeline-content:hover {
-  transform: scale(1.05) translateY(-80%) !important; /* Match the new transform value */
-}
-
-.timeline-item.bottom .timeline-content:hover {
-  transform: scale(1.05) translateY(80%) !important; /* Match the new transform value */
+  text-align: center;
 }
 
 .timeline-dot {
@@ -254,11 +221,6 @@
   position: absolute;
   left: 50%;
   top: 100%;
-  transform: translate(-50%, -50%);
-}
-
-.timeline-item.bottom .timeline-dot {
-  top: 0;
   transform: translate(-50%, -50%);
 }
 
@@ -288,62 +250,7 @@
   margin-top: 0.5rem;
 }
 
-.experience-prompt {
-  margin-top: 4rem; /* Increased from 3rem to 4rem */
-  position: relative; /* Added to ensure it stays above timeline */
-  z-index: 3; /* Added to ensure it stays above timeline */
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .timeline-horizontal {
-    padding: 2rem 0;
-  }
-
-  .timeline-line {
-    width: 2px;
-    height: 100%;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .timeline-item {
-    width: 100%;
-    margin: 1.5rem 0;
-  }
-
-  .timeline-item.top .timeline-content {
-    transform: translateX(-50%);
-    margin-right: 2rem;
-    margin-bottom: 0;
-  }
-
-  .timeline-item.bottom .timeline-content {
-    transform: translateX(50%);
-    margin-left: 2rem;
-    margin-top: 0;
-  }
-
-  .timeline-content:hover {
-    transform: scale(1.05) translateX(-50%) !important;
-  }
-
-  .timeline-item.bottom .timeline-content:hover {
-    transform: scale(1.05) translateX(50%) !important;
-  }
-
-  .timeline-dot {
-    top: 50%;
-    left: 100%;
-  }
-
-  .timeline-item.bottom .timeline-dot {
-    left: 0;
-    top: 50%;
-  }
-}
-
+/* Company logo styles */
 .company-logo {
   width: 60px;
   height: 60px;
@@ -360,20 +267,11 @@
   object-fit: contain;
 }
 
-/* Company logo styles for tabs */
 .tab-logo {
   width: 20px;
   height: 20px;
   margin-right: 8px;
   border-radius: 4px;
-}
-
-/* Company logo styles for detailed view */
-.experience-header {
-  display: flex;
-  align-items: center;
-  margin-bottom: 24px;
-  gap: 16px;
 }
 
 .company-logo-large {
@@ -386,26 +284,102 @@
   flex-shrink: 0;
 }
 
-.company-logo-large img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-/* Update existing styles */
-.experience-nav li {
+/* Experience header styles */
+.experience-header {
   display: flex;
   align-items: center;
-  padding: 10px 15px;
+  margin-bottom: 24px;
+  gap: 16px;
 }
 
-.timeline-content {
-  text-align: center;
-  padding: 1.5rem 1rem;
+.header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-/* Responsive adjustments */
+.date-range {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.experience-content h4 {
+  color: var(--accent);
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+/* Accessibility improvements */
+.nav-toggle:focus,
+.timeline-content:focus,
+.article-link a:focus {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Media queries */
 @media (max-width: 768px) {
+  .experience-window {
+    margin: 0;
+    border-radius: 0;
+    min-height: 100vh;
+  }
+
+  .nav-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-open .nav-menu {
+    display: block;
+  }
+
+  .experience-nav li {
+    width: 100%;
+    border-radius: 0;
+    border-bottom: 1px solid #eee;
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .experience-nav li:last-child {
+    border-bottom: none;
+  }
+
+  .timeline-line {
+    width: 2px;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-item {
+    width: 100%;
+    margin: 1.5rem 0;
+  }
+
+  .timeline-dot {
+    top: 50%;
+    left: 100%;
+  }
+
+  .timeline-item.bottom .timeline-dot {
+    left: 0;
+    top: 50%;
+  }
+
   .company-logo {
     width: 40px;
     height: 40px;
@@ -421,10 +395,32 @@
     height: 16px;
     margin-right: 6px;
   }
-  
+
   .experience-header {
     flex-direction: column;
     align-items: flex-start;
     gap: 12px;
+  }
+
+  .article-link {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  .article-link a {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .experience-content {
+    padding: 15px;
+  }
+
+  .experience-list li {
+    font-size: 14px;
+  }
+
+  .experience-landing {
+    padding: 1rem;
   }
 }
