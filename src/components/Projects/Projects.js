@@ -10,8 +10,8 @@ const Projects = () => {
     {
       "title": "Final Year Project - URA GenAI Building Generator",
       "description": "Research and development project focused on generating building blocks using GenAI solutions for URA. The project involves performing classification tasks on building polygons and conducting User Acceptance Testing (UAT) for end users.",
-      "github": "https://github.com/Supernova-Warriors/UraGenAI",
-      "type": "github"
+      "link": "https://smu-my.sharepoint.com/:b:/g/personal/htlee_2021_scis_smu_edu_sg/ETGvO_KsFylPsNAUth8zgTUBU0p9OZA9nbbeoq1YUlAHbw?e=hqaymn",
+      "type": "pdf"
     },
     {
       "title": "Ellipsis Tech Series Hackathon - Job Shadowing Platform (Top 10)",
@@ -31,24 +31,24 @@ const Projects = () => {
       "github": "https://github.com/BryenYeoh/IS-442-Portfolio",
       "type": "github"
     },
-    {
-      "title": "Software Project Management",
-      "description": "Project management implementation using Agile methodologies and industry best practices.",
-      "github": "https://github.com/YingXuan99/SBRP",
-      "type": "github"
-    },
-    {
-      "title": "Enterprise Solution Development",
-      "description": "Development of enterprise-level solutions focusing on scalability and business integration.",
-      "github": "https://github.com/YingXuan99/CEP",
-      "type": "github"
-    },
-    {
-      "title": "Web Application Development",
-      "description": "Development of web applications using modern frameworks and libraries.",
-      "github": "https://github.com/YingXuan99/Tutizen",
-      "type": "github"
-    },
+    // {
+    //   "title": "Software Project Management",
+    //   "description": "Project management implementation using Agile methodologies and industry best practices.",
+    //   "github": "https://github.com/YingXuan99/SBRP",
+    //   "type": "github"
+    // },
+    // {
+    //   "title": "Enterprise Solution Development",
+    //   "description": "Development of enterprise-level solutions focusing on scalability and business integration.",
+    //   "github": "https://github.com/YingXuan99/CEP",
+    //   "type": "github"
+    // },
+    // {
+    //   "title": "Web Application Development",
+    //   "description": "Development of web applications using modern frameworks and libraries.",
+    //   "github": "https://github.com/YingXuan99/Tutizen",
+    //   "type": "github"
+    // },
     
   ];
 
@@ -65,12 +65,12 @@ const Projects = () => {
       "github": "https://github.com/htlee1999/CR7Stats",
       "type": "github"
     },
-    {
-      "title": "Fun Run Webpage",
-      "description": "FunRun2025 Description",
-      "github": "https://github.com/htlee1999/FunRun2025",
-      "type": "github"
-    }
+    // {
+    //   "title": "Fun Run Webpage",
+    //   "description": "FunRun2025 Description",
+    //   "github": "https://github.com/htlee1999/FunRun2025",
+    //   "type": "github"
+    // }
   ];
 
   const formatDescription = (description, link, type) => {
