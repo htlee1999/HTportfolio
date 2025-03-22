@@ -2,6 +2,12 @@ import React, { useState, useEffect } from 'react';
 import AccordionWrapper from './ProjectWrapper';
 import AccordionItem from './ProjectItem';
 import './Projects.css';
+import uraLogo from './ura_logo.png';
+import elipsisLogo from './ellipsis_logo.png';
+import kangiitenLogo from './kangiiten_logo.png';
+import oop from './oop_logo.png';
+import portfolio from './portfolio_logo.png';
+import cristiano from './cristiano_logo.png';
 
 const Projects = () => {
   const [activeCategory, setActiveCategory] = useState('school');
@@ -34,7 +40,7 @@ const Projects = () => {
       "link": "https://smu-my.sharepoint.com/:b:/g/personal/htlee_2021_scis_smu_edu_sg/ETGvO_KsFylPsNAUth8zgTUBU0p9OZA9nbbeoq1YUlAHbw?e=hqaymn",
       "type": "pdf",
       "tags": ["GenAI", "URA", "Research", "Classification"],
-      "image": "/images/ura-project.jpg" // Add a placeholder image path
+      "image": uraLogo // Add a placeholder image path
     },
     {
       "title": "Ellipsis Tech Series Hackathon - Job Shadowing Platform (Top 10)",
@@ -42,15 +48,15 @@ const Projects = () => {
       "link": "https://smu-my.sharepoint.com/:b:/g/personal/htlee_2021_scis_smu_edu_sg/EUHR7_I1rJpBiom15u4a3Q0Bw3IBvsfrp_cT7p7F08J-KQ",
       "type": "pdf",
       "tags": ["Hackathon", "Vue.js", "Bootstrap", "Top 10"],
-      "image": "/images/hackathon-project.jpg" // Add a placeholder image path
+      "image":elipsisLogo 
     },
     {
       "title": "Kangiiten Spreadsheet Analysis",
       "description": "Conducted comprehensive data analysis for Kangiiten's Shopify data, including data cleaning, exploration, and visualization. Implemented Time-Series analysis to forecast demand and optimize resource allocation. Tools used: Excel, Power BI, and Python for data processing.",
       "link": "https://smu-my.sharepoint.com/:b:/g/personal/htlee_2021_scis_smu_edu_sg/ERCe0XMFYJNAnjSK8Vb6dVwBAqx3e9gCpkFiDX4EVhaobA",
       "type": "pdf",
-      "tags": ["Data Analysis", "Excel", "Power BI", "Python"],
-      "image": "/images/spreadsheet-project.jpg" // Add a placeholder image path
+      "tags": ["Data Analysis", "Excel", "Python"],
+      "image": kangiitenLogo 
     },
     {
       "title": "Object Oriented Programming",
@@ -58,7 +64,7 @@ const Projects = () => {
       "github": "https://github.com/BryenYeoh/IS-442-Portfolio",
       "type": "github",
       "tags": ["Java", "OOP", "Design Patterns"],
-      "image": "/images/oop-project.jpg" // Add a placeholder image path
+      "image": oop
     }
   ];
 
@@ -69,15 +75,15 @@ const Projects = () => {
       "github": "https://github.com/htlee1999/HTportfolio",
       "type": "github",
       "tags": ["React.js", "Portfolio", "Frontend"],
-      "image": "/images/portfolio-project.jpg" // Add a placeholder image path
+      "image": portfolio
     },
     {
       "title": "Cristiano Ronaldo Stats Visualisation",
-      "description": "Created an interactive data visualization dashboard showcasing Cristiano Ronaldo's career statistics. Used Chart.js and D3.js to build dynamic charts and graphs that highlight key metrics and achievements throughout his career.",
+      "description": "Created an interactive data visualization dashboard showcasing Cristiano Ronaldo's career statistics. Used Jupyter Notebook and Python to build dynamic charts and graphs that highlight key metrics and achievements throughout his career.",
       "github": "https://github.com/htlee1999/CR7Stats",
       "type": "github",
-      "tags": ["Data Visualization", "D3.js", "Chart.js", "Sports Analytics"],
-      "image": "/images/cr7-project.jpg" // Add a placeholder image path
+      "tags": ["Data Visualization", "Jupyter Notebook", "Sports Analytics", "Python"],
+      "image": cristiano
     }
   ];
 
