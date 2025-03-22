@@ -1,8 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Profile.css';
 import profilePhoto from './profile.jpg';
+import resumePDF from './Resume 2025.pdf'
 
 const Profile = () => {
+  const [showResumeModal, setShowResumeModal] = useState(false);
+  
+  const openResumeModal = () => setShowResumeModal(true);
+  const closeResumeModal = () => setShowResumeModal(false);
+
   return (
     <div className="profile-container">
       <div className="profile-header">
@@ -15,6 +21,9 @@ const Profile = () => {
         </div>
         <h1>Profile</h1>
         <div className="profile-subtitle">Information Systems Student | Business Analytics</div>
+        <button className="resume-button" onClick={openResumeModal}>
+          View Resume
+        </button>
       </div>
       
       <div className="profile-content">
@@ -43,6 +52,7 @@ const Profile = () => {
               <span className="skill-tag">SQL</span>
               <span className="skill-tag">Data Analysis</span>
               <span className="skill-tag">Business Analytics</span>
+              <span className="skill-tag">Next.js</span>
             </div>
           </div>
 
@@ -55,6 +65,35 @@ const Profile = () => {
           </div>
         </div>
       </div>
+
+      {/* Resume Modal */}
+      {showResumeModal && (
+        <div className="resume-modal-overlay" onClick={closeResumeModal}>
+          <div className="resume-modal" onClick={(e) => e.stopPropagation()}>
+            <div className="resume-modal-header">
+              <h2>My Resume</h2>
+              <button className="close-button" onClick={closeResumeModal}>×</button>
+            </div>
+            <div className="resume-modal-body">
+              <iframe 
+                src={resumePDF} 
+                title="Resume" 
+                width="100%" 
+                height="100%" 
+                frameBorder="0"
+              />
+            </div>
+            <div className="resume-modal-footer">
+              <a href={resumePDF} download className="download-button">
+                Download Resume
+              </a>
+              <button className="close-modal-button" onClick={closeResumeModal}>
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
