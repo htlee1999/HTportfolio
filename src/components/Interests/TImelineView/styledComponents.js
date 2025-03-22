@@ -29,7 +29,12 @@ export const HeaderContainer = styled.div`
   padding: 2rem;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  
+  &:hover {
+    transform: translateY(-4px);
+  }
 `;
 
 export const Heading = styled.h1`
@@ -60,12 +65,12 @@ export const TimelineCard = styled.div`
   padding: 1.5rem;
   background: white;
   border-radius: 12px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   
   &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
   }
 `;
 
@@ -80,7 +85,15 @@ export const CardTitle = styled.h3`
   color: #171f46;
   font-size: 1.25rem;
   font-weight: 600;
-  margin: 0 0 1rem 0;
+  margin: 0 0 0.5rem 0;
+`;
+
+// New component for duration
+export const DurationLabel = styled.div`
+  color: #64748b;
+  font-size: 0.875rem;
+  margin-bottom: 1rem;
+  font-style: italic;
 `;
 
 export const CardContent = styled.p`
@@ -104,6 +117,12 @@ export const Tag = styled.span`
   border-radius: 16px;
   font-size: 0.875rem;
   font-weight: 500;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: #e9dfff;
+    transform: translateY(-2px);
+  }
 `;
 
 export const LinkButton = styled.a`
@@ -116,10 +135,12 @@ export const LinkButton = styled.a`
   border-radius: 8px;
   text-decoration: none;
   font-weight: 500;
-  transition: background 0.2s ease;
+  transition: all 0.3s ease;
   
   &:hover {
     background: #6633cc;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(102, 51, 204, 0.3);
   }
 `;
 
@@ -151,12 +172,12 @@ export const PhotoContainer = styled.div`
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s ease;
+    transition: transform 0.5s ease;
   }
 
   &:hover {
     img {
-      transform: scale(1.05);
+      transform: scale(1.08);
     }
   }
 `;
@@ -168,10 +189,12 @@ export const PhotoOverlay = styled.div`
   right: 0;
   background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
   padding: 1rem;
-  transform: translateY(100%);
-  transition: transform 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
 
   ${PhotoContainer}:hover & {
+    opacity: 1;
     transform: translateY(0);
   }
 `;
@@ -200,10 +223,11 @@ export const NavigationContainer = styled.div`
       padding: 0.5rem;
       cursor: pointer;
       color: #8855ff;
-      transition: opacity 0.2s ease;
+      transition: all 0.2s ease;
       
       &:hover {
         opacity: 0.8;
+        transform: scale(1.1);
       }
       
       &:disabled {
@@ -220,6 +244,12 @@ export const NavigationContainer = styled.div`
     border-radius: 4px !important;
     font-weight: 500 !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+    transition: all 0.2s ease !important;
+    
+    &:hover {
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+    }
   }
 
   /* Style active point */
