@@ -1,147 +1,252 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import "./experience.css";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import twimbitPhoto from './twimbit_logo.jpeg';
-import jumboPhoto from './jumbo.png';
-import ncodePhoto from './ncode.png';
+import uraLogo from './ura_logo.png';
+import twimbitLogo from './twimbit_logo.jpeg';
+import jumboLogo from './jumbo.png';
+import ncodeLogo from './ncode.png';
 
-const Experience = () => {
-  // Create the tabs array first so we can reference it for initial state
-  const tabs = [
+const TimelineExperience = () => {
+  const experiences = [
     {
-      label: "Twimbit Pte Ltd",
-      logo: twimbitPhoto,
-      content: (
-        <div className="experience-content">
-          <div className="experience-header">
-            <div className="company-logo-large">
-              <img src={twimbitPhoto} alt="Twimbit logo" />
-            </div>
-            <div>
-              <h4>Research Intern</h4>
-              <div className="date-range">May 2023 - July 2023</div>
-            </div>
-          </div>
-          <ul className="experience-list">
-            <li>
-              Researched and contributed to articles on ChatGPT in Financial services, Buy now Pay Later (BNPL) and Customer Experience in Singapore Banks
-              <div className="article-link">
-                <a 
-                  href="https://twimbit.com/insights/chatgpt-in-financial-services-11-best-practice-cases-from-banks-and-fintechs" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                >
-                  📄 View Published Article: ChatGPT in Financial Services
-                </a>
-              </div>
-            </li>
-            <li>Support in converting slides & presentations into blog content and enhancing content accessibility</li>
-            <li>Tested and provided feedback on new ChatGPT chatbot implementation for Twimbit website</li>
-          </ul>
-        </div>
-      ),
+      id: "ura",
+      company: "Urban Redevelopment Authority",
+      logo: uraLogo,
+      role: "Product Development Intern (AI/ML)",
+      period: "Jan 2025 - May 2025",
+      highlights: [
+        {
+          title: "GPT Chatbot Development",
+          description: "Developed front-end components for an in-house GPT chatbot powered by GPT-4o/4o mini",
+          details: [
+            "Conducted comparative testing with Gemini 2.0 Flash and OpenAI o3/o3-mini models",
+            "Implemented responsive UI design for optimal display across devices"
+          ],
+          icon: "💬"
+        },
+        {
+          title: "Email Editor Application",
+          description: "Built a Notion-like email editor web application",
+          details: [
+            "Integrated AI functions powered by GPT-4o for content enhancement",
+            "Implemented real-time collaborative editing features"
+          ],
+          icon: "✉️"
+        },
+        {
+          title: "Prompt Engineering",
+          description: "Applied prompt engineering techniques to optimize AI-generated responses for business use cases",
+          details: [],
+          icon: "🧠"
+        },
+        {
+          title: "Front-end Development",
+          description: "Utilized Next.JS, HTML, and TypeScript to build modular and maintainable front-end components",
+          details: [],
+          icon: "💻"
+        }
+      ]
     },
     {
-      label: "Jumbo Group of Restaurants",
-      logo: jumboPhoto,
-      content: (
-        <div className="experience-content">
-          <div className="experience-header">
-            <div className="company-logo-large">
-              <img src={jumboPhoto} alt="Jumbo Group logo" />
-            </div>
-            <div>
-              <h4>IT Intern</h4>
-              <div className="date-range">Mar 2018 - Sep 2018</div>
-            </div>
-          </div>
-          <ul className="experience-list">
-            <li>Captured, validated, and conducted UI/UX testing for new mobile application, ensuring optimal user experience</li>
-            <li>Successfully converted and digitized over 100+ physical recipes into the internal ERP system (Epicor)</li>
-            <li>Managed and updated menu prices and promotions from corporate to retail stores POS systems nationwide</li>
-            <li>Assisted in company-wide implementation of latest Microsoft Office version</li>
-            <li>Participated in physical quality control of new recipes, collecting and documenting feedback and experiences</li>
-            <li>Utilized Microsoft Excel for data sorting and analysis using advanced formulas</li>
-          </ul>
-        </div>
-      ),
+      id: "twimbit",
+      company: "Twimbit Pte Ltd",
+      logo: twimbitLogo,
+      role: "Research Intern",
+      period: "May 2023 - July 2023",
+      highlights: [
+        {
+          title: "Fintech Research",
+          description: "Researched and contributed to articles on emerging financial technologies",
+          details: [
+            "ChatGPT applications in Financial services",
+            "Buy Now Pay Later (BNPL) market trends",
+            "Customer Experience analysis for Singapore Banks"
+          ],
+          link: {
+            url: "https://twimbit.com/insights/chatgpt-in-financial-services-11-best-practice-cases-from-banks-and-fintechs",
+            text: "View Published Article: ChatGPT in Financial Services"
+          },
+          icon: "📊"
+        },
+        {
+          title: "Content Development",
+          description: "Transformed technical presentations into accessible blog content, improving content reach",
+          details: [],
+          icon: "📝"
+        },
+        {
+          title: "Chatbot Testing",
+          description: "Provided user testing and feedback for Twimbit's ChatGPT-powered website chatbot",
+          details: [],
+          icon: "🔍"
+        }
+      ]
     },
     {
-      label: "Ncode Consultant",
-      logo: ncodePhoto,
-      content: (
-        <div className="experience-content">
-          <div className="experience-header">
-            <div className="company-logo-large">
-              <img src={ncodePhoto} alt="Ncode logo" />
-            </div>
-            <div>
-              <h4>Intern</h4>
-              <div className="date-range">Jan 2017 - Dec 2017</div>
-            </div>
-          </div>
-          <ul className="experience-list">
-            <li>Managed website content through regular updates and maintenance</li>
-            <li>Utilized Photoshop extensively for professional photo editing and optimization</li>
-            <li>Conducted product photography sessions for website content</li>
-            <li>Worked with Information Design platforms to enhance website presentation</li>
-          </ul>
-        </div>
-      ),
+      id: "jumbo",
+      company: "Jumbo Group of Restaurants",
+      logo: jumboLogo,
+      role: "IT Intern",
+      period: "Mar 2018 - Sep 2018",
+      highlights: [
+        {
+          title: "Mobile App Testing",
+          description: "Conducted comprehensive UI/UX testing for new mobile application",
+          details: [],
+          icon: "📱"
+        },
+        {
+          title: "ERP System Management",
+          description: "Digitized over 100+ physical recipes into the Epicor ERP system and managed menu pricing across nationwide POS systems",
+          details: [],
+          icon: "🗄️"
+        },
+        {
+          title: "IT Support",
+          description: "Supported company-wide Microsoft Office version upgrade",
+          details: [],
+          icon: "🖥️"
+        },
+        {
+          title: "Data Analysis",
+          description: "Applied advanced Excel formulas for data analysis and reporting",
+          details: [],
+          icon: "📈"
+        }
+      ]
     },
+    {
+      id: "ncode",
+      company: "Ncode Consultant",
+      logo: ncodeLogo,
+      role: "Intern",
+      period: "Jan 2017 - Dec 2017",
+      highlights: [
+        {
+          title: "Web Content Management",
+          description: "Managed website content updates and maintenance",
+          details: [],
+          icon: "🌐"
+        },
+        {
+          title: "Digital Media",
+          description: "Utilized Photoshop for professional photo editing and conducted product photography sessions",
+          details: [],
+          icon: "📷"
+        },
+        {
+          title: "UX Design",
+          description: "Implemented information design principles to enhance user experience",
+          details: [],
+          icon: "🎨"
+        }
+      ]
+    }
   ];
 
-  // Set initial state to the first tab (Twimbit)
-  const [selectedTab, setSelectedTab] = useState(tabs[0]);
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const [expandedHighlights, setExpandedHighlights] = useState({});
+
+  const toggleHighlight = (expId, highlightIndex) => {
+    setExpandedHighlights(prev => {
+      const key = `${expId}-${highlightIndex}`;
+      return {
+        ...prev,
+        [key]: !prev[key]
+      };
+    });
+  };
+
+  const isHighlightExpanded = (expId, highlightIndex) => {
+    const key = `${expId}-${highlightIndex}`;
+    return expandedHighlights[key];
+  };
 
   return (
-    <div className="experience-container">
-      <div className="experience-window">
-        <nav className={`experience-nav ${isNavOpen ? 'nav-open' : ''}`}>
-          <div className="nav-toggle" onClick={() => setIsNavOpen(!isNavOpen)}>
-            <span className="selected-tab">
-              <img src={selectedTab.logo} alt="" className="tab-logo" />
-              {selectedTab.label}
-            </span>
-            <span className={`arrow ${isNavOpen ? 'up' : 'down'}`}>▼</span>
-          </div>
-          <ul className="nav-menu">
-            {tabs.map((item) => (
-              <li
-                key={item.label}
-                className={item === selectedTab ? "selected" : ""}
-                onClick={() => {
-                  setSelectedTab(item);
-                  setIsNavOpen(false);
-                }}
-              >
-                <img src={item.logo} alt="" className="tab-logo" />
-                {item.label}
-                {item === selectedTab ? (
-                  <motion.div className="underline" layoutId="underline" />
-                ) : null}
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <main className="experience-main">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={selectedTab.label}
-              initial={{ y: 10, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              exit={{ y: -10, opacity: 0 }}
-              transition={{ duration: 0.2 }}
+    <div className="timeline-container">
+      <div className="timeline">
+        {experiences.map((experience, index) => (
+          <div className="timeline-item" key={experience.id}>
+            <div className="timeline-dot">
+              <div className="timeline-dot-inner"></div>
+            </div>
+            
+            <div className="timeline-connector">
+              {index < experiences.length - 1 && <div className="timeline-line"></div>}
+            </div>
+            
+            <motion.div 
+              className="timeline-content"
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              {selectedTab.content}
+              <div className="experience-header">
+                <div className="company-logo">
+                  <img src={experience.logo} alt={`${experience.company} logo`} />
+                </div>
+                <div className="company-info">
+                  <h3>{experience.company}</h3>
+                  <h4>{experience.role}</h4>
+                  <div className="period">{experience.period}</div>
+                </div>
+              </div>
+              
+              <div className="experience-highlights">
+                {experience.highlights.map((highlight, highlightIndex) => (
+                  <motion.div 
+                    className="highlight-item"
+                    key={highlightIndex}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: 0.1 + highlightIndex * 0.05 }}
+                  >
+                    <div 
+                      className="highlight-header"
+                      onClick={() => highlight.details.length > 0 && toggleHighlight(experience.id, highlightIndex)}
+                    >
+                      <span className="highlight-icon">{highlight.icon}</span>
+                      <h5>{highlight.title}</h5>
+                      {highlight.details.length > 0 && (
+                        <span className={`expand-icon ${isHighlightExpanded(experience.id, highlightIndex) ? 'expanded' : ''}`}>
+                          ▼
+                        </span>
+                      )}
+                    </div>
+                    
+                    <p className="highlight-description">{highlight.description}</p>
+                    
+                    {highlight.details.length > 0 && isHighlightExpanded(experience.id, highlightIndex) && (
+                      <motion.ul 
+                        className="highlight-details"
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: 'auto' }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        {highlight.details.map((detail, detailIndex) => (
+                          <li key={detailIndex}>{detail}</li>
+                        ))}
+                      </motion.ul>
+                    )}
+                    
+                    {highlight.link && (
+                      <a 
+                        className="highlight-link"
+                        href={highlight.link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        📄 {highlight.link.text}
+                      </a>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
-          </AnimatePresence>
-        </main>
+          </div>
+        ))}
       </div>
     </div>
   );
 };
 
-export default Experience;
+export default TimelineExperience;
