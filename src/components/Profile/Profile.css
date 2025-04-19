@@ -1,287 +1,459 @@
-/* Profile.css */
+/* Profile.css - Enhanced Version */
+:root {
+  --card-bg-light: rgba(255, 255, 255, 0.7);
+  --card-bg-dark: rgba(0, 0, 0, 0.1);
+  --card-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  --card-hover-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  --card-transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
 .profile-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    animation: fadeIn 0.5s ease-in;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  animation: fadeIn 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .profile-header {
-    text-align: center;
-    margin-bottom: 3rem;
+  text-align: center;
+  margin-bottom: 3.5rem; /* Slightly increased spacing */
+  position: relative; /* For possible decorative elements */
 }
 
 .profile-photo-container {
-    margin: 0 auto 2rem;
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    overflow: hidden;
-    border: 4px solid var(--accent);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 2rem;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid var(--accent);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  position: relative;
+}
+
+.profile-photo-container::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  animation: pulse 2s infinite;
 }
 
 .profile-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
 }
 
 .profile-photo:hover {
-    transform: scale(1.05);
+  transform: scale(1.08); /* Slightly more pronounced hover effect */
 }
 
 .profile-header h1 {
-    margin: 0 0 1rem 0;
-    font-size: 2.5rem;
-    color: var(--accent);
+  margin: 0 0 1rem 0;
+  font-size: 2.5rem;
+  color: var(--accent);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.08); /* Subtle text shadow */
+  letter-spacing: -0.5px; /* Tighter letter spacing for modern look */
 }
 
 .profile-subtitle {
-    font-size: 1.2rem;
-    color: var(--accent);
-    opacity: 0.8;
+  font-size: 1.2rem;
+  color: var(--accent);
+  opacity: 0.85;
+  letter-spacing: 0.5px; /* Slight letter spacing for readability */
+  font-weight: 500;
 }
-.profile-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    animation: fadeIn 0.5s ease-in;
+
+.profile-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem; /* Increased spacing between sections */
+}
+
+.profile-summary {
+  background: var(--card-bg-light);
+  padding: 2.2rem; /* Slightly more padding */
+  border-radius: 16px; /* More rounded corners */
+  backdrop-filter: blur(10px);
+  box-shadow: var(--card-shadow);
+  transition: var(--card-transition);
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+}
+
+.profile-summary:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.profile-summary h2 {
+  margin: 0 0 1.2rem 0;
+  font-size: 1.8rem;
+  color: var(--accent);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.profile-summary h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background: var(--accent);
+  opacity: 0.6;
+  border-radius: 3px;
+}
+
+.profile-summary p {
+  font-size: 1.1rem;
+  line-height: 1.7; /* Improved line-height for readability */
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.profile-objectives {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.8rem; /* Increased gap between cards */
+  margin-top: 1rem;
+}
+
+.objective-item {
+  background: var(--card-bg-light);
+  padding: 1.8rem; /* More padding */
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  box-shadow: var(--card-shadow);
+  transition: var(--card-transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  height: 100%; /* Ensure equal height */
+}
+
+.objective-item:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--card-hover-shadow);
+}
+
+.objective-item h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.4rem;
+  color: var(--accent);
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.objective-item h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.6;
+  border-radius: 2px;
+}
+
+.objective-item p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--accent);
+  opacity: 0.9;
+  margin: 0;
+}
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem; /* Increased gap between skill tags */
+}
+
+.skill-tag {
+  background: var(--accent);
+  color: var(--background);
+  padding: 0.6rem 1.2rem; /* Slightly larger padding */
+  border-radius: 30px; /* More rounded corners */
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  letter-spacing: 0.2px;
+}
+
+.skill-tag:hover {
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.resume-button {
+  margin-top: 20px;
+  padding: 12px 28px;
+  background-color: var(--accent, #3b82f6);
+  color: white;
+  border: none;
+  border-radius: 30px; /* More rounded button */
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+  letter-spacing: 0.5px;
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.resume-button:hover {
+  background-color: var(--accent-hover, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(59, 130, 246, 0.4);
+}
+
+.resume-button:hover:before {
+  left: 100%;
+}
+
+/* Modal Styles - Enhanced */
+.resume-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.3s ease;
+}
+
+.resume-modal {
+  background-color: white;
+  width: 85%;
+  max-width: 1000px;
+  height: 85vh;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  animation: modalEnter 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.resume-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 25px;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: var(--accent, #3b82f6);
+  color: white;
+}
+
+.resume-modal-header h2 {
+  margin: 0;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+  opacity: 0.85;
+  transition: all 0.2s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.close-button:hover {
+  background: rgba(255, 255, 255, 0.15);
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+.resume-modal-body {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.resume-modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px 25px;
+  border-top: 1px solid #e5e7eb;
+  gap: 12px;
+  background-color: #f9fafb;
+}
+
+.download-button {
+  padding: 10px 20px;
+  background-color: var(--accent, #3b82f6);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.download-button:hover {
+  background-color: var(--accent-hover, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.close-modal-button {
+  padding: 10px 20px;
+  background-color: #f3f4f6;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+.close-modal-button:hover {
+  background-color: #e5e7eb;
+}
+
+/* Enhanced animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .profile-header {
-    text-align: center;
-    margin-bottom: 3rem;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .profile-header h1 {
-    margin: 0 0 1rem 0;
-    font-size: 2.5rem;
-    color: var(--accent);
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
   }
-  
-  .profile-subtitle {
-    font-size: 1.2rem;
-    color: var(--accent);
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
     opacity: 0.8;
   }
-  
-  .profile-content {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-photo-container {
+    width: 150px;
+    height: 150px;
   }
   
-  .profile-summary {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 2rem;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  }
-  
-  .profile-summary h2 {
-    margin: 0 0 1rem 0;
-    font-size: 1.8rem;
-    color: var(--accent);
-  }
-  
-  .profile-summary p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: var(--accent);
-    opacity: 0.9;
-  }
-  
-  .profile-objectives {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1rem;
-  }
-  
-  .objective-item {
-    background: rgba(255, 255, 255, 0.7);
-    padding: 1.5rem;
-    border-radius: 12px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-  }
-  
-  .objective-item h3 {
-    margin: 0 0 1rem 0;
-    font-size: 1.4rem;
-    color: var(--accent);
-  }
-  
-  .objective-item p {
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--accent);
-    opacity: 0.9;
-    margin: 0;
-  }
-  
-  .skills-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-  }
-  
-  .skill-tag {
-    background: var(--accent);
-    color: var(--background);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    transition: transform 0.2s ease;
-  }
-  
-  .skill-tag:hover {
-    transform: translateY(-2px);
+  .profile-container {
+    padding: 1rem;
   }
 
-  .resume-button {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background-color: #3b82f6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
+  .profile-header h1 {
+    font-size: 2rem;
   }
-  
-  .resume-button:hover {
-    background-color: #2563eb;
+
+  .profile-subtitle {
+    font-size: 1rem;
   }
-  
-  /* Modal Styles */
-  .resume-modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+
+  .profile-objectives {
+    grid-template-columns: 1fr;
+  }
+
+  .objective-item {
+    padding: 1.5rem;
   }
   
   .resume-modal {
-    background-color: white;
-    width: 80%;
-    max-width: 900px;
-    height: 80vh;
-    border-radius: 8px;
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+    width: 95%;
+    height: 90vh;
+  }
+}
+
+/* Handle dark/light mode */
+@media (prefers-color-scheme: dark) {
+  .profile-summary,
+  .objective-item {
+    background: var(--card-bg-dark);
+    border-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .skill-tag {
+    background: var(--accent);
+    color: var(--background);
   }
   
-  .resume-modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    border-bottom: 1px solid #e5e7eb;
-  }
-  
-  .resume-modal-header h2 {
-    margin: 0;
-    color: #1f2937;
-  }
-  
-  .close-button {
-    background: none;
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    color: #6b7280;
-  }
-  
-  .resume-modal-body {
-    flex-grow: 1;
-    overflow: hidden;
+  .resume-modal {
+    background-color: #1f2937;
+    border: 1px solid rgba(255, 255, 255, 0.1);
   }
   
   .resume-modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    padding: 15px 20px;
-    border-top: 1px solid #e5e7eb;
-    gap: 10px;
-  }
-  
-  .download-button {
-    padding: 8px 16px;
-    background-color: #3b82f6;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: 500;
+    background-color: #111827;
+    border-top-color: #374151;
   }
   
   .close-modal-button {
-    padding: 8px 16px;
-    background-color: #f3f4f6;
-    border: 1px solid #d1d5db;
-    border-radius: 5px;
-    cursor: pointer;
+    background-color: #374151;
+    border-color: #4b5563;
+    color: #e5e7eb;
   }
   
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+  .close-modal-button:hover {
+    background-color: #4b5563;
   }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-
-    .profile-photo-container {
-        width: 150px;
-        height: 150px;
-    }
-    .profile-container {
-      padding: 1rem;
-    }
-  
-    .profile-header h1 {
-      font-size: 2rem;
-    }
-  
-    .profile-subtitle {
-      font-size: 1rem;
-    }
-  
-    .profile-objectives {
-      grid-template-columns: 1fr;
-    }
-  
-    .objective-item {
-      padding: 1.25rem;
-    }
-  }
-  
-  /* Handle dark/light mode */
-  @media (prefers-color-scheme: dark) {
-    .profile-summary,
-    .objective-item {
-      background: rgba(0, 0, 0, 0.1);
-    }
-  
-    .skill-tag {
-      background: var(--accent);
-      color: var(--background);
-    }
-  }
+}
