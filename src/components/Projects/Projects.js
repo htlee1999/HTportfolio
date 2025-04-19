@@ -274,7 +274,6 @@ useEffect(() => {
             {link.endsWith('.pdf') ? (
               // For PDF files
               <a 
-                href="#" 
                 className="project-link pdf-link"
                 onClick={(e) => {
                   e.preventDefault();
@@ -329,7 +328,6 @@ useEffect(() => {
           case 'pdf':
             return (
               <a 
-                href="#" 
                 className="project-link pdf-link"
                 onClick={(e) => {
                   e.preventDefault();
