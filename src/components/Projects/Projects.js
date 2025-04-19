@@ -273,13 +273,10 @@ useEffect(() => {
             </a>
             {link.endsWith('.pdf') ? (
               // For PDF files
-              <a 
-                className="project-link pdf-link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  openPdfModal(link);
-                }}
-              >
+              <button 
+  className="project-link pdf-link"
+  onClick={() => openPdfModal(link)}
+>
                 <span className="link-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -290,7 +287,7 @@ useEffect(() => {
                   </svg>
                 </span>
                 View Report
-              </a>
+              </button>
             ) : (
               // For website links
               <a 
@@ -327,13 +324,10 @@ useEffect(() => {
             );
           case 'pdf':
             return (
-              <a 
-                className="project-link pdf-link"
-                onClick={(e) => {
-                  e.preventDefault();
-                  openPdfModal(link);
-                }}
-              >
+              <button 
+  className="project-link pdf-link"
+  onClick={() => openPdfModal(link)}
+>
                 <span className="link-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
@@ -344,7 +338,7 @@ useEffect(() => {
                   </svg>
                 </span>
                 View Presentation
-              </a>
+              </button>
             );
           case 'link':
             return (
