@@ -14,12 +14,18 @@ const TimelineExperience = () => {
       logo: uraLogo,
       role: "Product Development Intern (AI/ML)",
       period: "Jan 2025 - May 2025",
+      // Add this presentation link at the experience level
+      presentationLink: {
+        url: "/Internship presentation.pdf",
+        text: "View Internship Presentation"
+      },
       highlights: [
         {
           title: "GPT Chatbot Development",
-          description: "Developed front-end components for an in-house GPT chatbot powered by GPT-4o/4o mini",
+          description: "Developed front-end components for an in-house GPT chatbot powered by Gemini 2.5 Pro",
           details: [
-            "Conducted comparative testing with Gemini 2.0 Flash and OpenAI o3/o3-mini models",
+            "Conducted comparative testing with Gemini 2.0 Flash, Gemini 2.5 Pro and OpenAI o3/o3-mini models, GPT 4.1/4, o4 mini",
+            "Tested with long context and web grounding capabilities for Gemini models",
             "Implemented responsive UI design for optimal display across devices"
           ],
           icon: "💬"
@@ -28,7 +34,7 @@ const TimelineExperience = () => {
           title: "Email Editor Application",
           description: "Built a Notion-like email editor web application",
           details: [
-            "Integrated AI functions powered by GPT-4o for content enhancement",
+            "Integrated AI functions powered by GPT-4.1 for content enhancement",
             "Implemented real-time collaborative editing features"
           ],
           icon: "✉️"
@@ -188,6 +194,18 @@ const TimelineExperience = () => {
                   <h3>{experience.company}</h3>
                   <h4>{experience.role}</h4>
                   <div className="period">{experience.period}</div>
+                  
+                  {/* Add presentation link below period if it exists */}
+                  {experience.presentationLink && (
+                    <a 
+                      className="presentation-link"
+                      href={experience.presentationLink.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      📊 {experience.presentationLink.text}
+                    </a>
+                  )}
                 </div>
               </div>
               

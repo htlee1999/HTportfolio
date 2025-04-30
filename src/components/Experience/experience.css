@@ -248,3 +248,17 @@
     margin-left: 36px;
   }
 }
+
+.presentation-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.presentation-link:hover {
+  color: #004080;
+  text-decoration: underline;
+}

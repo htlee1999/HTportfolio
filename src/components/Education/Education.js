@@ -52,7 +52,8 @@ const Education = () => {
           "Machine Learning & Applications",
           "Enterprise Solution Development",
           "Software Project Management",
-          "Web Application Development"
+          "Web Application Development",
+          "Visual Analytics",
         ]
       }
     },
