@@ -221,6 +221,15 @@ useEffect(() => {
 
   const personalProjects = [
     {
+      "title": "History Project - Interactive Timeline",
+      "description": "Created an interactive historical timeline application showcasing major events and developments. Features dynamic visualizations, responsive design, and smooth animations for exploring historical content in an engaging way.",
+      "link": "https://htlee1999.github.io/history_project/",
+      "github": "https://github.com/htlee1999/history_project",
+      "type": "both",
+      "tags": ["React", "Interactive Timeline", "Data Visualization", "GitHub Pages"],
+      "image": portfolio
+    },
+    {
       "title": "MACS Assistant - AI-Powered FAQ Drafter",
       "description": "Developed an AI-powered FAQ response drafter for McDonald's using Next.js, AI SDK, and shadcn/ui. The application helps generate appropriate responses to customer inquiries with relevant data, featuring a Notion-like editor for easy content editing. Implemented with Google's Gemini Flash 2.0 model while supporting multiple AI providers through the unified AI SDK. Contact me for the login credentials.",
       "link": "https://macs-assistant.vercel.app/",

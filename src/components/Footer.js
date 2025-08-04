@@ -39,7 +39,7 @@ const Footer = () => {
             LinkedIn Profile
           </a>
           <a
-            href="https://github.com/htlee1999" // Replace with your personal GitHub URL
+            href="https://github.com/htlee1999"
             target="_blank"
             rel="noopener noreferrer"
             className="social-link"
@@ -48,7 +48,7 @@ const Footer = () => {
             Personal GitHub
           </a>
           <a
-            href="https://github.com/htlee-2021" // Replace with your school GitHub URL
+            href="https://github.com/htlee-2021"
             target="_blank"
             rel="noopener noreferrer"
             className="social-link"

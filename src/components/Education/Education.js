@@ -35,7 +35,7 @@ const Education = () => {
     {
       institution: "Singapore Management University",
       degree: "Bachelor of Science (Information Systems)",
-      duration: "Aug 2021 – Aug 2025 (Expected)",
+      duration: "Aug 2021 – Jul 2025",
       icon: <Icons.School />,
       details: {
         major: "Business Analytics",
