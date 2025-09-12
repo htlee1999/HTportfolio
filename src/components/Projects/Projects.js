@@ -221,6 +221,14 @@ useEffect(() => {
 
   const personalProjects = [
     {
+      "title": "Portfolio Analysis Dashboard",
+      "description": "Interactive Streamlit app for building a stock portfolio, fetching live market data from Yahoo Finance, and visualizing performance with Plotly. Features portfolio builder with multi-currency support, dashboard overview with key metrics and allocation charts, detailed analysis comparing against S&P 500, and comprehensive data management tools.",
+      "github": "https://github.com/htlee1999/Portfolio_Dashboard",
+      "type": "github",
+      "tags": ["Python", "Streamlit", "yfinance", "Plotly", "Financial Analysis", "Data Visualization"],
+      "image": portfolio
+    },
+    {
       "title": "History Project - Interactive Timeline",
       "description": "Created an interactive historical timeline application showcasing major events and developments. Features dynamic visualizations, responsive design, and smooth animations for exploring historical content in an engaging way.",
       "link": "https://htlee1999.github.io/history_project/",
