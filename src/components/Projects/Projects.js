@@ -223,8 +223,9 @@ useEffect(() => {
     {
       "title": "Portfolio Analysis Dashboard",
       "description": "Interactive Streamlit app for building a stock portfolio, fetching live market data from Yahoo Finance, and visualizing performance with Plotly. Features portfolio builder with multi-currency support, dashboard overview with key metrics and allocation charts, detailed analysis comparing against S&P 500, and comprehensive data management tools.",
+      "link": "https://htlee1999-portfolio-dashboard-portfolio-vrviy0.streamlit.app/Portfolio_Builder",
       "github": "https://github.com/htlee1999/Portfolio_Dashboard",
-      "type": "github",
+      "type": "both",
       "tags": ["Python", "Streamlit", "yfinance", "Plotly", "Financial Analysis", "Data Visualization"],
       "image": portfolio
     },
