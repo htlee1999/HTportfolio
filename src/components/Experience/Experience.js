@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import "./experience.css";
-import uraLogo from './ura_logo.png';
+import "./Experience.css";
+import uraLogo from '../../assets/images/ura_logo.png';
 import twimbitLogo from './twimbit_logo.jpeg';
 import jumboLogo from './jumbo.png';
 import ncodeLogo from './ncode.png';

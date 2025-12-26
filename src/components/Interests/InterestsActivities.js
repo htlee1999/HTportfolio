@@ -1,11 +1,11 @@
 import React from 'react';
 // Fix the import path to match your file structure
-import TimelineView from './TImelineView/TimelineView';
-import facilPhoto from './facil.JPG';
-import foodPhoto from './food.JPG';
-import gourmetPhoto from './gourmet.JPG';
-import myPhoto from './TM.JPG';
-import tmPhoto from './TM2.JPG';
+import TimelineView from './TimelineView/TimelineView';
+import facilPhoto from './facil.jpg';
+import foodPhoto from './food.jpg';
+import gourmetPhoto from './gourmet.jpg';
+import myPhoto from './TM.jpg';
+import tmPhoto from './TM2.jpg';
 
 // Timeline data with enhanced formatting
 const timelineItemsList = [

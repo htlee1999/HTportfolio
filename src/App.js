@@ -1,7 +1,7 @@
 // App.js
 import "./styles.css";
 import { motion, useScroll, useSpring } from "framer-motion";
-import Header from "./components/header";
+import Header from "./components/Header";
 import Profile from "./components/Profile/Profile";
 import Education from "./components/Education/Education";
 import Experience from "./components/Experience/Experience";

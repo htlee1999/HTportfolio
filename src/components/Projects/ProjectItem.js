@@ -2,38 +2,38 @@ import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { AccordionContext } from './ProjectWrapper';
 
-const AccordionItem = (props) => {
+const AccordionItem = ({ index, title, children }) => {
     const { active, setActive } = useContext(AccordionContext);
-    
-    const indexPlus = props.index + 1;
-    
-    const eventHandler = (e, index) => {
+
+    const indexPlus = index + 1;
+
+    const eventHandler = (e, idx) => {
         e.preventDefault();
-        setActive(index === active ? -1 : index); // Toggle open/close if clicking the active item
+        setActive(idx === active ? -1 : idx);
     };
 
     return (
         <div className="accordion-item">
             <h3 className="accordion-title">
-                <button 
-                    onClick={(e) => eventHandler(e, props.index)}
-                    className={active === props.index ? 'active' : 'inactive'}
-                    aria-expanded={active === props.index ? 'true' : 'false'}
+                <button
+                    onClick={(e) => eventHandler(e, index)}
+                    className={active === index ? 'active' : 'inactive'}
+                    aria-expanded={active === index ? 'true' : 'false'}
                     aria-controls={'sect-' + indexPlus}
-                    aria-disabled={active === props.index ? 'true' : 'false'}
+                    aria-disabled={active === index ? 'true' : 'false'}
                 >
-                    <span className="title-wrapper">{props.title}</span>  
+                    <span className="title-wrapper">{title}</span>
                     <span className="icon-wrapper">
-                        <span className={active === props.index ? 'minus' : 'plus'}></span>
+                        <span className={active === index ? 'minus' : 'plus'}></span>
                     </span>
                 </button>
             </h3>
             <div className="accordion-panel">
-                <div 
-                    id={'sect-' + indexPlus} 
-                    className={active === props.index ? 'panel-open' : 'panel-close'}
+                <div
+                    id={'sect-' + indexPlus}
+                    className={active === index ? 'panel-open' : 'panel-close'}
                 >
-                    <div dangerouslySetInnerHTML={{ __html: props.description }} />
+                    {children}
                 </div>
             </div>
         </div>
@@ -43,7 +43,7 @@ const AccordionItem = (props) => {
 AccordionItem.propTypes = {
     index: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired
+    children: PropTypes.node.isRequired
 };
 
 export default AccordionItem;

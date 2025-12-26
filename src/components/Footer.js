@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaPhone, FaEnvelope, FaMapMarkerAlt, FaLinkedin, FaGithub } from 'react-icons/fa';
 import './HeaderFooter.css';
 
 const Footer = () => {
@@ -10,19 +11,19 @@ const Footer = () => {
         <div className="footer-section">
           <h3>Contact</h3>
           <p>
-            <i className="fas fa-phone"></i>
+            <FaPhone />
             +(65) 8168 1236
           </p>
           <p>
-            <i className="fas fa-envelope"></i>
+            <FaEnvelope />
             Leehongteng1999@gmail.com
           </p>
         </div>
-        
+
         <div className="footer-section">
           <h3>Location</h3>
           <p>
-            <i className="fas fa-map-marker-alt"></i>
+            <FaMapMarkerAlt />
             Singapore
           </p>
         </div>
@@ -35,7 +36,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="social-link"
           >
-            <i className="fab fa-linkedin"></i>
+            <FaLinkedin />
             LinkedIn Profile
           </a>
           <a
@@ -44,7 +45,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="social-link"
           >
-            <i className="fab fa-github"></i>
+            <FaGithub />
             Personal GitHub
           </a>
           <a
@@ -53,7 +54,7 @@ const Footer = () => {
             rel="noopener noreferrer"
             className="social-link"
           >
-            <i className="fab fa-github"></i>
+            <FaGithub />
             School GitHub
           </a>
         </div>
