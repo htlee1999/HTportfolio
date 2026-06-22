@@ -52,6 +52,15 @@ export const schoolProjects = [
 
 export const personalProjects = [
   {
+    title: "Singapore Food Map",
+    description: "A Vue 3 application for tracking and rating food places in Singapore with interactive Google Maps integration. Features a tier-based rating system (S–F), category filtering by cuisine, an 'Up to you' spin wheel for random picks, admin-only restaurant management, and a public thumbs up/down voting system. Built with a Node.js/Express serverless backend on Vercel and a PostgreSQL (Neon) database with real-time data synchronization.",
+    link: "https://food-map-chi.vercel.app/",
+    github: "https://github.com/htlee1999/food_map",
+    type: "both",
+    tags: ["Vue 3", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Google Maps API", "Vercel"],
+    image: portfolio
+  },
+  {
     title: "Portfolio Analysis Dashboard",
     description: "Interactive Streamlit app for building a stock portfolio, fetching live market data from Yahoo Finance, and visualizing performance with Plotly. Features portfolio builder with multi-currency support, dashboard overview with key metrics and allocation charts, detailed analysis comparing against S&P 500, and comprehensive data management tools.",
     link: "https://htlee1999-portfolio-dashboard-portfolio-vrviy0.streamlit.app/Portfolio_Builder",

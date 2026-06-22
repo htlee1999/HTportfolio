@@ -9,6 +9,61 @@ import ncodeLogo from './ncode.png';
 const TimelineExperience = () => {
   const experiences = [
     {
+      id: "ura-contract",
+      company: "Urban Redevelopment Authority",
+      logo: uraLogo,
+      role: "AI Developer (Contract)",
+      period: "Jul 2025 - Nov 2025",
+      presentationLink: {
+        url: "/URA-Temp-Projects.pdf",
+        text: "View Project Showcase"
+      },
+      highlights: [
+        {
+          title: "RAG Pipeline & AI Chatbot",
+          description: "Built an end-to-end Retrieval-Augmented Generation pipeline powering a domain-specific AI chatbot over URA web and PDF content",
+          details: [
+            "Automated data acquisition with Puppeteer-based scraping (daily incremental + weekly full refresh via cron jobs) and PyMuPDF for multi-modal PDF extraction",
+            "Processed content into 100–1000 token chunks with 1536-dim embeddings stored in a PostgreSQL + pgvector + Vercel Blob multi-tier system",
+            "Implemented hybrid retrieval (80% vector similarity + 20% BM25 keyword) with query expansion and cross-encoder reranking",
+            "Built a real-time monitoring dashboard tracking scraping health, content quality, and session status"
+          ],
+          icon: "🗃️"
+        },
+        {
+          title: "Smart Compliance Operations Tool",
+          description: "Developed an AI-powered tool that automates property compliance checking and prioritises enforcement at scale",
+          details: [
+            "Automated occupant identification and assessment of properties against approved-use regulations",
+            "Supported dual input modes: bulk CSV uploads and single-entry forms for ad-hoc checks",
+            "Implemented smart prioritisation to rank enforcement actions by risk and urgency",
+            "Evaluated SERP API vs. Exa API for AI search, selecting Exa for stronger accuracy"
+          ],
+          icon: "✅"
+        },
+        {
+          title: "Advanced Deep Research & Search Agent",
+          description: "Created a multi-step deep research agent that goes beyond standard RAG using live web data via Exa's Research API",
+          details: [
+            "Web Search mode for real-time fact-checking and Deep Research mode for citation-rich synthesised reports",
+            "Generated query variations and ran them in parallel via Promise.all with result deduplication",
+            "Built a ResearchSteps UI visualising the planning → searching → synthesis thought process",
+            "Implemented adaptive timeouts for complex models (e.g. exa-research-pro)"
+          ],
+          icon: "🧠"
+        },
+        {
+          title: "Additional Projects",
+          description: "Delivered a PUB knowledge-base chatbot and drafted product Terms & Conditions documentation",
+          details: [
+            "PUB Chatbot: Python/Jupyter scraper extracting PDFs and web content into Markdown, with a custom chunking and embedding pipeline feeding a domain-specific RAG chatbot",
+            "DC Assistant T&C: drafted legal, privacy, usage, IP, and SLA documentation benchmarked against OpenAI, Gemini, and Anthropic policies"
+          ],
+          icon: "📋"
+        }
+      ]
+    },
+    {
       id: "ura",
       company: "Urban Redevelopment Authority",
       logo: uraLogo,
