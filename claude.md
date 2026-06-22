@@ -70,7 +70,7 @@ src/
 ### Conventions
 
 - **Component files/folders are PascalCase.** Keep it that way (case-sensitivity bit production once — see git history).
-- **Styling:** plain CSS files co-located with components + global `styles.css`. The one exception is the Interests timeline, which uses styled-components.
+- **Styling:** plain CSS files co-located with components + global `styles.css`. This is now the single styling approach across the whole app.
 - **Icons:** use `react-icons` only. Don't reintroduce Font Awesome CDN, inline SVG strings, or other icon libraries.
 - **Project content** lives in `Projects/projectsData.js`, not hardcoded in JSX. Other sections (Education, Experience, Interests) still hold their content inline in the component.
 
@@ -89,6 +89,5 @@ src/
 The 2025-12-26 cleanup plan is done. Completed: removed dead `Sidebar.css` and orphaned footer CSS; de-duplicated `ura_logo.png` into `assets/images/`; fixed all file-name casing and the `TImelineView` typo; removed `.DS_Store` files and untracked `node_modules`; eliminated the `dangerouslySetInnerHTML` pattern in Projects; dropped `lucide-react`, Bootstrap, and the Font Awesome CDN; split the 544-line `Projects.js` into focused files; extracted `projectsData.js`.
 
 Optional remaining nice-to-haves (not blocking, low priority):
-- Migrate the Interests timeline's styled-components to plain CSS for a single styling approach.
 - Extract Education/Experience/Interests content into data files like `projectsData.js`.
 - Vite migration (would also clear the audit noise and unblock React 19).
