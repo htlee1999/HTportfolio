@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { slide as Menu } from 'react-burger-menu';
 import { Link, useLocation } from 'react-router-dom';
 import './Navigation.css';
+import resumePDF from './Profile/Resume 2025.pdf';
 
 const Sidebar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,6 +38,14 @@ const Sidebar = () => {
             {item.label}
           </Link>
         ))}
+        <a
+          className="menu-item menu-resume"
+          href={resumePDF}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          View Resume
+        </a>
       </Menu>
     </div>
   );

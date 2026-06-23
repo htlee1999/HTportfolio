@@ -1,28 +1,33 @@
 body {
-  --black: #000000;
-  --ash-black: #222;
-  --white: #fafafa;
-  --sky: #00ccff;
-  --green: #22dddd;
-  --blue: #1300ff;
-  --dusk: #6600ff;
-  --purple: #9900ff;
-  --pink: #ff0066;
-  --red: #fe0222;
-  --orange: #fd7702;
-  --yellow: #ffbb00;
+  /* ---- editorial green / terracotta / cream theme ---- */
+  --cream: #fcf2ec;            /* page background */
+  --cream-card: #ffffff;       /* white cards */
+  --green: #2d3b2e;            /* primary dark (nav button, footer, accent cards) */
+  --green-deep: #243024;
+  --green-soft: #e7ede6;       /* pale green chip */
+  --terracotta: #b5512f;       /* warm accent (buttons, highlight pills) */
+  --terracotta-soft: #f5e1d8;
+  --pink: #f9d9de;             /* interests card */
+  --beige: #ece4de;            /* work-with-me card */
+  --ink: #2b2420;              /* primary text */
+  --muted: #6b6258;            /* secondary text */
+  --hairline: #efe3da;
 
-  --background: var(--white);
-  --accent: var(--black);
+  --serif: 'Playfair Display', Georgia, serif;
+  --sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --background: var(--cream);
+  --accent: var(--green);
 
   margin: 0;
   padding: 0;
   background-color: var(--background);
-  color: var(--accent);
+  color: var(--ink);
+  overflow-x: hidden;
 }
 
 * {
-  font-family: sofia-pro, sans-serif;
+  font-family: var(--sans);
   font-weight: 400;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
@@ -32,7 +37,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: sofia-pro, sans-serif;
+  font-family: var(--sans);
   font-weight: 600;
   font-style: normal;
 }
@@ -83,9 +88,9 @@ article {
 
 .main-content {
   flex: 1;
-  padding: 20px;
-  padding-top: 80px;
-  max-width: 1200px;
+  padding: 40px 2.5rem;
+  padding-top: 104px;
+  max-width: 1280px;
   margin: 0 auto;
   width: 100%;
 }

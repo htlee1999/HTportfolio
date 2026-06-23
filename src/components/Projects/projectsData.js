@@ -1,10 +1,15 @@
 import uraLogo from '../../assets/images/ura_logo.png';
-import elipsisLogo from './ellipsis_logo.png';
-import kangiitenLogo from './kangiiten_logo.png';
-import oop from './oop_logo.png';
-import portfolio from './portfolio_logo.png';
-import cristiano from './cristiano_logo.png';
-import wildfireLogo from './wildfire_logo.png';
+import elipsisLogo from '../../assets/images/ellipsis_logo.png';
+import kangiitenLogo from '../../assets/images/kangiiten_logo.png';
+import oop from '../../assets/images/oop_logo.png';
+import cristiano from '../../assets/images/cristiano_logo.png';
+import wildfireLogo from '../../assets/images/wildfire_logo.png';
+// real application screenshots
+import foodmapShot from '../../assets/images/Foodmap.png';
+import portfolioAnalysisShot from '../../assets/images/portfolio_analysis.png';
+import historyShot from '../../assets/images/history.png';
+import macsShot from '../../assets/images/macs.jpg';
+import personalPortfolioShot from '../../assets/images/personalportfolio.png';
 
 export const schoolProjects = [
   {
@@ -57,8 +62,9 @@ export const personalProjects = [
     link: "https://food-map-chi.vercel.app/",
     github: "https://github.com/htlee1999/food_map",
     type: "both",
+    featured: true,
     tags: ["Vue 3", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Google Maps API", "Vercel"],
-    image: portfolio
+    image: foodmapShot
   },
   {
     title: "Portfolio Analysis Dashboard",
@@ -66,8 +72,9 @@ export const personalProjects = [
     link: "https://htlee1999-portfolio-dashboard-portfolio-vrviy0.streamlit.app/Portfolio_Builder",
     github: "https://github.com/htlee1999/Portfolio_Dashboard",
     type: "both",
+    featured: true,
     tags: ["Python", "Streamlit", "yfinance", "Plotly", "Financial Analysis", "Data Visualization"],
-    image: portfolio
+    image: portfolioAnalysisShot
   },
   {
     title: "History Project - Interactive Timeline",
@@ -76,7 +83,7 @@ export const personalProjects = [
     github: "https://github.com/htlee1999/history_project",
     type: "both",
     tags: ["React", "Interactive Timeline", "Data Visualization", "GitHub Pages"],
-    image: portfolio
+    image: historyShot
   },
   {
     title: "MACS Assistant - AI-Powered FAQ Drafter",
@@ -84,8 +91,9 @@ export const personalProjects = [
     link: "https://macs-assistant.vercel.app/",
     github: "https://github.com/htlee1999/macs-assistant",
     type: "both",
+    featured: true,
     tags: ["Next.js", "AI SDK", "Tailwind CSS", "Vercel", "Gemini", "shadcn/ui"],
-    image: portfolio
+    image: macsShot
   },
   {
     title: "Personal Portfolio Website",
@@ -93,7 +101,7 @@ export const personalProjects = [
     github: "https://github.com/htlee1999/HTportfolio",
     type: "github",
     tags: ["React.js", "Portfolio", "Frontend"],
-    image: portfolio
+    image: personalPortfolioShot
   },
   {
     title: "Cristiano Ronaldo Stats Visualisation",

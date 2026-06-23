@@ -49,8 +49,8 @@ export default function App() {
               <Route path="/interests" element={<InterestsActivities />} />
             </Routes>
           </div>
-          <Footer />
         </main>
+        <Footer />
       </div>
     </Router>
   );

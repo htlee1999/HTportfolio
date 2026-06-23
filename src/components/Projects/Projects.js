@@ -1,207 +1,172 @@
-import React, { useState, useEffect } from 'react';
-import { FaGithub, FaFileAlt, FaGlobe, FaTh, FaList } from 'react-icons/fa';
-import AccordionWrapper from './ProjectWrapper';
-import AccordionItem from './ProjectItem';
-import PDFViewer from './PDFViewer';
-import ProjectLinks from './ProjectLinks';
-import { schoolProjects, personalProjects } from './projectsData';
+import React, { useState } from 'react';
+import { FaGithub, FaExternalLinkAlt, FaFilePdf, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import './Projects.css';
+import { schoolProjects, personalProjects } from './projectsData';
+
+const allProjects = [...schoolProjects, ...personalProjects];
+const featuredProjects = allProjects.filter((p) => p.featured);
+
+// Derive the primary call-to-action label + URL for a project.
+const primaryAction = (p) => {
+  if (p.type === 'github') return { url: p.github, label: 'GitHub Repo' };
+  if (p.type === 'pdf') return { url: p.link, label: 'View Case Study' };
+  return { url: p.link, label: 'View Live' }; // 'both' / live
+};
+
+const CardLinks = ({ p }) => {
+  const action = primaryAction(p);
+  return (
+    <div className="pjt-card-foot">
+      <a className="pjt-link" href={action.url} target="_blank" rel="noopener noreferrer">
+        {action.label} <FaArrowRight />
+      </a>
+      <div className="pjt-card-icons">
+        {p.github && (
+          <a href={p.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub repository">
+            <FaGithub />
+          </a>
+        )}
+        {p.type !== 'github' && p.link && (
+          <a href={p.link} target="_blank" rel="noopener noreferrer" aria-label={p.type === 'pdf' ? 'PDF document' : 'Live site'}>
+            {p.type === 'pdf' ? <FaFilePdf /> : <FaExternalLinkAlt />}
+          </a>
+        )}
+      </div>
+    </div>
+  );
+};
+
+const ProjectCard = ({ p, kind }) => (
+  <div className={`pjt-card pjt-card--${kind}`}>
+    <div className="pjt-card-img">
+      <span className={`pjt-card-badge pjt-card-badge--${kind}`}>
+        {kind === 'school' ? 'School' : 'Personal'}
+      </span>
+      <img src={p.image} alt={`${p.title} preview`} />
+    </div>
+    <div className="pjt-card-body">
+      <h3 className="pjt-card-title">{p.title}</h3>
+      <p className="pjt-card-desc">{p.description}</p>
+      <div className="pjt-tags">
+        {p.tags.slice(0, 5).map((t) => (
+          <span className="pjt-tag" key={t}>{t}</span>
+        ))}
+      </div>
+    </div>
+    <CardLinks p={p} />
+  </div>
+);
+
+const ProjectGroup = ({ title, meta, kind, projects }) => (
+  <section className={`pjt-group pjt-group--${kind}`}>
+    <header className="pjt-group-head">
+      <span className="pjt-group-dot" />
+      <h2 className="pjt-group-title">{title}</h2>
+      <span className="pjt-group-count">
+        {projects.length} {projects.length === 1 ? 'build' : 'builds'} · {meta}
+      </span>
+      <span className="pjt-group-rule" />
+    </header>
+    <div className="pjt-grid">
+      {projects.map((p) => (
+        <ProjectCard p={p} kind={kind} key={p.title} />
+      ))}
+    </div>
+  </section>
+);
 
 const Projects = () => {
-  const [activeCategory, setActiveCategory] = useState('school');
-  const [viewMode, setViewMode] = useState('grid');
-  const [animatedItems, setAnimatedItems] = useState([]);
-  const [pdfModalOpen, setPdfModalOpen] = useState(false);
-  const [currentPdf, setCurrentPdf] = useState('');
-
-  const openPdfModal = (pdfUrl) => {
-    setCurrentPdf(pdfUrl);
-    setPdfModalOpen(true);
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setAnimatedItems(prev => [...prev, entry.target.dataset.index]);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.project-card').forEach(item => {
-      observer.observe(item);
-    });
-
-    return () => {
-      observer.disconnect();
-    };
-  }, [activeCategory, viewMode]);
-
-  const renderTags = (tags) => {
-    return tags.map((tag, index) => (
-      <span key={index} className="project-tag">
-        {tag}
-      </span>
-    ));
-  };
-
-  const getLinkButton = (link, type, github) => {
-    if (type === 'both') {
-      return (
-        <div className="dual-links">
-          <a href={github} target="_blank" rel="noopener noreferrer" className="project-link github-link">
-            <span className="link-icon"><FaGithub size={20} /></span>
-            View on GitHub
-          </a>
-          {link.endsWith('.pdf') ? (
-            <button className="project-link pdf-link" onClick={() => openPdfModal(link)}>
-              <span className="link-icon"><FaFileAlt size={20} /></span>
-              View Report
-            </button>
-          ) : (
-            <a href={link} target="_blank" rel="noopener noreferrer" className="project-link website-link">
-              <span className="link-icon"><FaGlobe size={20} /></span>
-              Visit Website
-            </a>
-          )}
-        </div>
-      );
-    } else {
-      switch (type) {
-        case 'github':
-          return (
-            <a href={github} target="_blank" rel="noopener noreferrer" className="project-link github-link">
-              <span className="link-icon"><FaGithub size={20} /></span>
-              View on GitHub
-            </a>
-          );
-        case 'pdf':
-          return (
-            <button className="project-link pdf-link" onClick={() => openPdfModal(link)}>
-              <span className="link-icon"><FaFileAlt size={20} /></span>
-              View Presentation
-            </button>
-          );
-        case 'link':
-          return (
-            <a href={link} target="_blank" rel="noopener noreferrer" className="project-link website-link">
-              <span className="link-icon"><FaGlobe size={20} /></span>
-              Visit Website
-            </a>
-          );
-        default:
-          return null;
-      }
-    }
-  };
-
-  const renderProjectCard = (project, index) => {
-    const isAnimated = animatedItems.includes(index.toString());
-
-    return (
-      <div
-        className={`project-card ${viewMode === 'grid' ? 'grid-mode' : 'list-mode'} ${isAnimated ? 'animated' : ''}`}
-        key={index}
-        data-index={index}
-      >
-        <div className="project-image-container">
-          <div className="project-image" style={{ backgroundImage: `url(${project.image || '/images/placeholder.jpg'})` }}>
-            <div className="project-tags">
-              {renderTags(project.tags)}
-            </div>
-          </div>
-        </div>
-        <div className="project-details">
-          <h3 className="project-title">{project.title}</h3>
-          <p className="project-description">{project.description}</p>
-          <div className="project-links">
-            {getLinkButton(project.link, project.type, project.github)}
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const toggleViewMode = () => {
-    setViewMode(prevMode => prevMode === 'grid' ? 'list' : 'grid');
-    setAnimatedItems([]);
-  };
-
-  const currentProjects = activeCategory === 'school' ? schoolProjects : personalProjects;
+  const [idx, setIdx] = useState(0);
+  const hasFeatured = featuredProjects.length > 0;
+  const fp = hasFeatured ? featuredProjects[idx] : null;
+  const next = () => setIdx((i) => (i + 1) % featuredProjects.length);
+  const prev = () => setIdx((i) => (i - 1 + featuredProjects.length) % featuredProjects.length);
+  const action = fp ? primaryAction(fp) : null;
 
   return (
-    <div className="projects-container">
-      <div className="projects-header">
-        <h1>Projects</h1>
-        <div className="projects-actions">
-          <div className="category-tabs">
-            <button
-              className={`tab-button ${activeCategory === 'school' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('school')}
-            >
-              School Projects
-            </button>
-            <button
-              className={`tab-button ${activeCategory === 'personal' ? 'active' : ''}`}
-              onClick={() => setActiveCategory('personal')}
-            >
-              Personal Projects
-            </button>
-          </div>
-          <div className="view-toggle" role="group" aria-label="View mode toggle">
-            <button
-              className={`view-button ${viewMode === 'grid' ? 'active' : ''}`}
-              onClick={() => viewMode !== 'grid' && toggleViewMode()}
-              title="Grid View"
-              aria-label="Switch to grid view"
-              aria-pressed={viewMode === 'grid'}
-            >
-              <FaTh size={20} />
-            </button>
-            <button
-              className={`view-button ${viewMode === 'list' ? 'active' : ''}`}
-              onClick={() => viewMode !== 'list' && toggleViewMode()}
-              title="List View"
-              aria-label="Switch to list view"
-              aria-pressed={viewMode === 'list'}
-            >
-              <FaList size={20} />
-            </button>
-          </div>
-        </div>
-      </div>
+    <div className="pjt">
+      {/* HERO */}
+      <section className="pjt-hero">
+        <h1 className="pjt-hero-title">Curated Projects</h1>
+        <p className="pjt-hero-intro">
+          Exploring the intersection of data-driven business strategy and robust information
+          systems. A collection of analytical solutions and technical builds.
+        </p>
+      </section>
 
-      <div className={`projects-grid ${viewMode === 'grid' ? 'grid-mode' : 'list-mode'}`}>
-        {currentProjects.map((project, index) => renderProjectCard(project, index))}
-      </div>
-
-      {/* Mobile accordion view */}
-      <div className="projects-accordion-mobile">
-        <AccordionWrapper>
-          {currentProjects.map((item, index) => (
-            <AccordionItem key={index} index={index} title={item.title}>
-              <div className="project-content">
-                <p>{item.description}</p>
-                <div className="project-tags-accordion">
-                  {item.tags.map((tag, tagIndex) => (
-                    <span key={tagIndex} className="project-tag">{tag}</span>
-                  ))}
+      {/* FEATURED */}
+      {hasFeatured && (
+        <section className="pjt-featured">
+          <div className="pjt-featured-text">
+            <div className="pjt-eyebrow">
+              <span className="pjt-eyebrow-line" /> Featured Project
+            </div>
+            <h2 className="pjt-featured-title">{fp.title}</h2>
+            <p className="pjt-featured-desc">{fp.description}</p>
+            <div className="pjt-tags">
+              {fp.tags.slice(0, 5).map((t) => (
+                <span className="pjt-tag" key={t}>{t}</span>
+              ))}
+            </div>
+            <div className="pjt-featured-foot">
+              <a className="pjt-link" href={action.url} target="_blank" rel="noopener noreferrer">
+                {action.label} <FaArrowRight />
+              </a>
+              {featuredProjects.length > 1 && (
+                <div className="pjt-carousel-ctrls">
+                  <button type="button" onClick={prev} aria-label="Previous featured project">
+                    <FaArrowLeft />
+                  </button>
+                  <button type="button" onClick={next} aria-label="Next featured project">
+                    <FaArrowRight />
+                  </button>
                 </div>
-                <ProjectLinks item={item} onPdfClick={(url) => {
-                  setCurrentPdf(url);
-                  setPdfModalOpen(true);
-                }} />
-              </div>
-            </AccordionItem>
-          ))}
-        </AccordionWrapper>
-      </div>
+              )}
+            </div>
+          </div>
+          <div className="pjt-featured-img">
+            <img src={fp.image} alt={`${fp.title} preview`} />
+          </div>
+        </section>
+      )}
 
-      <PDFViewer
-        pdfUrl={currentPdf}
-        isOpen={pdfModalOpen}
-        onClose={() => setPdfModalOpen(false)}
+      {/* SCHOOL & PERSONAL GROUPS */}
+      <ProjectGroup
+        title="School Projects"
+        meta="coursework, FYP & hackathons"
+        kind="school"
+        projects={schoolProjects}
       />
+      <ProjectGroup
+        title="Personal Projects"
+        meta="self-initiated & for fun"
+        kind="personal"
+        projects={personalProjects}
+      />
+
+      {/* CTA */}
+      <section className="pjt-cta">
+        <div className="pjt-cta-text">
+          <h2>Interested in working together?</h2>
+          <p>
+            I'm always looking for new opportunities in AI, data, and systems engineering.
+            Let's discuss your next project.
+          </p>
+        </div>
+        <div className="pjt-cta-btns">
+          <a className="pjt-btn pjt-btn-solid" href="mailto:Leehongteng1999@gmail.com">
+            Get In Touch
+          </a>
+          <a
+            className="pjt-btn pjt-btn-ghost"
+            href="https://www.linkedin.com/in/hongtenglee/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LinkedIn Profile
+          </a>
+        </div>
+      </section>
     </div>
   );
 };

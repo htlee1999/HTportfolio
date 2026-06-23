@@ -1,103 +1,115 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import {
+  FaUser,
+  FaTerminal,
+  FaRocket,
+  FaBrain,
+  FaChartLine,
+  FaLightbulb,
+  FaUsers,
+  FaEnvelope,
+} from 'react-icons/fa';
 import './Profile.css';
-import profilePhoto from './profile.jpg';
-import resumePDF from './Resume 2025.pdf';
+import profilePhoto from '../../assets/images/profile.jpg';
 
-const Profile = () => {
-  const [showResumeModal, setShowResumeModal] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  
-  useEffect(() => {
-    // Fade-in animation on load
-    setIsVisible(true);
-  }, []);
+const skills = [
+  'Python', 'Java', 'React', 'SQL', 'HTML', 'CSS', 'JavaScript',
+  'Data Analysis', 'Business Analytics', 'Next.js', 'Docker', 'TypeScript', 'Vue.js',
+];
+const featuredSkills = new Set(['SQL', 'Data Analysis', 'Business Analytics']);
 
-  const openResumeModal = () => setShowResumeModal(true);
-  const closeResumeModal = () => setShowResumeModal(false);
-
-  return (
-    <div className={`profile-container ${isVisible ? 'fade-in' : ''}`}>
-      <div className="profile-header">
-        <div className="profile-photo-container">
-          <img 
-            src={profilePhoto}
-            alt="Hong Teng Lee"
-            className="profile-photo"
-          />
-        </div>
-        <div className="header-content">
-          <h1>Profile</h1>
-          <div className="profile-subtitle">Information Systems Student | Business Analytics</div>
-          <button className="resume-button" onClick={openResumeModal}>
-            View Resume
-          </button>
+const Profile = () => (
+  <div className="home">
+    {/* TOP: photo + about + skills/looking */}
+    <div className="home-top">
+      {/* Photo */}
+      <div className="home-photo">
+        <img src={profilePhoto} alt="Hong Teng Lee" />
+        <div className="home-photo-overlay">
+          <h2 className="home-photo-name">Hong Teng Lee</h2>
+          <p className="home-photo-sub">Information Systems | Analytics</p>
         </div>
       </div>
-      
-      <div className="profile-content">
-        <div className="profile-summary">
-          <h2>About Me</h2>
-          <p>
-            I'm a final-year Information Systems student majoring in Business Analytics with a strong interest in the intersection of technology and business. With a foundation in programming and data analysis, I thrive in roles that require both analytical thinking and practical implementation.
+
+      <div className="home-right">
+        {/* About Me */}
+        <section className="home-card home-about">
+          <h3 className="home-card-title"><FaUser /> About Me</h3>
+          <p className="home-about-text">
+            I'm a Information Systems Graduate majoring in Business Analytics with a
+            strong interest in the intersection of technology and business. My journey is fueled
+            by a passion for solving complex problems through data-driven insights and innovative
+            software solutions.
           </p>
-        </div>
-
-        <div className="profile-objectives">
-          <div className="objective-item">
-            <h3>What I'm Looking For</h3>
-            <p>
-              I'm actively seeking entry-level opportunities where I can apply my technical and analytical skills, while learning from real-world business challenges. I'm especially interested in roles that allow me to contribute to digital transformation, product development, or data-driven decision making.
-            </p>
+          <div className="home-about-grid">
+            <div className="home-fact">
+              <span className="home-fact-label">Education</span>
+              <span className="home-fact-value">Information Systems, Business Analytics</span>
+            </div>
+            <div className="home-fact">
+              <span className="home-fact-label">Current Focus</span>
+              <span className="home-fact-value">Machine Learning &amp; Data Strategy</span>
+            </div>
           </div>
+        </section>
 
-          <div className="objective-item">
-            <h3>Key Skills</h3>
-            <div className="skills-grid">
-              {["Python", "Java", "React", "SQL", "HTML", "CSS", "Javascript", "Data Analysis", "Business Analytics", "Next.js", "Docker", "Typescript", "Vue.js"].map((skill) => (
-                <span key={skill} className="skill-tag">{skill}</span>
+        {/* Skills + Looking For */}
+        <div className="home-mid">
+          <section className="home-card home-skills">
+            <h3 className="home-card-title"><FaTerminal /> Key Skills</h3>
+            <div className="home-skill-tags">
+              {skills.map((s) => (
+                <span
+                  key={s}
+                  className={`home-skill${featuredSkills.has(s) ? ' is-featured' : ''}`}
+                >
+                  {s}
+                </span>
               ))}
             </div>
-          </div>
+          </section>
 
-          <div className="objective-item">
-            <h3>Interests</h3>
-            <p>
-              Curious, adaptable, and a strong communicator, I enjoy exploring how technology can drive smarter decision-making across industries. My goal is to contribute to innovative, real-world solutions that make meaningful impact—whether through optimizing processes, uncovering insights from data, or bridging gaps between stakeholders.
+          <section className="home-card home-looking">
+            <h3 className="home-card-title home-card-title--light">Looking For</h3>
+            <p className="home-looking-text">
+              Actively seeking entry-level roles in digital transformation, product, or
+              data-driven decision making.
             </p>
-          </div>
+            <div className="home-looking-foot">
+              <FaRocket /> Ready to contribute
+            </div>
+          </section>
         </div>
       </div>
-
-      {/* Resume Modal */}
-      {showResumeModal && (
-        <div className="resume-modal-overlay" onClick={closeResumeModal}>
-          <div className="resume-modal" onClick={(e) => e.stopPropagation()}>
-            <div className="resume-modal-header">
-              <h2>My Resume</h2>
-              <button className="close-button" onClick={closeResumeModal}>×</button>
-            </div>
-            <div className="resume-modal-body">
-              <iframe 
-                src={resumePDF} 
-                title="Resume" 
-                width="100%" 
-                height="100%" 
-                frameBorder="0"
-              />
-            </div>
-            <div className="resume-modal-footer">
-              <a href={resumePDF} download className="download-button">
-                Download Resume
-              </a>
-              <button className="close-modal-button" onClick={closeResumeModal}>
-                Close
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
-  );
-};
+
+    {/* BOTTOM: interests + work with me */}
+    <div className="home-bottom">
+      <section className="home-card home-interests">
+        <div className="home-interests-text">
+          <h3 className="home-card-title"><FaBrain /> Interests</h3>
+          <p>
+            Curious, adaptable, and a strong communicator, I enjoy exploring how technology can
+            drive smarter decision-making. My goal is to contribute to innovative, real-world
+            solutions.
+          </p>
+        </div>
+        <div className="home-interests-icons">
+          <span className="home-icon-bubble"><FaChartLine /></span>
+          <span className="home-icon-bubble"><FaLightbulb /></span>
+          <span className="home-icon-bubble"><FaUsers /></span>
+        </div>
+      </section>
+
+      <section className="home-card home-work">
+        <h3 className="home-work-title">Work with me</h3>
+        <p className="home-work-status">Open to opportunities</p>
+        <a className="home-work-btn" href="mailto:Leehongteng1999@gmail.com">
+          <FaEnvelope /> Get in Touch
+        </a>
+      </section>
+    </div>
+  </div>
+);
 
 export default Profile;

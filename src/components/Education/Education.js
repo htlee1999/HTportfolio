@@ -1,237 +1,291 @@
-import React, { useState } from 'react';
-import { FaBook, FaBuilding, FaAward, FaChevronDown } from 'react-icons/fa';
+import React from 'react';
 import './Education.css';
 
-const Icons = {
-  School: FaBook,
-  Building: FaBuilding,
-  Award: FaAward,
-  ChevronDown: FaChevronDown
-};
+const degrees = [
+  {
+    featured: true,
+    emoji: '🏛️',
+    year: '2021 — 2025',
+    // honour: 'CGPA 2.81',
+    titleLines: ['Bachelor of Science in', 'Information Systems'],
+    subtitle: 'Major in Business Analytics',
+    description:
+      'Four years at Singapore Management University focused on the intersection of information systems, data analytics, and enterprise technology. Completed coursework spanning machine learning, analytics, web development, and business strategy — alongside an international exchange at Zhejiang University, China.',
+    stats: [
+      { icon: '📊', strong: '31 Course Units', span: 'Earned, Jun 2025' },
+      { icon: '🌏', strong: 'Global Exposure', span: 'Zhejiang University Exchange' },
+      { icon: '🎓', strong: 'Degree Awarded', span: '03 Jun 2025' },
+    ],
+  },
+  {
+    featured: false,
+    emoji: '🏫',
+    year: '2016 — 2019',
+    honour: 'GPA 3.59 / 4.0',
+    titleLines: ['Diploma in Business', 'Information Technology'],
+    subtitle: 'Ngee Ann Polytechnic',
+    description:
+      'Three-year diploma building strong roots in business systems, web development, data management, and enterprise applications. Graduated with a strong GPA of 3.59, completing a 6-month industry internship (AD — Distinction) and the Professional Preparation Programme.',
+    stats: [
+      { icon: '⭐', strong: 'GPA 3.59 / 4.0', span: 'Graduating grade' },
+      { icon: '🏆', strong: '6-Month Internship', span: 'Distinction (AD)' },
+      { icon: '📅', strong: 'Graduated May 2019', span: 'Full-time programme' },
+    ],
+  },
+];
 
-const Education = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  
-  const educationData = [
-    {
-      institution: "Singapore Management University",
-      degree: "Bachelor of Science (Information Systems)",
-      duration: "Aug 2021 – Jul 2025",
-      icon: <Icons.School />,
-      details: {
-        major: "Business Analytics",
-        gpa: "2.68",
-        highlights: [
-          "Advanced coursework in AI and Machine Learning",
-          "Specialization in Business Analytics",
-          "Completed projects in GenAI solutions for URA",
-          "Strong foundation in Web Development and Programming"
-        ],
-        keyCourses: [
-          "Introduction to Artificial Intelligence",
-          "Data Mining and Business Analytics",
-          "Machine Learning & Applications",
-          "Enterprise Solution Development",
-          "Software Project Management",
-          "Web Application Development",
-          "Visual Analytics",
-        ]
-      }
-    },
-    {
-      institution: "Zhejiang University",
-      degree: "International Exchange Program",
-      duration: "Feb 2024 – Jul 2024",
-      icon: <Icons.Building />,
-      details: {
-        department: "School of Public Affairs",
-        courses: [
-          "International Law and Relations",
-          "China Public Finance",
-          "Social Science and Cultural Hegemony",
-          "Consumer Neuroscience",
-          "Technology Entrepreneurship",
-          "Academic Writing in Psychology"
-        ]
-      }
-    },
-    {
-      institution: "Ngee Ann Polytechnic",
-      degree: "Diploma in Business Information Technology",
-      duration: "Jan 2016 - Dec 2019",
-      icon: <Icons.Award />,
-      details: {
-        gpa: "3.59",
-        achievements: [
-          "Tai Sin Prize for Most Outstanding Performance during '6-Month Internship'",
-          "Participated in National Economics & Financial Management Challenge",
-          "Part of Harvard Business School Mentorship Program"
-        ],
-        academicHighlights: [
-          "Graduated with Distinction (Top 5% of cohort)",
-          "Achieved AD (Distinction) grade for 6-Month Internship",
-          "Completed Professional Preparation Programme"
-        ],
-        keyCourses: [
-          {
-            semester: "Year 1",
-            courses: [
-              "Business Communication",
-              "Information Design in Business",
-              "Network & Server Systems",
-              "Business Applications",
-              "Business Management",
-              "Innovation Toolkit"
-            ]
-          },
-          {
-            semester: "Year 2",
-            courses: [
-              "Web Database Applications",
-              "Web Development",
-              "Business Analytics",
-              "Business Systems Analysis & Design",
-              "Web & Mobile Applications"
-            ]
-          },
-          {
-            semester: "Year 3",
-            courses: [
-              "Integrated E-Business Systems",
-              "Integrated Enterprise Applications",
-              "Management Information Systems",
-              "Managing eBusiness"
-            ]
-          }
-        ]
-      }
-    }
-  ];
+const smuCourses = [
+  {
+    variant: 'highlight wide',
+    icon: '🤖',
+    title: 'Machine Learning & Applications (IS460)',
+    desc: 'Covers the foundations, types, and frameworks of machine learning — from supervised and unsupervised learning to model evaluation — applied to real-world business problems. Explores the conceptual relationship between machine learning, statistics, and artificial intelligence through hands-on implementation.',
+    tags: ['Python', 'Scikit-Learn', 'Supervised Learning', 'Unsupervised Learning', 'Model Evaluation'],
+  },
+  {
+    variant: '',
+    icon: '📈',
+    title: 'Data Mining & Business Analytics (IS424)',
+    desc: 'Core data mining concepts and techniques — data preprocessing, pattern discovery, classification, clustering, and association rule mining — applied to enterprise data to support business intelligence and managerial decision-making with industry-strength tools.',
+    tags: ['R', 'Data Preprocessing', 'Classification', 'Clustering', 'Association Mining', 'Business Intelligence'],
+  },
+  {
+    variant: 'accent',
+    icon: '📊',
+    title: 'Visual Analytics for Business Intelligence (IS428)',
+    desc: 'Uses interactive data visualisation tools and techniques to explore massive, dynamic, and often ambiguous datasets without relying on complex statistical formulas — synthesising insights from multiple sources into interactive dashboards and visual analytics systems.',
+    tags: ['Tableau', 'R Shiny', 'Interactive Dashboards', 'Geospatial Analytics', 'Data Storytelling'],
+  },
+  {
+    variant: '',
+    icon: '💻',
+    title: 'Web Application Development I & II (IS113 / IS216)',
+    desc: 'A two-course sequence building database-driven web applications from the ground up — static and dynamic pages, session management, server-side scripting, input validation, and UI styling — extending into full-stack development with RESTful API integration and external web services.',
+    tags: ['PHP', 'JavaScript', 'HTML/CSS', 'Bootstrap', 'MySQL', 'RESTful APIs', 'Full-Stack Development'],
+  },
+  {
+    variant: '',
+    icon: '🏗️',
+    title: 'Enterprise Solution Development & Management (IS213 / IS214)',
+    desc: 'A pair of modules spanning the build and the governance of enterprise systems. Development covers systems analysis, object-oriented design, and building enterprise web applications from real business requirements; Management covers IT project management, governance frameworks like COBIT, and the full solution lifecycle from procurement through deployment.',
+    tags: ['Systems Analysis', 'Object-Oriented Design', 'IT Project Management', 'IT Governance', 'COBIT', 'Solution Lifecycle'],
+  },
+  {
+    variant: '',
+    icon: '🎨',
+    title: 'Interaction Design & Prototyping (IS211)',
+    desc: 'Fundamental human-computer interaction (HCI) principles and techniques for designing usable interactive systems — user requirements gathering, basic UI and graphics programming, and usability evaluation — culminating in a full design-and-prototyping project.',
+    tags: ['HCI Principles', 'User Requirements Gathering', 'UI Prototyping', 'Usability Evaluation', 'Figma'],
+  },
+  {
+    variant: '',
+    icon: '🤝',
+    title: 'IS/SMT/C&L Project Experience (IS483)',
+    desc: "SMU's signature SMU-X capstone, partnering student teams with real industry organisations to solve business problems using information systems — covering the full lifecycle from scoping and requirements through build and stakeholder presentation.",
+    tags: ['Project Management', 'Agile', 'Stakeholder Management', 'Systems Development', 'Industry Collaboration'],
+  },
+  {
+    variant: '',
+    icon: '🌐',
+    title: 'Digital Business: Technologies & Transformation',
+    desc: 'Examines how digital technologies reshape industries, business models, and organisational strategy — platform economics, digital disruption, the business value of emerging technologies, and frameworks for leading digital transformation, analysed through real-world cases.',
+    tags: ['Digital Strategy', 'Platform Business Models', 'Digital Transformation', 'Business Analysis', 'Innovation Frameworks'],
+  },
+];
 
-  const renderCourses = (edu) => {
-    // Check if it's a simple array of courses or a structured object with years
-    if (!edu.details.keyCourses[0]?.semester) {
-      return (
-        <ul className="education-list">
-          {edu.details.keyCourses.map((course, i) => (
-            <li key={i} className="education-list-item">{course}</li>
-          ))}
-        </ul>
-      );
-    } 
+const npModules = [
+  {
+    group: 'Business & Analytics',
+    items: [
+      { name: 'Business Analytics', skill: 'Tableau' },
+      { name: 'Decision Support Applications', skill: 'Decision Support Systems' },
+      { name: 'Business Systems Analysis & Design', skill: 'Systems Design' },
+      { name: 'Management Information Systems', skill: 'MIS Frameworks' },
+      { name: 'Business Management', skill: 'Strategic Planning' },
+      { name: 'Managing eBusiness', skill: 'Digital Business Strategy' },
+      { name: 'Business Statistics', skill: 'Statistical Analysis' },
+    ],
+  },
+  {
+    group: 'Technology & Systems',
+    items: [
+      { name: 'Integrated Enterprise Applications', skill: 'SAP / ERP' },
+      { name: 'Integrated E-Business Systems', skill: 'E-Business' },
+      { name: 'Web Database Applications', skill: 'SQL / MySQL' },
+      { name: 'Web & Mobile Applications', skill: 'Mobile Development' },
+      { name: 'Network & Server Systems', skill: 'Networking' },
+      { name: 'Web Development', skill: 'HTML / CSS / JS' },
+      { name: 'IT Law & Governance', skill: 'PDPA / COBIT' },
+    ],
+  },
+  {
+    group: 'Internship & Professional',
+    items: [
+      { name: '6-Month Internship', skill: 'Industry Practice' },
+      { name: 'Business Communication 1', skill: 'Business Writing' },
+      { name: 'Business Communication 2', skill: 'Presentations' },
+      { name: 'Business Communication 3', skill: 'Professional Comms' },
+      { name: 'Innovation Toolkit', skill: 'Design Thinking' },
+    ],
+  },
+  {
+    group: 'Finance & Accounting',
+    items: [
+      { name: 'Principles of Accounting', skill: 'Financial Statements' },
+      { name: 'Cost & Managerial Accounting', skill: 'Cost Analysis' },
+      { name: 'Microeconomics', skill: 'Price Theory' },
+      { name: 'Macroeconomics', skill: 'Economic Policy' },
+      { name: 'Principles of Marketing', skill: 'Marketing Mix' },
+      { name: 'Business Law', skill: 'Contract Law' },
+    ],
+  },
+];
 
-      // If it has semester structure, render by year
-      return (
-        <div className="education-years">
-          {edu.details.keyCourses.map((yearData, i) => (
-            <div key={i} className="education-year-section">
-              <h4 className="education-year-title">{yearData.semester}</h4>
-              <ul className="education-list">
-                {yearData.courses.map((course, j) => (
-                  <li key={j} className="education-list-item">{course}</li>
-                ))}
-              </ul>
+const milestones = [
+  {
+    date: 'Aug 2018',
+    title: 'Internship with Distinction — Ngee Ann Polytechnic',
+    desc: 'Awarded AD (Distinction) grade for the 6-month industry internship at Ngee Ann — the highest possible grade, reserved for the top 5% of the cohort.',
+  },
+  {
+    date: 'May 2019',
+    title: 'Diploma Conferred — Ngee Ann Polytechnic',
+    desc: 'Graduated with Diploma in Business Information Technology with a graduating GPA of 3.59 / 4.0, completing the Professional Preparation Programme for industry readiness.',
+  },
+  {
+    date: '2023 – 2024',
+    title: 'International Exchange — Zhejiang University, China',
+    desc: "Participated in SMU's International Student Exchange Programme at Zhejiang University for a full term, transferring 4.0 course units. Fulfilled SMU's Global Exposure graduation requirement.",
+  },
+  {
+    date: '2024 – 2025',
+    title: 'Short-Term Study — Universitas Gadjah Mada, Indonesia',
+    desc: "Completed a short-term study programme at one of Indonesia's leading universities, broadening regional business and technology perspectives.",
+  },
+  {
+    date: '2024 – 2025',
+    title: 'Capstone SMU-X Project Experience',
+    desc: 'Delivered a real-world systems solution in an industry context, from requirements through deployment, as part of the SMU-X applied project stream.',
+  },
+  {
+    date: 'Jun 2025',
+    title: "Bachelor's Degree Conferred — SMU",
+    desc: 'Awarded Bachelor of Science in Information Systems (Business Analytics) from Singapore Management University. 31 course units completed.',
+  },
+];
+
+const Education = () => (
+  <div className="edu">
+    {/* HERO */}
+    <section className="edu-hero">
+      <p className="edu-eyebrow">Academic Journey</p>
+      <h1 className="edu-hero-title">Foundations in Systems &amp; Analytics</h1>
+      <p className="edu-hero-intro">
+        From diploma-level systems thinking at Ngee Ann to a degree centred on data and
+        enterprise at SMU — building a grounded understanding of how information architecture
+        drives business decisions.
+      </p>
+    </section>
+
+    {/* DEGREE CARDS */}
+    <div className="edu-degrees">
+      {degrees.map((d) => (
+        <article key={d.subtitle} className={`edu-degree${d.featured ? ' is-featured' : ''}`}>
+          <div className="edu-degree-emoji">{d.emoji}</div>
+          <div className="edu-degree-body">
+            <div className="edu-degree-meta">
+              <span className="edu-year-badge">{d.year}</span>
+              <span className="edu-honour-badge">{d.honour}</span>
             </div>
-          ))}
-        </div>
-      );
-    };
-
-  return (
-    <div className="education-container">
-      <div className="education-header">
-        <h1 className="education-header-title">Education Journey</h1>
-        <div className="education-header-line"></div>
-      </div>
-
-      <div className="education-card-list">
-        {educationData.map((edu, index) => (
-          <div 
-            key={index}
-            className={`education-card ${activeIndex === index ? 'active' : ''}`}
-          >
-            <div
-              className="education-card-header"
-              onClick={() => setActiveIndex(activeIndex === index ? -1 : index)}
-            >
-              <div className="education-card-header-content">
-                <div className="education-icon-container">
-                  {edu.icon}
+            <h2 className="edu-degree-title">
+              {d.titleLines.map((line, i) => (
+                <React.Fragment key={line}>
+                  {i > 0 && <br />}
+                  {line}
+                </React.Fragment>
+              ))}
+            </h2>
+            <p className="edu-degree-sub">{d.subtitle}</p>
+            <p className="edu-degree-desc">{d.description}</p>
+            <div className="edu-degree-stats">
+              {d.stats.map((s) => (
+                <div className="edu-stat" key={s.strong}>
+                  <span className="edu-stat-icon">{s.icon}</span>
+                  <div>
+                    <strong>{s.strong}</strong>
+                    <span>{s.span}</span>
+                  </div>
                 </div>
-                <div className="education-card-info">
-                  <h2 className="education-institution-name">{edu.institution}</h2>
-                  <p className="education-degree">{edu.degree}</p>
-                  <p className="education-duration">{edu.duration}</p>
-                </div>
-                <div className={`education-chevron ${activeIndex === index ? 'active' : ''}`}>
-                  <Icons.ChevronDown />
-                </div>
-              </div>
+              ))}
             </div>
+          </div>
+        </article>
+      ))}
+    </div>
 
-            {activeIndex === index && (
-              <div className="education-card-content">
-                {edu.details.major && (
-                  <div className="education-section">
-                    <h3 className="education-section-title">Major</h3>
-                    <p>{edu.details.major}</p>
-                  </div>
-                )}
-
-                {/* {edu.details.gpa && (
-                  <div className="education-section">
-                    <h3 className="education-section-title">Cumulative GPA</h3>
-                    <p>{edu.details.gpa}/4.00</p>
-                  </div>
-                )} */}
-
-                {edu.details.achievements && (
-                  <div className="education-section">
-                    <h3 className="education-section-title">Achievements</h3>
-                    <ul className="education-list">
-                      {edu.details.achievements.map((achievement, i) => (
-                        <li key={i} className="education-list-item">{achievement}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {edu.details.highlights && (
-                  <div className="education-section">
-                    <h3 className="education-section-title">Academic Highlights</h3>
-                    <ul className="education-list">
-                      {edu.details.highlights.map((highlight, i) => (
-                        <li key={i} className="education-list-item">{highlight}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-                {edu.details.keyCourses && (
-                  <div className="education-section">
-                    <h3 className="education-section-title">Key Courses</h3>
-                    {renderCourses(edu)}
-                  </div>
-                )}
-
-                {edu.details.courses && (
-                  <div className="education-section">
-                    <h3 className="education-section-title">Exchange Courses</h3>
-                    <ul className="education-list">
-                      {edu.details.courses.map((course, i) => (
-                        <li key={i} className="education-list-item">{course}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
-
-              </div>
-            )}
+    {/* SMU COURSEWORK */}
+    <section className="edu-section">
+      <header className="edu-section-head">
+        <h2>Specialized Coursework</h2>
+        <p>Core modules from SMU that shaped my technical and analytical foundation.</p>
+      </header>
+      <div className="edu-courses">
+        {smuCourses.map((c) => (
+          <div className={`edu-course ${c.variant}`.trim()} key={c.title}>
+            <div className="edu-course-icon">{c.icon}</div>
+            <h3>{c.title}</h3>
+            <p>{c.desc}</p>
+            <div className="edu-tag-row">
+              {c.tags.map((t) => (
+                <span className="edu-tag" key={t}>{t}</span>
+              ))}
+            </div>
           </div>
         ))}
       </div>
-    </div>
-  );
-};
+    </section>
+
+    {/* NP MODULES */}
+    <section className="edu-section">
+      <header className="edu-section-head">
+        <h2>Diploma Modules</h2>
+        <p>Key modules from the Ngee Ann Polytechnic Diploma in Business Information Technology.</p>
+      </header>
+      <div className="edu-modules">
+        {npModules.map((g) => (
+          <div className="edu-module-group" key={g.group}>
+            <h4>{g.group}</h4>
+            {g.items.map((m) => (
+              <div className="edu-module-item" key={m.name}>
+                <span className="edu-module-name">{m.name}</span>
+                <span className="edu-module-skill">{m.skill}</span>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    {/* ACHIEVEMENTS TIMELINE */}
+    <section className="edu-section">
+      <div className="edu-milestones">
+        <header className="edu-section-head">
+          <h2>Academic Milestones</h2>
+          <p>Recognition and experiences that defined the journey.</p>
+        </header>
+        <div className="edu-timeline">
+          {milestones.map((m) => (
+            <div className="edu-timeline-item" key={m.title}>
+              <span className="edu-timeline-dot" />
+              <div className="edu-timeline-date">{m.date}</div>
+              <div className="edu-timeline-title">{m.title}</div>
+              <div className="edu-timeline-desc">{m.desc}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </div>
+);
 
 export default Education;
