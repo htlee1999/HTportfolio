@@ -2,9 +2,13 @@ import uraLogo from '../../assets/images/ura_logo.png';
 import elipsisLogo from './ellipsis_logo.png';
 import kangiitenLogo from './kangiiten_logo.png';
 import oop from './oop_logo.png';
-import portfolio from './portfolio_logo.png';
 import cristiano from './cristiano_logo.png';
 import wildfireLogo from './wildfire_logo.png';
+import foodmapImg from './Foodmap.png';
+import macsImg from './macs.jpg';
+import personalPortfolioImg from './personalportfolio.png';
+import historyImg from './history.png';
+import portfolioAnalysisImg from './portfolio_analysis.png';
 
 export const schoolProjects = [
   {
@@ -58,7 +62,7 @@ export const personalProjects = [
     github: "https://github.com/htlee1999/food_map",
     type: "both",
     tags: ["Vue 3", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Google Maps API", "Vercel"],
-    image: portfolio
+    image: foodmapImg
   },
   {
     title: "Portfolio Analysis Dashboard",
@@ -67,16 +71,16 @@ export const personalProjects = [
     github: "https://github.com/htlee1999/Portfolio_Dashboard",
     type: "both",
     tags: ["Python", "Streamlit", "yfinance", "Plotly", "Financial Analysis", "Data Visualization"],
-    image: portfolio
+    image: portfolioAnalysisImg
   },
   {
     title: "History Project - Interactive Timeline",
     description: "Created an interactive historical timeline application showcasing major events and developments. Features dynamic visualizations, responsive design, and smooth animations for exploring historical content in an engaging way.",
-    link: "https://htlee1999.github.io/history_project/",
+    link: "https://v0-history-project-ten.vercel.app/",
     github: "https://github.com/htlee1999/history_project",
     type: "both",
     tags: ["React", "Interactive Timeline", "Data Visualization", "GitHub Pages"],
-    image: portfolio
+    image: historyImg
   },
   {
     title: "MACS Assistant - AI-Powered FAQ Drafter",
@@ -85,7 +89,7 @@ export const personalProjects = [
     github: "https://github.com/htlee1999/macs-assistant",
     type: "both",
     tags: ["Next.js", "AI SDK", "Tailwind CSS", "Vercel", "Gemini", "shadcn/ui"],
-    image: portfolio
+    image: macsImg
   },
   {
     title: "Personal Portfolio Website",
@@ -93,7 +97,7 @@ export const personalProjects = [
     github: "https://github.com/htlee1999/HTportfolio",
     type: "github",
     tags: ["React.js", "Portfolio", "Frontend"],
-    image: portfolio
+    image: personalPortfolioImg
   },
   {
     title: "Cristiano Ronaldo Stats Visualisation",
