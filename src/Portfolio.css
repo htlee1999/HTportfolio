@@ -80,7 +80,7 @@ body { margin: 0; background: var(--cream); }
   justify-content: space-between;
   align-items: center;
 }
-.pf-nav-brand { font-family: var(--serif); font-size: 22px; }
+.pf-nav-brand { font-family: var(--serif); font-size: 22px; color: var(--dark); text-decoration: none; }
 .pf-nav-links {
   display: flex;
   gap: 28px;
@@ -95,6 +95,61 @@ body { margin: 0; background: var(--cream); }
 }
 .pf-nav-links a:hover { color: var(--terra); }
 .pf-nav-links a.is-contact { color: var(--terra); }
+
+/* hamburger — hidden on desktop, shown on mobile */
+.pf-nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  margin: -8px -10px -8px 0;
+  padding: 0 10px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  z-index: 60;
+}
+.pf-nav-toggle span {
+  display: block;
+  height: 2px;
+  width: 24px;
+  background: var(--dark);
+  border-radius: 2px;
+  transition: transform 0.25s ease, opacity 0.2s ease;
+}
+.pf-nav-toggle.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.pf-nav-toggle.is-open span:nth-child(2) { opacity: 0; }
+.pf-nav-toggle.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* full-screen mobile menu overlay */
+.pf-mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 55;
+  background: rgba(246, 241, 231, 0.97);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pf-mobile-menu.is-open { opacity: 1; pointer-events: auto; }
+.pf-mobile-menu ul { list-style: none; margin: 0; padding: 0; text-align: center; }
+.pf-mobile-menu li { margin: 4px 0; }
+.pf-mobile-menu a {
+  display: block;
+  font-family: var(--serif);
+  font-size: 40px;
+  color: var(--dark);
+  text-decoration: none;
+  padding: 12px 24px;
+  transition: color 0.2s;
+}
+.pf-mobile-menu a.is-contact { color: var(--terra); }
 
 /* ---------- Hero ---------- */
 .pf-hero { background: var(--terra); color: var(--paper); }
@@ -456,12 +511,42 @@ a.pf-int-title:hover { color: var(--terra); }
   .pf-footer h2 { font-size: 44px; }
 }
 
+/* switch to the hamburger before the desktop links get cramped */
+@media (max-width: 720px) {
+  .pf-nav-links { display: none; }
+  .pf-nav-toggle { display: flex; }
+
+  /* trim the generous desktop vertical rhythm on phones */
+  .pf-hero-inner { padding-top: 64px; padding-bottom: 48px; }
+  .pf-profile-inner,
+  .pf-exp-inner,
+  .pf-proj-inner,
+  .pf-edu-inner,
+  .pf-int-inner { padding-top: 56px; padding-bottom: 56px; }
+  .pf-footer-inner { padding-top: 60px; padding-bottom: 60px; }
+  .pf-stats { margin-top: 40px; }
+  .pf-hero-row { margin-top: 32px; }
+}
+
 @media (max-width: 640px) {
   :root { --pad: 22px; }
-  .pf-nav-links { display: none; }
   .pf-hero h1 { font-size: 46px; }
   .pf-lead { font-size: 26px; }
   .pf-head { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .pf-mobile-menu a { font-size: 34px; }
+}
+
+/* very small phones */
+@media (max-width: 420px) {
+  .pf-hero h1 { font-size: 38px; }
+  .pf-stats { grid-template-columns: 1fr 1fr; gap: 0 16px; }
+  .pf-stat-val { font-size: 40px; }
+  .pf-hero-cta { flex-direction: column; align-items: stretch; }
+  .pf-btn { text-align: center; }
+  .pf-card-title { font-size: 24px; }
+  .pf-edu-inst { font-size: 24px; }
+  .pf-footer h2 { font-size: 36px; }
+  .pf-mobile-menu a { font-size: 30px; }
 }
 
 /* ---------- Vertical page nav (desktop breadcrumb) ---------- */

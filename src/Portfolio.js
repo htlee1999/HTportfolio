@@ -66,23 +66,65 @@ const PageNav = () => {
   );
 };
 
-const Nav = () => (
-  <nav className="pf-nav">
-    <div className="pf-nav-inner">
-      <div className="pf-nav-brand">{profile.name}</div>
-      <div className="pf-nav-links">
-        <a href="#profile">Profile</a>
-        <a href="#experience">Work</a>
-        <a href="#projects">Projects</a>
-        <a href="#education">Education</a>
-        <a href="#contact" className="is-contact">Contact</a>
+const NAV_LINKS = [
+  { href: '#profile', label: 'Profile' },
+  { href: '#experience', label: 'Work' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#education', label: 'Education' },
+  { href: '#contact', label: 'Contact', contact: true },
+];
+
+const Nav = () => {
+  const [open, setOpen] = useState(false);
+  const close = useCallback(() => setOpen(false), []);
+
+  // Lock body scroll while the mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = open ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [open]);
+
+  return (
+    <nav className="pf-nav">
+      <div className="pf-nav-inner">
+        <a href="#top" className="pf-nav-brand" onClick={close}>{profile.name}</a>
+
+        <div className="pf-nav-links">
+          {NAV_LINKS.map((l) => (
+            <a key={l.href} href={l.href} className={l.contact ? 'is-contact' : undefined}>
+              {l.label}
+            </a>
+          ))}
+        </div>
+
+        <button
+          type="button"
+          className={`pf-nav-toggle${open ? ' is-open' : ''}`}
+          aria-label={open ? 'Close menu' : 'Open menu'}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span /><span /><span />
+        </button>
       </div>
-    </div>
-  </nav>
-);
+
+      <div className={`pf-mobile-menu${open ? ' is-open' : ''}`} onClick={close}>
+        <ul>
+          {NAV_LINKS.map((l) => (
+            <li key={l.href}>
+              <a href={l.href} className={l.contact ? 'is-contact' : undefined} onClick={close}>
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+  );
+};
 
 const Hero = () => (
-  <header className="pf-hero">
+  <header id="top" className="pf-hero">
     <div className="pf-hero-inner">
       <div className="pf-eyebrow pf-fade">{profile.eyebrow}</div>
       <h1 className="pf-rise">
