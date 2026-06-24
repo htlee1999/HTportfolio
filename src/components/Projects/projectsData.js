@@ -112,3 +112,24 @@ export const personalProjects = [
     image: cristiano
   }
 ];
+
+// Smaller, self-contained tools and experiments. Rendered as compact,
+// image-free cards rather than the full project cards above.
+export const miniProjects = [
+  {
+    title: "Life Metrics Lab",
+    description: "A small React/Vite tool for playing with time. \"10k Quest\" tracks your progress toward living 10,000 days and projects the date you'll reach it, while \"Age Gap\" compares two birth dates down to the day — even reframing the difference as how far Earth has travelled around the Sun in between.",
+    link: "https://htlee1999.github.io/random_age_project/",
+    github: "https://github.com/htlee1999/random_age_project",
+    type: "both",
+    tags: ["React", "Vite", "Tailwind CSS"]
+  },
+  {
+    title: "Word Flipper",
+    description: "A tiny single-file text toy that flips text three ways — reverse every character, reverse the word order, or reverse the letters within each word — with one-click copy to clipboard.",
+    link: "https://htlee1999.github.io/word-flipper/",
+    github: "https://github.com/htlee1999/word-flipper",
+    type: "both",
+    tags: ["HTML", "JavaScript", "Vanilla JS"]
+  }
+];

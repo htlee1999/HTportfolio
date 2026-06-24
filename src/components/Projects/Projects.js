@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaFilePdf, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import './Projects.css';
-import { schoolProjects, personalProjects } from './projectsData';
+import { schoolProjects, personalProjects, miniProjects } from './projectsData';
 
 const allProjects = [...schoolProjects, ...personalProjects];
 const featuredProjects = allProjects.filter((p) => p.featured);
@@ -49,6 +49,22 @@ const ProjectCard = ({ p, kind }) => (
       <p className="pjt-card-desc">{p.description}</p>
       <div className="pjt-tags">
         {p.tags.slice(0, 5).map((t) => (
+          <span className="pjt-tag" key={t}>{t}</span>
+        ))}
+      </div>
+    </div>
+    <CardLinks p={p} />
+  </div>
+);
+
+// Compact, image-free card for small tools / experiments.
+const MiniCard = ({ p }) => (
+  <div className="pjt-mini">
+    <div className="pjt-mini-body">
+      <h3 className="pjt-mini-title">{p.title}</h3>
+      <p className="pjt-mini-desc">{p.description}</p>
+      <div className="pjt-tags">
+        {p.tags.slice(0, 4).map((t) => (
           <span className="pjt-tag" key={t}>{t}</span>
         ))}
       </div>
@@ -143,6 +159,23 @@ const Projects = () => {
         kind="personal"
         projects={personalProjects}
       />
+
+      {/* MINI PROJECTS */}
+      <section className="pjt-group pjt-group--mini">
+        <header className="pjt-group-head">
+          <span className="pjt-group-dot" />
+          <h2 className="pjt-group-title">Mini Projects</h2>
+          <span className="pjt-group-count">
+            {miniProjects.length} {miniProjects.length === 1 ? 'build' : 'builds'} · quick experiments & fun tools
+          </span>
+          <span className="pjt-group-rule" />
+        </header>
+        <div className="pjt-mini-grid">
+          {miniProjects.map((p) => (
+            <MiniCard p={p} key={p.title} />
+          ))}
+        </div>
+      </section>
 
       {/* CTA */}
       <section className="pjt-cta">
