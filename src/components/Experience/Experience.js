@@ -8,6 +8,66 @@ import ncodeLogo from '../../assets/images/ncode.png';
 
 const experiences = [
   {
+    id: "hdb",
+    company: "Housing & Development Board (HDB)",
+    // logo: hdbLogo,  // add an HDB logo to assets/images and wire it here
+    role: "Systems Analyst",
+    period: "Dec 2025 — Present",
+    highlights: [
+      {
+        title: "Digital Transformation Framework",
+        description: "Helped shape the organisation's enterprise digital transformation strategy, leading the pillar on formulating and executing AI and digital innovation projects.",
+        details: [
+          "Designed a three-phase operating model — Idea Capture, Assessment & Prioritisation, and Development, Monitoring & Deployment — governing how AI and digital projects are submitted, evaluated, and tracked",
+          "Built a productivity impact model from the ground up, including a four-factor savings formula (base hours, scale, ramp factor, and adoption rate) and project tiering assumptions across simple, intermediate, and advanced categories",
+          "Developed compounded savings logic that accounts for prior-year projects continuing to generate value in subsequent years"
+        ],
+        icon: "🧭"
+      },
+      {
+        title: "Project BEACON — AI Sense-Making Pipeline",
+        description: "Independently conceptualised and built an AI-driven pipeline from proof-of-concept to help manage high volumes of resident feedback more effectively.",
+        details: [
+          "Semantic case clustering using embeddings to surface hidden patterns across cases",
+          "AI-assisted escalation that detects mismatches between resident sentiment and case priority tagging",
+          "An LLM-generated strategic analysis report that synthesises trends and recommends actions",
+          "Ran stakeholder demos, folded feedback into the roadmap, and initiated engagement with the data science team to take it toward production deployment"
+        ],
+        icon: "🚦"
+      },
+      {
+        title: "SMS Audit Platform — Technical Advisory",
+        description: "Advised on an AI-powered platform that automates quality assurance and compliance monitoring of outbound SMS communications.",
+        details: [
+          "Identified a performance bottleneck in the assessment pipeline",
+          "Proposed and implemented concurrent batch processing, enabling multiple assessment jobs to run simultaneously and significantly improving throughput on high-volume SMS datasets"
+        ],
+        icon: "⚡"
+      },
+      {
+        title: "PairChat Bots — Use Case Framing",
+        description: "Shaped the use cases for three internal assistant bots developed by a colleague: PhishDetect, WriteRefine, and iTechAssist.",
+        details: [
+          "PhishDetect — helps staff identify phishing emails",
+          "WriteRefine — improves the quality and professionalism of written correspondence",
+          "iTechAssist — provides IT FAQ assistance for common technical queries",
+          "Framed and packaged each solution so it was clearly positioned and purposefully scoped for its intended users"
+        ],
+        icon: "🤖"
+      },
+      {
+        title: "Organisational Research & Knowledge Synthesis",
+        description: "Produced three knowledge pieces to inform the organisation's digital transformation direction.",
+        details: [
+          "Digital Transformation Study — analysed how leading organisations (Microsoft, Netflix, DBS, IKEA, Walmart, Estonia, IRAS, URA, CAG) approached transformation, distilling findings into a P.R.I.M.E. framework and a Digital Maturity Assessment model",
+          "Case Studies Compilation — translated those findings into an accessible format for internal sharing",
+          "UOB Briefing — synthesised UOB's AI strategy and implementation approach into lessons and candidate use cases (advisory chatbots, policy update management, and service quality monitoring)"
+        ],
+        icon: "📚"
+      }
+    ]
+  },
+  {
     id: "ura-contract",
     company: "Urban Redevelopment Authority",
     logo: uraLogo,
@@ -247,7 +307,9 @@ const Experience = () => {
               <div className="exp-period">{exp.period}</div>
               <h2 className="exp-role">{exp.role}</h2>
               <div className="exp-company">
-                <img className="exp-company-logo" src={exp.logo} alt={`${exp.company} logo`} />
+                {exp.logo && (
+                  <img className="exp-company-logo" src={exp.logo} alt={`${exp.company} logo`} />
+                )}
                 <span>{exp.company}</span>
               </div>
               {exp.presentationLink && (
