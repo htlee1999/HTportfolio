@@ -10,6 +10,7 @@ import portfolioAnalysisShot from '../../assets/images/portfolio_analysis.png';
 import historyShot from '../../assets/images/history.png';
 import macsShot from '../../assets/images/macs.jpg';
 import personalPortfolioShot from '../../assets/images/personalportfolio.png';
+import worldcupShot from '../../assets/images/worldcup.png';
 
 export const schoolProjects = [
   {
@@ -56,6 +57,15 @@ export const schoolProjects = [
 ];
 
 export const personalProjects = [
+  {
+    title: "FIFA World Cup 2026 — Live Tracker",
+    description: "A live scoreboard for the 2026 World Cup: real-time scores, group standings, and the knockout bracket. A static frontend polls a Vercel serverless function that proxies FIFA's public API (sidestepping CORS), normalizes and edge-caches the feed, and falls back to a bundled sample if the upstream is down. Upcoming fixtures show win/draw/loss bars from an offline Python prediction pipeline (Elo + Poisson + XGBoost meta-learner), and a Monte-Carlo simulation of the full tournament drives live title odds — both joined onto the feed by FIFA match ID and refreshed daily via GitHub Actions.",
+    link: "https://world-cup-monitor-kappa.vercel.app/",
+    type: "both",
+    featured: true,
+    tags: ["JavaScript", "Vercel Serverless", "Python", "XGBoost", "Monte Carlo", "GitHub Actions"],
+    image: worldcupShot
+  },
   {
     title: "Singapore Food Map",
     description: "A Vue 3 application for tracking and rating food places in Singapore with interactive Google Maps integration. Features a tier-based rating system (S–F), category filtering by cuisine, an 'Up to you' spin wheel for random picks, admin-only restaurant management, and a public thumbs up/down voting system. Built with a Node.js/Express serverless backend on Vercel and a PostgreSQL (Neon) database with real-time data synchronization.",
