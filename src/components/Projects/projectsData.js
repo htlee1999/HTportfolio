@@ -108,8 +108,9 @@ export const personalProjects = [
   {
     title: "Personal Portfolio Website",
     description: "Developed a responsive, modern portfolio website using React.js to showcase my projects, skills, and experience. Implemented custom animations and interactive elements to enhance user experience.",
+    link: "https://leehongteng.vercel.app/",
     github: "https://github.com/htlee1999/HTportfolio",
-    type: "github",
+    type: "both",
     tags: ["React.js", "Portfolio", "Frontend"],
     image: personalPortfolioShot
   },
