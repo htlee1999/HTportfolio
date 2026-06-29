@@ -1,0 +1,466 @@
+/* ============================================================
+   Interests — editorial "Personal Journey" layout
+   ============================================================ */
+
+.intr {
+  max-width: 1040px;
+  margin: 0 auto;
+  color: var(--ink);
+}
+
+/* ---------- HERO ---------- */
+.intr-hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: center;
+  padding: 24px 0 72px;
+}
+
+.intr-eyebrow,
+.intr-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--terracotta);
+}
+
+.intr-hero-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(34px, 5vw, 52px);
+  line-height: 1.08;
+  letter-spacing: -0.5px;
+  margin: 18px 0 22px;
+  color: var(--green-deep);
+}
+
+.intr-hero-title em {
+  font-style: italic;
+  color: var(--green);
+}
+
+.intr-hero-intro {
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--muted);
+  max-width: 440px;
+  margin: 0 0 28px;
+}
+
+.intr-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.intr-scroll svg {
+  animation: intr-bob 1.8s ease-in-out infinite;
+}
+
+@keyframes intr-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* Hero media */
+.intr-hero-media {
+  position: relative;
+}
+
+.intr-hero-media img {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  border-radius: 16px;
+  object-fit: cover;
+  aspect-ratio: 4 / 5;
+  box-shadow: 0 24px 60px rgba(45, 59, 46, 0.16);
+}
+
+.intr-hero-accent {
+  position: absolute;
+  z-index: 1;
+  right: -18px;
+  bottom: -18px;
+  width: 55%;
+  height: 55%;
+  background: var(--terracotta-soft);
+  border-radius: 16px;
+}
+
+/* ---------- TIMELINE ---------- */
+.intr-timeline {
+  position: relative;
+  padding: 24px 0 48px;
+}
+
+.intr-timeline-line {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--hairline) 8%,
+    var(--hairline) 92%,
+    transparent
+  );
+}
+
+.intr-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 56px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 64px;
+}
+
+.intr-row:last-child {
+  margin-bottom: 0;
+}
+
+/* Cells */
+.intr-cell--text {
+  max-width: 380px;
+}
+
+.intr-align-right {
+  text-align: right;
+  justify-self: end;
+}
+
+.intr-align-left {
+  text-align: left;
+  justify-self: start;
+}
+
+.intr-theme-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: 24px;
+  color: var(--green-deep);
+  margin: 12px 0 6px;
+}
+
+.intr-duration {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--terracotta);
+  margin-bottom: 12px;
+}
+
+.intr-view {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green);
+  text-decoration: none;
+}
+
+.intr-view:hover {
+  color: var(--terracotta);
+}
+
+.intr-align-right .intr-view {
+  flex-direction: row-reverse;
+}
+
+.intr-theme-desc {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 0;
+}
+
+.intr-theme-desc em {
+  font-style: normal;
+  font-weight: 600;
+  color: var(--terracotta);
+}
+
+/* tags */
+.intr-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.intr-tags--right {
+  justify-content: flex-end;
+}
+
+.intr-tag {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--green);
+  background: var(--green-soft);
+  padding: 5px 12px;
+  border-radius: 999px;
+}
+
+/* Center nodes */
+.intr-node {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  font-size: 13px;
+  background: var(--cream-card);
+  box-shadow: 0 0 0 4px var(--cream);
+}
+
+.intr-node--terracotta {
+  color: var(--terracotta);
+  border: 1.5px solid var(--terracotta-soft);
+}
+
+.intr-node--green {
+  color: var(--green);
+  border: 1.5px solid var(--green-soft);
+}
+
+.intr-node--pink {
+  color: var(--terracotta);
+  border: 1.5px solid var(--pink);
+}
+
+/* Media blocks */
+.intr-cell--media {
+  width: 100%;
+}
+
+.intr-art {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 14px;
+  font-size: 44px;
+  color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 16px 40px rgba(45, 59, 46, 0.14);
+}
+
+.intr-art--green {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.35), transparent 60%),
+    linear-gradient(150deg, #5c7a4e, #2d3b2e);
+}
+
+.intr-art--terracotta {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.35), transparent 60%),
+    linear-gradient(150deg, #c9714d, #8f3d22);
+}
+
+.intr-art--pink {
+  background:
+    radial-gradient(circle at 50% 30%, rgba(255, 255, 255, 0.4), transparent 60%),
+    linear-gradient(150deg, #d98a6a, var(--terracotta));
+}
+
+/* Real photos */
+.intr-photo {
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(45, 59, 46, 0.16);
+}
+
+.intr-photo img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+/* ---------- QUOTE ---------- */
+.intr-quote {
+  position: relative;
+  text-align: center;
+  background: var(--pink);
+  border-radius: 20px;
+  padding: 56px 40px;
+  margin: 32px 0;
+}
+
+.intr-quote-mark {
+  font-size: 28px;
+  color: rgba(181, 81, 47, 0.35);
+  margin-bottom: 18px;
+}
+
+.intr-quote blockquote {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: clamp(20px, 2.6vw, 26px);
+  line-height: 1.5;
+  color: var(--green-deep);
+  max-width: 620px;
+  margin: 0 auto 20px;
+}
+
+.intr-quote cite {
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- CTA ---------- */
+.intr-cta {
+  text-align: center;
+  background: var(--beige);
+  border-radius: 20px;
+  padding: 56px 40px 60px;
+  margin: 32px 0 24px;
+}
+
+.intr-cta-title {
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(22px, 3vw, 30px);
+  color: var(--green-deep);
+  max-width: 520px;
+  margin: 0 auto 14px;
+}
+
+.intr-cta-text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--muted);
+  max-width: 460px;
+  margin: 0 auto 28px;
+}
+
+.intr-cta-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.intr-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 12px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.intr-btn:hover {
+  transform: translateY(-2px);
+}
+
+.intr-btn--solid {
+  background: var(--green);
+  color: #fff;
+}
+
+.intr-btn--ghost {
+  background: transparent;
+  color: var(--green-deep);
+  border: 1.5px solid var(--green);
+}
+
+.intr-btn--ghost:hover {
+  background: var(--green-soft);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 860px) {
+  .intr-hero {
+    grid-template-columns: 1fr;
+    gap: 36px;
+    padding-bottom: 48px;
+  }
+
+  .intr-hero-media {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .intr-timeline-line {
+    left: 18px;
+  }
+
+  .intr-row {
+    grid-template-columns: 36px 1fr;
+    gap: 16px;
+    align-items: start;
+    margin-bottom: 40px;
+  }
+
+  /* node first, content second — force single column reading order */
+  .intr-node {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+
+  .intr-cell--text,
+  .intr-cell--media {
+    grid-column: 2;
+    max-width: none;
+    width: 100%;
+  }
+
+  .intr-cell--text {
+    grid-row: 1;
+  }
+
+  /* media stacks under text within same row */
+  .intr-cell--media {
+    grid-row: 2;
+    margin-top: 16px;
+  }
+
+  /* rows where text is on the right in desktop: keep text first on mobile */
+  .intr-align-right,
+  .intr-align-left {
+    text-align: left;
+    justify-self: start;
+  }
+
+  .intr-tags--right {
+    justify-content: flex-start;
+  }
+
+  .intr-art,
+  .intr-photo {
+    max-width: 320px;
+  }
+
+  .intr-quote,
+  .intr-cta {
+    padding: 40px 24px;
+  }
+}
