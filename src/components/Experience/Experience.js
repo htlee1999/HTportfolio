@@ -36,11 +36,14 @@ const experiences = [
         icon: "🚦"
       },
       {
-        title: "SMS Audit Platform — Technical Advisory",
-        description: "Advised on an AI-powered platform that automates quality assurance and compliance monitoring of outbound SMS communications.",
+        title: "Staff SMS Audit Platform",
+        description: "Drove the evolution of an AI-powered SMS audit tool from prototype to platform — automating compliance checks, AI quality grading, and category discovery across the outbound staff SMS corpus, with org-level (Zone → Limb → Staff) analytics and PDF/Excel reporting.",
         details: [
-          "Identified a performance bottleneck in the assessment pipeline",
-          "Proposed and implemented concurrent batch processing, enabling multiple assessment jobs to run simultaneously and significantly improving throughput on high-volume SMS datasets"
+          "Re-platformed the UI from a ~750-line Streamlit prototype to a Flask JSON/SSE backend with a hand-built HTML/CSS/JS single-page frontend, enabling live streaming progress and full control over the audit UX",
+          "Substantially rewrote the compliance rule engine and AI grading modules — each message scored 1–5 on Clarity, Tone, and Grammar with sentiment and written justification, across multiple LLM providers (Platform AI/GovTech gateway, OpenAI, Gemini, Claude)",
+          "Built emergent category discovery two ways: a keyword/document-frequency taxonomy and a semantic BERTopic pipeline (embeddings → UMAP → HDBSCAN → c-TF-IDF) with AI-named clusters, plus a head-to-head method comparison over the full corpus",
+          "Engineered background-job and checkpoint plumbing so long grading/discovery runs survive the production ~30s request kill and resume after interruption",
+          "Scaled clustering to ~250k-row uploads by clustering distinct messages only, cutting HDBSCAN memory spikes, and unlocking multi-core UMAP on large corpora"
         ],
         icon: "⚡"
       },
@@ -260,11 +263,11 @@ const experiences = [
 const competencies = [
   {
     title: "AI & Machine Learning",
-    skills: ["LLM Integration (GPT · Gemini · Claude)", "RAG Pipelines", "Prompt Engineering", "Embeddings & Vector Search", "Research Agents"],
+    skills: ["LLM Integration (GPT · Gemini · Claude)", "RAG Pipelines", "Prompt Engineering", "Embeddings & Vector Search", "Topic Modelling (BERTopic · UMAP · HDBSCAN)", "Research Agents"],
   },
   {
     title: "Languages & Frameworks",
-    skills: ["Python", "TypeScript", "JavaScript", "React", "Next.js", "HTML / CSS"],
+    skills: ["Python", "Flask", "TypeScript", "JavaScript", "React", "Next.js", "HTML / CSS"],
   },
   {
     title: "Data & Infrastructure",

@@ -9,6 +9,8 @@ import {
   FaUtensils,
   FaConciergeBell,
   FaHandsHelping,
+  FaChalkboardTeacher,
+  FaSeedling,
   FaInstagram,
   FaExternalLinkAlt,
   FaQuoteRight,
@@ -89,6 +91,28 @@ const timelineItems = [
     accent: 'terracotta',
   },
   {
+    id: 'cahaya-mentorship',
+    date: 'August 2021',
+    title: 'Inspire Mentorship Programme Volunteer',
+    duration: '2 mentorship cycles',
+    description:
+      'Volunteered as a mentor with Cahaya Community’s Inspire Mentorship Programme across two cycles (2021 and 2022), journeying with youths through regular mentoring sessions and community activities.',
+    tags: ['Community Service', 'Mentoring'],
+    icon: <FaChalkboardTeacher />,
+    accent: 'pink',
+  },
+  {
+    id: 'project-bloom',
+    date: 'October 2021',
+    title: 'SMU Rotaract — Project Bloom 2021',
+    duration: '9 months',
+    description:
+      'Served the community virtually through Project Bloom with the Rotary Club of Garden City SMU Rotaract, contributing to the project’s outreach across its 2021/2022 run as an SMU Rotaract Club member.',
+    tags: ['Community Service', 'Volunteering'],
+    icon: <FaSeedling />,
+    accent: 'green',
+  },
+  {
     id: 'gourmet-club',
     date: 'December 2021',
     title: 'Gourmet Club General Secretary',
@@ -113,6 +137,17 @@ const timelineItems = [
     url: 'https://www.instagram.com/p/CfS45LAJl9o/?hl=en',
     icon: <FaHandsHelping />,
     accent: 'green',
+  },
+  {
+    id: 'smu-toastmasters',
+    date: 'August 2022',
+    title: 'SMU Toastmasters Club',
+    duration: '5 months',
+    description:
+      'Rejoined the Toastmasters community at university as a member of the SMU Toastmasters Club, continuing to sharpen my public speaking — and representing the club at SMU Vivace 2022 as its CCA representative.',
+    tags: ['Public Speaking', 'Communication'],
+    icon: <FaMicrophone />,
+    accent: 'terracotta',
   },
 ];
 
@@ -139,8 +174,9 @@ const InterestsActivities = () => (
         </h1>
         <p className="intr-hero-intro">
           A decade-long journey of leadership, communication, and community — from
-          secondary-school clubs and Toastmasters to running student societies and
-          blogging my way across Singapore&apos;s food scene.
+          secondary-school clubs and Toastmasters to youth mentoring, community
+          service, running student societies, and blogging my way across
+          Singapore&apos;s food scene.
         </p>
         <span className="intr-scroll">
           Explore my journey <FaArrowDown />

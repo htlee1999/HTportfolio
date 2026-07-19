@@ -136,6 +136,14 @@ export const miniProjects = [
     tags: ["React", "Vite", "Tailwind CSS"]
   },
   {
+    title: "Ember — HIIT Timer × Spotify",
+    description: "A single-file HIIT workout timer that syncs your music to your intervals. Configure work/rest durations and rounds, connect Spotify (PKCE auth + Web Playback SDK) to play tracks right in the browser with shuffle support, and get Web Audio interval beeps layered over the music. Keeps the screen awake mid-workout via the Wake Lock API and remembers your setup in localStorage.",
+    link: "https://hthiit-app.vercel.app/",
+    github: "https://github.com/htlee1999/HIIT-App",
+    type: "both",
+    tags: ["HTML", "Vanilla JS", "Spotify API", "Web Audio", "Vercel"]
+  },
+  {
     title: "Word Flipper",
     description: "A tiny single-file text toy that flips text three ways — reverse every character, reverse the word order, or reverse the letters within each word — with one-click copy to clipboard.",
     link: "https://htlee1999.github.io/word-flipper/",
