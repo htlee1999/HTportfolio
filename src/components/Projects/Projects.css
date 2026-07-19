@@ -79,7 +79,7 @@
   margin-bottom: 1rem;
 }
 .pjt-eyebrow-line { width: 28px; height: 2px; background: var(--pjt-amber); display: inline-block; }
-.pjt-featured-title { font-family: var(--serif); font-size: 2rem; font-weight: 600; line-height: 1.15; margin: 0 0 0.9rem; text-align: left; }
+.pjt-featured-title { font-family: var(--serif); font-size: clamp(1.5rem, 4.5vw, 2rem); font-weight: 600; line-height: 1.15; margin: 0 0 0.9rem; text-align: left; }
 .pjt-featured-desc { font-size: 0.92rem; line-height: 1.7; color: var(--pjt-muted); margin: 0 0 1.4rem; }
 .pjt-featured .pjt-tags { margin-bottom: 1.6rem; }
 .pjt-featured-foot {
@@ -236,7 +236,7 @@
   flex-wrap: wrap;
 }
 .pjt-cta-text { max-width: 520px; }
-.pjt-cta-text h2 { font-family: var(--serif); font-size: 1.9rem; font-weight: 600; margin: 0 0 0.6rem; text-align: left; }
+.pjt-cta-text h2 { font-family: var(--serif); font-size: clamp(1.45rem, 4.5vw, 1.9rem); font-weight: 600; margin: 0 0 0.6rem; text-align: left; }
 .pjt-cta-text p { font-size: 0.92rem; line-height: 1.7; color: var(--pjt-muted); margin: 0; }
 .pjt-cta-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
 .pjt-btn {
@@ -263,4 +263,5 @@
   .pjt-grid { grid-template-columns: 1fr; }
   .pjt-mini-grid { grid-template-columns: 1fr; }
   .pjt-cta { padding: 1.75rem; flex-direction: column; align-items: flex-start; }
+  .pjt-card-badge { font-size: 0.7rem; }
 }

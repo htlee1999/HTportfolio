@@ -198,7 +198,7 @@
   border-radius: 1.5rem;
   padding: 2.5rem;
 }
-.exp-comp-title { font-family: var(--serif); font-size: 1.8rem; font-weight: 600; margin: 0 0 2rem; color: var(--exp-yellow); text-align: left; }
+.exp-comp-title { font-family: var(--serif); font-size: clamp(1.4rem, 4.5vw, 1.8rem); font-weight: 600; margin: 0 0 2rem; color: var(--exp-yellow); text-align: left; }
 .exp-comp-groups {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
