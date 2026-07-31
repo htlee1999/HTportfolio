@@ -74,7 +74,7 @@ const experiences = [
     id: "ura-contract",
     company: "Urban Redevelopment Authority",
     logo: uraLogo,
-    role: "AI Developer (Contract)",
+    role: "Systems Analyst (Contract)",
     period: "Jul 2025 — Nov 2025",
     presentationLink: { url: "/URA-Temp-Projects.pdf", text: "View Project Showcase" },
     highlights: [
