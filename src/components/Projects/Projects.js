@@ -2,6 +2,33 @@ import React, { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaFilePdf, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
 import './Projects.css';
 import { schoolProjects, personalProjects, miniProjects } from './projectsData';
+import uraLogo from '../../assets/images/ura_logo.png';
+import elipsisLogo from '../../assets/images/ellipsis_logo.png';
+import kangiitenLogo from '../../assets/images/kangiiten_logo.png';
+import oop from '../../assets/images/oop_logo.png';
+import cristiano from '../../assets/images/cristiano_logo.png';
+import wildfireLogo from '../../assets/images/wildfire_logo.png';
+import foodmapShot from '../../assets/images/Foodmap.png';
+import portfolioAnalysisShot from '../../assets/images/portfolio_analysis.png';
+import historyShot from '../../assets/images/history.png';
+import macsShot from '../../assets/images/macs.jpg';
+import personalPortfolioShot from '../../assets/images/personalportfolio.png';
+import worldcupShot from '../../assets/images/worldcup.png';
+
+const images = {
+  uraLogo,
+  elipsisLogo,
+  kangiitenLogo,
+  oop,
+  cristiano,
+  wildfireLogo,
+  foodmapShot,
+  portfolioAnalysisShot,
+  historyShot,
+  macsShot,
+  personalPortfolioShot,
+  worldcupShot,
+};
 
 const allProjects = [...schoolProjects, ...personalProjects];
 const featuredProjects = allProjects.filter((p) => p.featured);
@@ -42,7 +69,7 @@ const ProjectCard = ({ p, kind }) => (
       <span className={`pjt-card-badge pjt-card-badge--${kind}`}>
         {kind === 'school' ? 'School' : 'Personal'}
       </span>
-      <img src={p.image} alt={`${p.title} preview`} />
+      <img src={images[p.image]} alt={`${p.title} preview`} />
     </div>
     <div className="pjt-card-body">
       <h3 className="pjt-card-title">{p.title}</h3>
@@ -141,7 +168,7 @@ const Projects = () => {
             </div>
           </div>
           <div className="pjt-featured-img">
-            <img src={fp.image} alt={`${fp.title} preview`} />
+            <img src={images[fp.image]} alt={`${fp.title} preview`} />
           </div>
         </section>
       )}

@@ -1,6 +1,6 @@
 # HTportfolio — Project Guide
 
-**Last updated:** 2026-06-22
+**Last updated:** 2026-11-03
 
 Personal portfolio website for Hong Teng Lee, built with React (Create React App). Single-page app with client-side routing that showcases profile, education, experience, projects, and interests.
 
@@ -16,6 +16,7 @@ Personal portfolio website for Hong Teng Lee, built with React (Create React App
 - **framer-motion 10** — scroll progress bar, animations, and the Interests timeline reveal-on-scroll
 - **react-icons 4** — the single icon source
 - **react-burger-menu** — mobile sidebar
+- **Groq API** (free tier) — "Ask about me" chatbot, called only from the serverless function in `api/`
 
 Node 22 is in use locally (works fine).
 
@@ -25,7 +26,7 @@ Node 22 is in use locally (works fine).
 
 ```bash
 npm install        # install deps (node_modules is gitignored)
-npm start          # dev server at http://localhost:3000
+npm start          # dev server at http://localhost:3000 (also serves /api/chat via src/setupProxy.js)
 npm run build      # production build into build/
 npm test           # CRA / Jest test runner (currently only the default App.test.js)
 ```
@@ -44,27 +45,47 @@ npm test           # CRA / Jest test runner (currently only the default App.test
 | `/projects` | `Projects/Projects.js` |
 | `/interests` | `Interests/InterestsActivities.js` |
 
+### Hosting
+
+Deployed on **Vercel** (leehongteng.vercel.app). `netlify.toml` is a leftover from an earlier Netlify setup and isn't used.
+
+### Chatbot (`/api/chat`)
+
+A floating widget (`components/Chat/ChatWidget.js`) talks to a Vercel serverless function (`api/chat.mjs`), which keeps the Groq key server-side. Logic lives in `api/_lib/`:
+
+- `knowledge.mjs` — builds the bot's knowledge **from the same data files the pages render** (`*Data.js`), splits it into chunks and picks the relevant ones per question (keyword/BM25 retrieval). Needed because Groq's free tier is 8K tokens/min per model and the whole site is ~8K tokens.
+- `chat.mjs` — guardrails + model calls: NFKC normalisation + input caps → Origin check → per-visitor/per-model limits → **Llama Prompt Guard 2** (injection filter; fails closed) → grounded system prompt → model fallback `openai/gpt-oss-120b` → `qwen/qwen3.8-27b` → `openai/gpt-oss-20b` → output checks (canary/prompt-leak detection, **only URLs/emails that appear in site content survive**, length cap).
+- **History is HMAC-signed by the server** (`{q, a, sig}`); unsigned or tampered turns are dropped, so clients can't forge earlier assistant replies. Key is derived from the Groq key, or set `CHAT_SIGNING_SECRET`.
+- `rateLimits.mjs` — tracks RPM/RPD/TPM/TPD per model plus Groq's `x-ratelimit-*` headers; stops using a model at 85% of any limit (`SAFETY`) and the widget pauses itself when none are left. State is in-memory per instance.
+
+Env: `GROQ_API_KEY` (or legacy `GROQ_URL`) in `.env.local` locally and in Vercel project settings for production. See `.env.example`.
+
+**Data files must stay free of image/JSX imports** — `api/` imports them in plain Node. Components map string keys (e.g. `logo: "ura"`, `image: "worldcupShot"`, `icon: 'FaCamera'`) to the actual imports.
+
 ### Directory layout
 
 ```
 src/
 ├── App.js, index.js, styles.css      # entry + global styles
+├── setupProxy.js                     # dev-only: mounts /api/chat on the CRA dev server
 ├── assets/images/                    # shared images (e.g. ura_logo.png)
 └── components/
     ├── Header.js, Footer.js, Sidebar.js
     ├── Navigation.css, HeaderFooter.css
-    ├── Profile/                      # Profile.js + Profile.css
-    ├── Education/                    # Education.js + Education.css
-    ├── Experience/                   # Experience.js + Experience.css
+    ├── Chat/                         # ChatWidget.js + ChatWidget.css
+    ├── Profile/                      # Profile.js, profileData.js (+ contact info), Profile.css
+    ├── Education/                    # Education.js, educationData.js, Education.css
+    ├── Experience/                   # Experience.js, experienceData.js, Experience.css
     ├── Projects/
     │   ├── Projects.js               # main, composes the pieces below
     │   ├── ProjectItem.js, ProjectLinks.js, ProjectWrapper.js
     │   ├── PDFViewer.js              # in-page PDF viewer
     │   ├── projectsData.js           # project content (data, not markup)
     │   └── Projects.css
-    └── Interests/
-        ├── InterestsActivities.js
-        └── TimelineView/             # TimelineView.js + styledComponents.js
+    └── Interests/                    # InterestsActivities.js, interestsData.js, .css
+api/
+├── chat.mjs                          # Vercel function: GET status, POST question
+└── _lib/                             # knowledge.mjs, chat.mjs, rateLimits.mjs
 ```
 
 ### Conventions
@@ -72,7 +93,7 @@ src/
 - **Component files/folders are PascalCase.** Keep it that way (case-sensitivity bit production once — see git history).
 - **Styling:** plain CSS files co-located with components + global `styles.css`. This is now the single styling approach across the whole app.
 - **Icons:** use `react-icons` only. Don't reintroduce Font Awesome CDN, inline SVG strings, or other icon libraries.
-- **Project content** lives in `Projects/projectsData.js`, not hardcoded in JSX. Other sections (Education, Experience, Interests) still hold their content inline in the component.
+- **Content** lives in each section's `*Data.js` file, not in JSX — edit those to change both the page and what the chatbot knows.
 
 ---
 
@@ -88,6 +109,7 @@ src/
 
 The 2025-12-26 cleanup plan is done. Completed: removed dead `Sidebar.css` and orphaned footer CSS; de-duplicated `ura_logo.png` into `assets/images/`; fixed all file-name casing and the `TImelineView` typo; removed `.DS_Store` files and untracked `node_modules`; eliminated the `dangerouslySetInnerHTML` pattern in Projects; dropped `lucide-react`, Bootstrap, and the Font Awesome CDN; split the 544-line `Projects.js` into focused files; extracted `projectsData.js`.
 
+Section content was extracted into `*Data.js` files on 2026-11-03 (for the chatbot).
+
 Optional remaining nice-to-haves (not blocking, low priority):
-- Extract Education/Experience/Interests content into data files like `projectsData.js`.
 - Vite migration (would also clear the audit noise and unblock React 19).

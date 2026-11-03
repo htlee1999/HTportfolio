@@ -9,6 +9,7 @@ import InterestsActivities from "./components/Interests/InterestsActivities";
 import Projects from "./components/Projects/Projects";
 import Sidebar from "./components/Sidebar";
 import Footer from "./components/Footer";
+import ChatWidget from "./components/Chat/ChatWidget";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 export default function App() {
@@ -51,6 +52,7 @@ export default function App() {
           </div>
         </main>
         <Footer />
+        <ChatWidget />
       </div>
     </Router>
   );

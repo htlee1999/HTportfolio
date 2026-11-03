@@ -1,16 +1,5 @@
-import uraLogo from '../../assets/images/ura_logo.png';
-import elipsisLogo from '../../assets/images/ellipsis_logo.png';
-import kangiitenLogo from '../../assets/images/kangiiten_logo.png';
-import oop from '../../assets/images/oop_logo.png';
-import cristiano from '../../assets/images/cristiano_logo.png';
-import wildfireLogo from '../../assets/images/wildfire_logo.png';
-// real application screenshots
-import foodmapShot from '../../assets/images/Foodmap.png';
-import portfolioAnalysisShot from '../../assets/images/portfolio_analysis.png';
-import historyShot from '../../assets/images/history.png';
-import macsShot from '../../assets/images/macs.jpg';
-import personalPortfolioShot from '../../assets/images/personalportfolio.png';
-import worldcupShot from '../../assets/images/worldcup.png';
+// Project content. Images are referenced by key (resolved in Projects.js) so this file
+// stays importable by the chatbot knowledge base (api/_lib/knowledge.mjs).
 
 export const schoolProjects = [
   {
@@ -20,7 +9,7 @@ export const schoolProjects = [
     github: "https://github.com/htlee-2021/geoviz-dashboard",
     type: "both",
     tags: ["D3.js", "React", "Node.js", "Docker", "Data Visualization"],
-    image: wildfireLogo
+    image: "wildfireLogo"
   },
   {
     title: "Final Year Project - URA GenAI Building Generator",
@@ -28,7 +17,7 @@ export const schoolProjects = [
     link: "https://smu-my.sharepoint.com/:b:/g/personal/htlee_2021_scis_smu_edu_sg/ETGvO_KsFylPsNAUth8zgTUBU0p9OZA9nbbeoq1YUlAHbw?e=hqaymn",
     type: "pdf",
     tags: ["GenAI", "URA", "Research", "Classification"],
-    image: uraLogo
+    image: "uraLogo"
   },
   {
     title: "Ellipsis Tech Series Hackathon - Job Shadowing Platform (Top 10)",
@@ -36,7 +25,7 @@ export const schoolProjects = [
     link: "https://smu-my.sharepoint.com/:b:/g/personal/htlee_2021_scis_smu_edu_sg/EUHR7_I1rJpBiom15u4a3Q0Bw3IBvsfrp_cT7p7F08J-KQ",
     type: "pdf",
     tags: ["Hackathon", "Vue.js", "Bootstrap", "Top 10"],
-    image: elipsisLogo
+    image: "elipsisLogo"
   },
   {
     title: "Kangiiten Spreadsheet Analysis",
@@ -44,7 +33,7 @@ export const schoolProjects = [
     link: "https://smu-my.sharepoint.com/:b:/g/personal/htlee_2021_scis_smu_edu_sg/ERCe0XMFYJNAnjSK8Vb6dVwBAqx3e9gCpkFiDX4EVhaobA",
     type: "pdf",
     tags: ["Data Analysis", "Excel", "Python"],
-    image: kangiitenLogo
+    image: "kangiitenLogo"
   },
   {
     title: "Object Oriented Programming",
@@ -52,7 +41,7 @@ export const schoolProjects = [
     github: "https://github.com/BryenYeoh/IS-442-Portfolio",
     type: "github",
     tags: ["Java", "OOP", "Design Patterns"],
-    image: oop
+    image: "oop"
   }
 ];
 
@@ -64,7 +53,7 @@ export const personalProjects = [
     type: "both",
     featured: true,
     tags: ["JavaScript", "Vercel Serverless", "Python", "XGBoost", "Monte Carlo", "GitHub Actions"],
-    image: worldcupShot
+    image: "worldcupShot"
   },
   {
     title: "Singapore Food Map",
@@ -74,7 +63,7 @@ export const personalProjects = [
     type: "both",
     featured: true,
     tags: ["Vue 3", "Vite", "Tailwind CSS", "Node.js", "Express", "PostgreSQL", "Google Maps API", "Vercel"],
-    image: foodmapShot
+    image: "foodmapShot"
   },
   {
     title: "Portfolio Analysis Dashboard",
@@ -84,7 +73,7 @@ export const personalProjects = [
     type: "both",
     featured: true,
     tags: ["Python", "Streamlit", "yfinance", "Plotly", "Financial Analysis", "Data Visualization"],
-    image: portfolioAnalysisShot
+    image: "portfolioAnalysisShot"
   },
   {
     title: "History Project - Interactive Timeline",
@@ -93,7 +82,7 @@ export const personalProjects = [
     github: "https://github.com/htlee1999/history_project",
     type: "both",
     tags: ["React", "Interactive Timeline", "Data Visualization", "GitHub Pages"],
-    image: historyShot
+    image: "historyShot"
   },
   {
     title: "MACS Assistant - AI-Powered FAQ Drafter",
@@ -103,7 +92,7 @@ export const personalProjects = [
     type: "both",
     featured: true,
     tags: ["Next.js", "AI SDK", "Tailwind CSS", "Vercel", "Gemini", "shadcn/ui"],
-    image: macsShot
+    image: "macsShot"
   },
   {
     title: "Personal Portfolio Website",
@@ -112,7 +101,7 @@ export const personalProjects = [
     github: "https://github.com/htlee1999/HTportfolio",
     type: "both",
     tags: ["React.js", "Portfolio", "Frontend"],
-    image: personalPortfolioShot
+    image: "personalPortfolioShot"
   },
   {
     title: "Cristiano Ronaldo Stats Visualisation",
@@ -120,7 +109,7 @@ export const personalProjects = [
     github: "https://github.com/htlee1999/CR7Stats",
     type: "github",
     tags: ["Data Visualization", "Jupyter Notebook", "Sports Analytics", "Python"],
-    image: cristiano
+    image: "cristiano"
   }
 ];
 

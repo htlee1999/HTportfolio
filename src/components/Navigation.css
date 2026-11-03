@@ -108,6 +108,13 @@
   top: 20px !important;
   z-index: 1100 !important;
 }
+/* the library sizes its button to the 30x24 bars; extend the hit area to ~48x44 */
+.bm-burger-button button {
+  left: -9px !important;
+  top: -10px !important;
+  width: 48px !important;
+  height: 44px !important;
+}
 .bm-burger-bars { background: var(--ink) !important; }
 .bm-cross { background: #cdbfae !important; }
 .bm-overlay {

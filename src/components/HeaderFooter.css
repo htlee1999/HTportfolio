@@ -69,6 +69,10 @@
     padding: 2.5rem 1.5rem;
   }
   .site-footer-cols { gap: 1.75rem; }
+  /* taller rows so each contact link is an easy tap target */
+  .site-footer-col { gap: 0; }
+  .site-footer-col a,
+  .site-footer-static { padding: 0.8rem 0; }
 }
 @media (max-width: 480px) {
   .site-footer-cols { grid-template-columns: 1fr; }
