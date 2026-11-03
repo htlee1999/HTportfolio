@@ -8,7 +8,8 @@ import { experiences, competencies } from '../../src/components/Experience/exper
 import { schoolProjects, personalProjects, miniProjects } from '../../src/components/Projects/projectsData.js';
 import { intro as interestsIntro, quote, timelineItems } from '../../src/components/Interests/interestsData.js';
 
-export const SITE_URL = 'https://leehongteng.vercel.app';
+// Netlify sets URL to the site's primary address in functions; SITE_URL overrides it.
+export const SITE_URL = (process.env.SITE_URL || process.env.URL || 'https://leehongteng.vercel.app').replace(/\/$/, '');
 
 export const estimateTokens = (text) => Math.ceil(text.length / 3.5);
 

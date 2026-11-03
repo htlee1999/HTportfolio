@@ -47,18 +47,18 @@ npm test           # CRA / Jest test runner (currently only the default App.test
 
 ### Hosting
 
-Deployed on **Vercel** (leehongteng.vercel.app). `netlify.toml` is a leftover from an earlier Netlify setup and isn't used.
+Deployed on **Netlify** (config in `netlify.toml`). `/api/chat` is served by `netlify/functions/chat.mjs`, a thin adapter over `api/_lib/`. `api/chat.mjs` is the equivalent Vercel handler, kept so the site can still run on Vercel.
 
 ### Chatbot (`/api/chat`)
 
-A floating widget (`components/Chat/ChatWidget.js`) talks to a Vercel serverless function (`api/chat.mjs`), which keeps the Groq key server-side. Logic lives in `api/_lib/`:
+A floating widget (`components/Chat/ChatWidget.js`) talks to a serverless function (`netlify/functions/chat.mjs` on Netlify, `api/chat.mjs` on Vercel), which keeps the Groq key server-side. Logic lives in `api/_lib/`:
 
 - `knowledge.mjs` — builds the bot's knowledge **from the same data files the pages render** (`*Data.js`), splits it into chunks and picks the relevant ones per question (keyword/BM25 retrieval). Needed because Groq's free tier is 8K tokens/min per model and the whole site is ~8K tokens.
 - `chat.mjs` — guardrails + model calls: NFKC normalisation + input caps → Origin check → per-visitor/per-model limits → **Llama Prompt Guard 2** (injection filter; fails closed) → grounded system prompt → model fallback `openai/gpt-oss-120b` → `qwen/qwen3.8-27b` → `openai/gpt-oss-20b` → output checks (canary/prompt-leak detection, **only URLs/emails that appear in site content survive**, length cap).
 - **History is HMAC-signed by the server** (`{q, a, sig}`); unsigned or tampered turns are dropped, so clients can't forge earlier assistant replies. Key is derived from the Groq key, or set `CHAT_SIGNING_SECRET`.
 - `rateLimits.mjs` — tracks RPM/RPD/TPM/TPD per model plus Groq's `x-ratelimit-*` headers; stops using a model at 85% of any limit (`SAFETY`) and the widget pauses itself when none are left. State is in-memory per instance.
 
-Env: `GROQ_API_KEY` (or legacy `GROQ_URL`) in `.env.local` locally and in Vercel project settings for production. See `.env.example`.
+Env: `GROQ_API_KEY` (or legacy `GROQ_URL`) in `.env.local` locally and in Netlify site environment variables (scope: Functions) for production. Optional `CHAT_SIGNING_SECRET`; `SITE_URL` overrides the site address the bot links to (defaults to Netlify's `URL`). See `.env.example`.
 
 **Data files must stay free of image/JSX imports** — `api/` imports them in plain Node. Components map string keys (e.g. `logo: "ura"`, `image: "worldcupShot"`, `icon: 'FaCamera'`) to the actual imports.
 
@@ -84,8 +84,9 @@ src/
     │   └── Projects.css
     └── Interests/                    # InterestsActivities.js, interestsData.js, .css
 api/
-├── chat.mjs                          # Vercel function: GET status, POST question
+├── chat.mjs                          # Vercel handler (unused on Netlify)
 └── _lib/                             # knowledge.mjs, chat.mjs, rateLimits.mjs
+netlify/functions/chat.mjs            # Netlify function: GET status, POST question
 ```
 
 ### Conventions
