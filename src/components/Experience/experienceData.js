@@ -10,37 +10,74 @@ export const experiences = [
     period: "Dec 2025 — Present",
     highlights: [
       {
-        title: "Digital Transformation Framework",
-        description: "Helped shape the organisation's enterprise digital transformation strategy, leading the pillar on formulating and executing AI and digital innovation projects.",
+        title: "Digital Transformation Framework & Governance",
+        description: "Helped shape the group's enterprise digital transformation strategy as supporting officer for the pillar on formulating and executing AI and digital innovation projects.",
         details: [
+          "Co-authored the five-pillar transformation framework (Governance, Culture, Capability, Project Delivery, Integration) presented to senior management",
           "Designed a three-phase operating model — Idea Capture, Assessment & Prioritisation, and Development, Monitoring & Deployment — governing how AI and digital projects are submitted, evaluated, and tracked",
-          "Built a productivity impact model from the ground up, including a four-factor savings formula (base hours, scale, ramp factor, and adoption rate) and project tiering assumptions across simple, intermediate, and advanced categories",
-          "Developed compounded savings logic that accounts for prior-year projects continuing to generate value in subsequent years"
+          "Proposed and presented a single intake channel at the inaugural Digital Transformation Steering Committee, routing every AI/digital idea into one tracked portfolio",
+          "Ran secretariat follow-through for the steering committee — agenda-setting, records of decisions, and matters-arising tracking across pillars",
+          "Built a productivity impact model from the ground up, including a four-factor savings formula (base hours, scale, ramp factor, and adoption rate), project tiering across simple, intermediate, and advanced categories, and compounded savings logic for projects that keep generating value in later years"
         ],
         icon: "🧭"
       },
       {
-        title: "Project BEACON — AI Sense-Making Pipeline",
-        description: "Independently conceptualised and built an AI-driven pipeline from proof-of-concept to help manage high volumes of resident feedback more effectively.",
+        title: "Digital Masterlist & Portfolio Dashboard",
+        description: "Established the group's Digital Masterlist as the single source of truth for ~140 AI and digital projects, then built a full-stack dashboard application on top of it.",
         details: [
-          "Semantic case clustering using embeddings to surface hidden patterns across cases",
-          "AI-assisted escalation that detects mismatches between resident sentiment and case priority tagging",
-          "An LLM-generated strategic analysis report that synthesises trends and recommends actions",
-          "Ran stakeholder demos, folded feedback into the roadmap, and initiated engagement with the data science team to take it toward production deployment"
+          "Designed a common schema across 11 department and zone lists — assessment, prioritisation matrix, risk profile, project complexity matrix, target vs actual dates, and hours saved",
+          "Built Power Query consolidation from SharePoint sources, analysis and pivot views, and a reconciliation tab that checks every reported figure against the live workbook",
+          "Engineered a Node.js/Express + PostgreSQL dashboard that ingests the Excel Masterlist with header detection and mapping, preserves every source row, and reconciles expected vs imported counts",
+          "Implemented transactional replace with rollback, persistent remarks history, bcrypt + JWT role-based access, and editable PowerPoint export (pptxgenjs), backed by an automated Node test suite",
+          "Built separate AI and non-AI portfolio views that surface data-quality gaps — overdue items, missing owners and target dates, incomplete risk profiles — instead of hiding them"
+        ],
+        icon: "📊"
+      },
+      {
+        title: "Project BEACON — AI Sense-Making Pipeline",
+        description: "Conceptualised and built an AI-driven case intelligence application from proof-of-concept, helping the branch service line manage high volumes of resident feedback more effectively.",
+        details: [
+          "Semantic case clustering using embeddings and HDBSCAN, with a local small language model (Ollama) generating a title and overview for each cluster",
+          "AI-assisted escalation that flags mismatches between resident sentiment (DistilBERT) and case priority tagging",
+          "An LLM-generated strategic analysis report that synthesises clusters, sentiment and geographic patterns into trends and recommended actions",
+          "Hardened the clustering engine for a 512 MB sandbox: replaced a BERTopic → UMAP stack with precomputed embeddings → TruncatedSVD → HDBSCAN → class-based TF-IDF, moved heavy work into a child process, and added hybrid assign-by-similarity with LLM escalation for ambiguous cases",
+          "Defined the questions the tool should answer with business users, cleared the AI risk assessment to proceed to development, and initiated engagement with the data science team toward production"
         ],
         icon: "🚦"
       },
       {
-        title: "Staff SMS Audit Platform",
-        description: "Drove the evolution of an AI-powered SMS audit tool from prototype to platform — automating compliance checks, AI quality grading, and category discovery across the outbound staff SMS corpus, with org-level (Zone → Limb → Staff) analytics and PDF/Excel reporting.",
+        title: "Staff SMS Audit Platform (RADAR)",
+        description: "Drove the evolution of an AI-powered SMS audit tool from prototype to platform with a teammate — automating compliance checks, AI quality grading, and category discovery across the outbound staff SMS corpus, with org-level (Zone → Limb → Staff) analytics and PDF/Excel reporting.",
         details: [
           "Re-platformed the UI from a ~750-line Streamlit prototype to a Flask JSON/SSE backend with a hand-built HTML/CSS/JS single-page frontend, enabling live streaming progress and full control over the audit UX",
-          "Substantially rewrote the compliance rule engine and AI grading modules — each message scored 1–5 on Clarity, Tone, and Grammar with sentiment and written justification, across multiple LLM providers (Platform AI/GovTech gateway, OpenAI, Gemini, Claude)",
-          "Built emergent category discovery two ways: a keyword/document-frequency taxonomy and a semantic BERTopic pipeline (embeddings → UMAP → HDBSCAN → c-TF-IDF) with AI-named clusters, plus a head-to-head method comparison over the full corpus",
+          "Substantially rewrote the deterministic compliance engine (links, formatting, salutation, informal language, personal data) and AI grading — each message scored 1–5 on Clarity, Tone, and Grammar with sentiment and written justification as structured JSON, across multiple LLM providers (Platform AI/GovTech gateway, OpenAI, Gemini, Claude)",
+          "Built emergent category discovery two ways: a keyword/document-frequency taxonomy and a semantic BERTopic pipeline (embeddings → UMAP → HDBSCAN → c-TF-IDF) with AI-named clusters and pgvector embedding caching, plus a head-to-head method comparison over the full corpus",
           "Engineered background-job and checkpoint plumbing so long grading/discovery runs survive the production ~30s request kill and resume after interruption",
-          "Scaled clustering to ~250k-row uploads by clustering distinct messages only, cutting HDBSCAN memory spikes, and unlocking multi-core UMAP on large corpora"
+          "Scaled clustering to ~250k-row uploads by clustering distinct messages only, cutting HDBSCAN memory spikes, and unlocking multi-core UMAP on large corpora",
+          "Validated requirements with the business owner and ran end-to-end test audits with per-staff summaries and flag breakdowns"
         ],
         icon: "⚡"
+      },
+      {
+        title: "Sandbox Probe — Deployment Environment Diagnostics",
+        description: "Built a Node.js/Express/WebSocket diagnostic suite to characterise GovTech's Rabbit Deploy sandbox and de-risk deploying AI prototypes to it.",
+        details: [
+          "Probes memory/cgroup limits, CPU throttling, filesystem persistence, DNS, outbound HTTP/TCP, reverse-proxy headers, request size limits, TLS, long-running WebSockets, process privileges, and restart/redeploy behaviour",
+          "Findings such as the 512 MB memory ceiling directly shaped the design of the BEACON clustering engine and the SMS audit platform"
+        ],
+        icon: "🛰️"
+      },
+      {
+        title: "AI Governance, Reporting & Adoption",
+        description: "Kept the AI and digital portfolio governed, reported, and visible to staff.",
+        details: [
+          "Owned the quarterly ICT portfolio updates to the IT group across all three 2026 cycles — drafting, clearance, and circulation, including project-by-project annexes",
+          "Reconciled the internal AI project list against the central AI register, distinguishing traditional AI from GenAI, identifying projects lacking a risk profile, and triggering the assessments needed",
+          "Helped set up the Digital Catalyst network and its inaugural brown-bag series, briefing all five pillars",
+          "Designed a quarterly digital newsletter (Tool Spotlight, AI in the Wild, On the Horizon) with click-based feedback tracking, under a \"Learn · Build · Share\" umbrella brand",
+          "Co-authored a 2027 AI Ideathon proposal and ran a cross-group stocktake of AI tools to surface synergies and duplication"
+        ],
+        icon: "🛡️"
       },
       {
         title: "PairChat Bots — Use Case Framing",
@@ -258,18 +295,18 @@ export const experiences = [
 export const competencies = [
   {
     title: "AI & Machine Learning",
-    skills: ["LLM Integration (GPT · Gemini · Claude)", "RAG Pipelines", "Prompt Engineering", "Embeddings & Vector Search", "Topic Modelling (BERTopic · UMAP · HDBSCAN)", "Research Agents"],
+    skills: ["LLM Integration (GPT · Gemini · Claude)", "RAG Pipelines", "Prompt Engineering", "Embeddings & Vector Search", "Clustering & Topic Modelling (HDBSCAN · BERTopic · c-TF-IDF)", "Research Agents"],
   },
   {
     title: "Languages & Frameworks",
-    skills: ["Python", "Flask", "TypeScript", "JavaScript", "React", "Next.js", "HTML / CSS"],
+    skills: ["Python", "Flask", "Node.js · Express", "TypeScript", "JavaScript", "React", "Next.js", "HTML / CSS"],
   },
   {
     title: "Data & Infrastructure",
-    skills: ["PostgreSQL · pgvector", "Puppeteer", "Exa API", "Tableau", "Epicor ERP", "Excel Analytics"],
+    skills: ["PostgreSQL · pgvector", "Puppeteer", "Exa API", "Tableau", "Epicor ERP", "Excel Analytics · Power Query"],
   },
   {
     title: "Professional Skills",
-    skills: ["Technical Research", "Content Development", "UX & Information Design", "Stakeholder Communication"],
+    skills: ["Technical Research", "Content Development", "UX & Information Design", "Stakeholder Communication", "AI Governance & Portfolio Management"],
   },
 ];
