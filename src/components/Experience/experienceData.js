@@ -6,7 +6,7 @@ export const experiences = [
     id: "hdb",
     company: "Housing & Development Board (HDB)",
     // logo: "hdb",  // add an HDB logo to assets/images and wire it in Experience.js
-    role: "Systems Analyst",
+    role: "Systems Analyst (Ops-Tech Transformation)",
     period: "Dec 2025 — Present",
     highlights: [
       {
