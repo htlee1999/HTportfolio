@@ -44,8 +44,8 @@ export default function App() {
           <div className="content-wrapper">
             <Routes>
               <Route path="/" element={<Profile />} />
-              <Route path="/education" element={<Education />} />
               <Route path="/experience" element={<Experience />} />
+              <Route path="/education" element={<Education />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/interests" element={<InterestsActivities />} />
             </Routes>

@@ -5,8 +5,8 @@ import resumePDF from './Profile/Resume 2025.pdf';
 
 const NAV_LINKS = [
   { to: '/', label: 'Home' },
-  { to: '/education', label: 'Education' },
   { to: '/experience', label: 'Experience' },
+  { to: '/education', label: 'Education' },
   { to: '/projects', label: 'Projects' },
   { to: '/interests', label: 'Interests' },
 ];

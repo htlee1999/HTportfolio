@@ -14,8 +14,8 @@ const Sidebar = () => {
 
   const menuItems = [
     { path: '/', label: 'Home' },
-    { path: '/education', label: 'Education' },
     { path: '/experience', label: 'Experience' },
+    { path: '/education', label: 'Education' },
     { path: '/projects', label: 'Projects' },
     { path: '/interests', label: 'Interests & Activities' }
   ];

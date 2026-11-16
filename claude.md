@@ -40,8 +40,8 @@ npm test           # CRA / Jest test runner (currently only the default App.test
 | Path | Component |
 |------|-----------|
 | `/` | `Profile/Profile.js` |
-| `/education` | `Education/Education.js` |
 | `/experience` | `Experience/Experience.js` |
+| `/education` | `Education/Education.js` |
 | `/projects` | `Projects/Projects.js` |
 | `/interests` | `Interests/InterestsActivities.js` |
 

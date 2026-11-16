@@ -25,7 +25,7 @@ Looking for: ${profile.lookingFor} (${profile.availability})
 Personality & interests: ${profile.interests}
 Key skills: ${skills.join(', ')}
 Contact: email ${contact.email} | phone ${contact.phone} | LinkedIn ${contact.linkedin} | GitHub ${contact.github} | Instagram (food blog) ${contact.instagram}
-Website pages: Home ${SITE_URL}/ | Education ${SITE_URL}/education | Experience ${SITE_URL}/experience | Projects ${SITE_URL}/projects | Interests ${SITE_URL}/interests`;
+Website pages: Home ${SITE_URL}/ | Experience ${SITE_URL}/experience | Education ${SITE_URL}/education | Projects ${SITE_URL}/projects | Interests ${SITE_URL}/interests`;
 
 const allProjects = [
   ...schoolProjects.map((p) => ({ ...p, kind: 'School project' })),
